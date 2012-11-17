@@ -19,6 +19,8 @@ class Property
 public:
     // constructor
     Property(string, int);
+    // destructor
+    ~Property();
 
     string getName();
     void setName(string);

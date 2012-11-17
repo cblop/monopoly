@@ -23,6 +23,9 @@ class Player
 public:
     // constructor
     Player(string);
+    // destructor
+    ~Player();
+
     string getName();
     void setName(string name);
     vector<Property> getProperties;
