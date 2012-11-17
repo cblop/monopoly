@@ -1,4 +1,4 @@
-#include "GameSetup.h"
+#include "gameSetup.h"
 
 using namespace std;
 
