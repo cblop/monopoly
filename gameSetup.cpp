@@ -2,28 +2,27 @@
 #include <string>
 #include <vector>
 
-using namespace std;
 
 int howManyPlayers()
 {
-    int numPlayers = 1;
-    cout << "Enter number of players (1 - 4): ";
-    cin >> numPlayers;
-    while (numPlayers < 1 || numPlayers > 4) {
-        cout << "Please enter a number between 1 and 4: ";
-        cin >> numPlayers;
+    int numPlayers = 2;
+    std::cout << "Enter number of players (2 - 4): ";
+    std::cin >> numPlayers;
+    while (numPlayers < 2 || numPlayers > 4) {
+        std::cout << "Please enter a number between 2 and 4: ";
+        std::cin >> numPlayers;
     }
     return numPlayers;
 }
 
-vector<string> getPlayerNames(int numPlayers)
+std::vector<std::string> getPlayerNames(int numPlayers)
 {
-    vector<string> playerNames;
-    string currentName = "";
+    std::vector<std::string> playerNames;
+    std::string currentName = "";
 
     for (int i=0;i<numPlayers;i++) {
-        cout << "What's your name, player " << i+1 << "? ";
-        cin >> currentName;
+        std::cout << "What's your name, player " << i+1 << "? ";
+        std::cin >> currentName;
         playerNames.push_back(currentName);
     }
 
@@ -31,17 +30,17 @@ vector<string> getPlayerNames(int numPlayers)
 }
 
 void startNewGame() {
-    cout << endl;
+    std::cout << std::endl;
 
     int numPlayers = howManyPlayers();
-    cout << endl;
-    vector<string> playerNames;
+    std::cout << std::endl;
+    std::vector<std::string> playerNames;
     playerNames = getPlayerNames(numPlayers); 
-    cout << endl;
+    std::cout << std::endl;
 
     for (int i=0;i<numPlayers;i++) {
-        cout << "Player " << i+1 << ": " << playerNames[i] << endl;
+        std::cout << "Player " << i+1 << ": " << playerNames[i] << std::endl;
     }
 
-    cout << endl;
+    std::cout << std::endl;
 }

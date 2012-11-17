@@ -5,12 +5,9 @@
 #include <string>
 #include <vector>
 
-using std::string;
-using std::vector;
-
 int howManyPlayers();
 
-vector<string> getPlayerNames();
+std::vector<std::string> getPlayerNames();
 
 void startNewGame();
 

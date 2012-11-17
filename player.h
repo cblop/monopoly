@@ -10,25 +10,22 @@
 #include "property.h"
 #include "tile.h"
 
-using std::string;
-using std::vector;
-
 class Player
 {
-    string name;
-    vector<Property> properties;
+    std::string name;
+    std::vector<Property> properties;
     Tile currentTile;    
     // maybe add an icon?
 
 public:
     // constructor
-    Player(string);
+    Player(std::string);
     // destructor
     ~Player();
 
-    string getName();
-    void setName(string name);
-    vector<Property> getProperties;
+    std::string getName();
+    void setName(std::string name);
+    std::vector<Property> getProperties;
     
 
 

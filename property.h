@@ -5,25 +5,23 @@
 #include <string>
 #include "player.h"
 
-using std::string;
-
 class Player;
 
 class Property
 {
-    string name;
+    std::string name;
     int price;
     int numHouses;
     Player owner;
 
 public:
     // constructor
-    Property(string, int);
+    Property(std::string, int);
     // destructor
     ~Property();
 
-    string getName();
-    void setName(string);
+    std::string getName();
+    void setName(std::string);
     int getPrice();
     void setPrice(int);
     int getNumHouses();
