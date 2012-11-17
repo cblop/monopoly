@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "gameSetup.h"
 
 
 int howManyPlayers()

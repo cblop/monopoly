@@ -13,6 +13,6 @@ public:
     // destructor
     ~Tile();
 
-}
+};
 
 #endif //TILE
