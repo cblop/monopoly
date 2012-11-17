@@ -3,15 +3,31 @@
 #define PROPERTY
 
 #include <string>
+#include "player.h"
+
 using std::string;
+
+class Player;
 
 class Property
 {
     string name;
     int price;
+    int numHouses;
+    Player owner;
+
 public:
-    // add stuff to this constructor
+    // constructor
     Property(string, int);
+
+    string getName();
+    void setName(string);
+    int getPrice();
+    void setPrice(int);
+    int getNumHouses();
+    void setNumHouses();
+    Player getOwner();
+    void setOwner(Player);
 
 }
 
