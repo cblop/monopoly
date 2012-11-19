@@ -2,18 +2,18 @@
 #ifndef PLAYER
 #define PLAYER
 
-class Tile;
+//class Tile;
 
 #include <string>
 #include <vector>
 //#include "property.h"
-#include "Tile.h"
+//#include "Tile.h"
 
 class Player
 {
     std::string name_;
     //std::vector<Property> properties_;
-    Tile currentTile;    
+    // Tile currentTile;    
     int m_balance;
     // maybe add an icon?
 

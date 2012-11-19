@@ -4,7 +4,7 @@
 //#include "property.h"
 
 Player::Player(std::string name): name_(name) {
-    currentTile = Tile("go");
+    //currentTile = Tile("go");
 }
 
 /*
