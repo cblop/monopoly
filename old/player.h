@@ -21,7 +21,7 @@ class Player
 public:
     // constructor
     //Player(std::string);
-    Player(std::string name): name_(name) {}
+    Player(std::string name);
     // destructor
     //~Player();
 

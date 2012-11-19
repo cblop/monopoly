@@ -2,13 +2,12 @@
 #include <iostream>
 #include "property.h"
 
-Property::Property(std::string name, int price, int *rentValues): name_(name), price_(price), numHouses_(0)
+Property::Property(std::string name, int price, int *rentValues): name_(name), price_(price), numHouses_(0), owner_(Player("none"))
 {
     for (int i=0; i<5; i++) {
         rentValues_[i] = rentValues[i];
     }
 
-    owner_ = Player::Player("none");
 
 }
 

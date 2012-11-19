@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include "gameSetup.h"
+#include "player.h"
 
 
 int howManyPlayers()
@@ -38,9 +39,11 @@ void startNewGame() {
     std::vector<std::string> playerNames;
     playerNames = getPlayerNames(numPlayers); 
     std::cout << std::endl;
+    Player players[numPlayers];
 
     for (int i=0;i<numPlayers;i++) {
-        std::cout << "Player " << i+1 << ": " << playerNames[i] << std::endl;
+        players[i] = new Player(playerNames[i]);
+        //std::cout << "Player " << i+1 << ": " << players[i].getName() << std::endl;
     }
 
     std::cout << std::endl;
