@@ -11,27 +11,21 @@
 
 class Player
 {
-    std::string name_;
-    //std::vector<Property> properties_;
-    // Tile currentTile;    
+    std::string m_name;
+    int currentPosition;
     int m_balance;
-    // maybe add an icon?
 
 public:
     // constructor
-    //Player(std::string);
-    Player(std::string name);
+    Player(const std::string &name): m_name(name) {}
+
     // destructor
     //~Player();
 
-    std::string getName() { return name_; }
+    std::string getName() { return m_name; }
     int getBalance() { return m_balance; }
     void addBalance(int amount) { m_balance += amount; }
-    //void removeBalance(int amount) { m_balance -= amount; }
-    //std::vector<Property> getProperties() { return properties_; }
-    //void addProperty(Property property) { properties_.push_back(property); }
-    //void removeProperty(Property property);
-    
+    void removeBalance(int amount) { m_balance -= amount; }
 };
 
 #endif //PLAYER

@@ -1,13 +1,16 @@
 #include <iostream>
 #include "Board.h"
+#include "GameSetup.h"
 
 
 int main(/*int argc, char *argv[]*/)
 {
-    std::cout<<"Hello Word\n";
     
+    
+    startNewGame();
     Board b;
 
-    b.print();
+    //b.print();
+
     return 0;
 }

@@ -5,8 +5,7 @@
 class Player;
 
 #include <string>
-#include "player.h"
-
+//#include "player.h"
 
 class Property
 {
@@ -29,8 +28,8 @@ public:
     int getRent() { return rentValues_[numHouses_]; }
     int getNumHouses() { return numHouses_; }
     void setMortgaged(bool value) { mortgaged_ = value; }
-    //Player getOwner() { return owner_; }
-    //void setOwner(Player newOwner) { owner_ = newOwner; }
+    Player getOwner() { return owner_; }
+    void setOwner(Player newOwner) { owner_ = newOwner; }
     void buyHouse();
     void sellHouse();
 
