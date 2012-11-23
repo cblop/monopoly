@@ -1,0 +1,13 @@
+#include <iostream>
+#include "Game.h"
+
+
+int main(/*int argc, char *argv[]*/)
+{
+    std::cout<<"Hello Word\n";
+    
+    Game b;
+    b.StartGame();
+//    b.print();
+    return 0;
+}

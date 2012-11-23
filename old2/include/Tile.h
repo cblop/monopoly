@@ -15,10 +15,7 @@ public:
     /// @brief method that does the action =p
     /// @param[in] i_player the player that have reached that specific tile
     //-------------------------------------------------------------------------
-    virtual void action(
-            /*const std::vector<Player &>i_players,
-              int current_player*/
-            )=0;
+    virtual void action(/*const Player& i_player*/)=0;
     //-------------------------------------------------------------------------
     /// @brief method that resets all its values to the default ones
     //-------------------------------------------------------------------------
@@ -30,11 +27,15 @@ public:
     //-------------------------------------------------------------------------
     /// @brief method that returns the name of the property
     //-------------------------------------------------------------------------
-    const std::string &getName()const;
+    const std::string& getName()const;
+    //-------------------------------------------------------------------------
+    /// @brief method that returns the index
+    //-------------------------------------------------------------------------
+    const int getIndex()const;
     //-------------------------------------------------------------------------
     /// @brief default destructor
     //-------------------------------------------------------------------------
-    virtual ~Tile();
+    ~Tile();
 
 protected:
     //-------------------------------------------------------------------------

@@ -20,6 +20,10 @@ public:
     /// @param[in] i_player the player that have reached that specific tile
     //-------------------------------------------------------------------------
     void action(/*const Player& i_player*/);
+    //-------------------------------------------------------------------------
+    /// @brief default destructor
+    //-------------------------------------------------------------------------
+    ~Order();
 };
 
 #endif // ORDER_H

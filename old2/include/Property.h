@@ -20,14 +20,9 @@ public:
     /// @brief method that does the action =p
     /// @param[in] i_player the player that have reached that specific tile
     //-------------------------------------------------------------------------
-    virtual void action(/*const Player& i_: Property(
+    void action(/*const Player& i_: Property(
                         i_name,i_price
-                        ){}player*/)=0;
-    //-------------------------------------------------------------------------
-    /// @brief default destructor
-    //-------------------------------------------------------------------------
-    virtual ~Property();
-
+                        ){}player*/);
 private:
     //-------------------------------------------------------------------------
     /// @brief method that prints any extra a property may have, ie: houses
@@ -35,10 +30,6 @@ private:
     virtual void printExtras()const=0;
 
 protected:
-    //-----------------------------------------------------------------------------
-    /// @brief the owner of the the property, equals to -1 if it is not owned
-    //-----------------------------------------------------------------------------
-    int m_owner;
     //-----------------------------------------------------------------------------
     /// @brief the price of the property
     //-----------------------------------------------------------------------------

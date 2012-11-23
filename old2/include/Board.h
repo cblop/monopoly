@@ -1,31 +1,44 @@
-#ifndef CORNER_H
-#define CORNER_H
+#ifndef BOARD_H
+#define BOARD_H
 
-#include "Tile.h"
 #include <iostream>
+#include <vector>
+#include "Tile.h"
 
-class Corner: public Tile
+class Board
 {
 public:
     //-------------------------------------------------------------------------
     /// @brief default constructor
-    /// @param[in] i_name: the name of the tile
     //-------------------------------------------------------------------------
-    Corner(const std::string &i_name);
-    //-------------------------------------------------------------------------
-    /// @brief method that prints all the information about the Corner
-    //-------------------------------------------------------------------------
-    void print()const;
-    //-------------------------------------------------------------------------
-    /// @brief method that does the action =p
-    /// @param[in] i_player the player that have reached that specific tile
-    //-------------------------------------------------------------------------
-    void action(/*const Player& i_player*/);
+    Board();
+
+    void print(){
+        for(unsigned int i=0; i<m_board.size();++i)
+        {
+            m_board[i]->print();
+        }
+    }
+
     //-------------------------------------------------------------------------
     /// @brief default destructor
     //-------------------------------------------------------------------------
-    ~Corner();
+    ~Board();
 
+private:
+    //-------------------------------------------------------------------------
+    /// @brief method that read the name of the next tile
+    //-------------------------------------------------------------------------
+    std::string readTilesName(
+            const std::vector<std::string> &i_words, unsigned int *i_p
+            );
+
+    //-------------------------------------------------------------------------
+    static const unsigned int numOfTiles = 40;
+    //-------------------------------------------------------------------------
+    /// @brief all the tiles of the board in the correct order
+    //-------------------------------------------------------------------------
+    std::vector<Tile *> m_board;
 };
 
-#endif // CORNER_H
+#endif // BOARD_H

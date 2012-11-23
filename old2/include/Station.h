@@ -21,18 +21,6 @@ public:
     ///        in case the game is reset
     //-------------------------------------------------------------------------
     void reset();
-    //-------------------------------------------------------------------------
-    /// @brief method that does the action =p
-    /// @param[in] i_player the player that have reached that specific tile
-    //-------------------------------------------------------------------------
-    void action(
-                /*const std::vector<Player &>i_player,
-                  int current_player*/
-                );
-    //-------------------------------------------------------------------------
-    /// @brief default destructor
-    //-------------------------------------------------------------------------
-    ~Station();
 };
 
 #endif // STATION_H

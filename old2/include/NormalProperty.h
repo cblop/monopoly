@@ -10,27 +10,11 @@ public:
     //-------------------------------------------------------------------------
     /// @brief default constructor
     //-------------------------------------------------------------------------
-    NormalProperty(const std::string &i_name,
-                   double i_price,
-                   double i_housePrice,
-                   const std::vector<double> &i_rentPrices
-                   );
+    NormalProperty(const std::string &i_name, double i_price);
     //-------------------------------------------------------------------------
     /// @brief method that prints all the information about the properties
     //-------------------------------------------------------------------------
     void printExtras()const;
-    //-------------------------------------------------------------------------
-    /// @brief method that does the action =p
-    /// @param[in] i_player the player that have reached that specific tile
-    //-------------------------------------------------------------------------
-    void action(
-                /*const std::vector<Player &>i_player,
-                  int current_player*/
-                );
-    //-------------------------------------------------------------------------
-    /// @brief default destructor
-    //-------------------------------------------------------------------------
-    ~NormalProperty();
 
 private:
     //-------------------------------------------------------------------------
@@ -38,13 +22,13 @@ private:
     //-------------------------------------------------------------------------
     unsigned short int m_numOfHouse;
     //-------------------------------------------------------------------------
-    /// @brief the prices of renting a the property depending
+    /// @brief the prices of the property with houses
     //-------------------------------------------------------------------------
-    std::vector<unsigned int> m_rentPrices;
+//    const std::vector<unsigned int> m_prices;
     //-------------------------------------------------------------------------
     /// @brief how much does a house cost
     //-------------------------------------------------------------------------
-    double m_housePrice;
+    double m_houseCost;
 
 };
 

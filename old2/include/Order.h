@@ -1,19 +1,18 @@
-#ifndef CORNER_H
-#define CORNER_H
+#ifndef ORDER_H
+#define ORDER_H
 
 #include "Tile.h"
-#include <iostream>
 
-class Corner: public Tile
+class Order: public Tile
 {
 public:
     //-------------------------------------------------------------------------
     /// @brief default constructor
     /// @param[in] i_name: the name of the tile
     //-------------------------------------------------------------------------
-    Corner(const std::string &i_name);
+    Order(const std::string &i_name);
     //-------------------------------------------------------------------------
-    /// @brief method that prints all the information about the Corner
+    /// @brief method that prints all the information about the Order Tile
     //-------------------------------------------------------------------------
     void print()const;
     //-------------------------------------------------------------------------
@@ -21,11 +20,6 @@ public:
     /// @param[in] i_player the player that have reached that specific tile
     //-------------------------------------------------------------------------
     void action(/*const Player& i_player*/);
-    //-------------------------------------------------------------------------
-    /// @brief default destructor
-    //-------------------------------------------------------------------------
-    ~Corner();
-
 };
 
-#endif // CORNER_H
+#endif // ORDER_H

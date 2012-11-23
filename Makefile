@@ -1,2 +1,2 @@
 all:
-	g++ -o Monopoly src/*.cpp -I ./include
+	g++ -Wall  -W -o Monopoly src/*.cpp -I ./include

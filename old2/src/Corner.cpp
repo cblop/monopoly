@@ -1,23 +1,19 @@
-#include "Order.h"
+#include "Corner.h"
 
 //-----------------------------------------------------------------------------
-Order::Order(const std::string &i_name):Tile(i_name)
+Corner::Corner(const std::string &i_name):Tile(i_name)
 {
 }
 
 //-----------------------------------------------------------------------------
-void Order::print()const
+void Corner::print()const
 {
     std::cout << "-------------------------------------------------\n";
     std::cout << "Tile's name: " << m_name << "\n\n";
 }
 
 //-----------------------------------------------------------------------------
-void Order::action(/*const Player& i_player*/)
+void Corner::action(/*const Player& i_player*/)
 {
 
 }
-
-//-------------------------------------------------------------------------
-Order::~Order()
-{}

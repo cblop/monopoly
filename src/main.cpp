@@ -1,16 +1,11 @@
 #include <iostream>
-#include "Board.h"
-#include "GameSetup.h"
+#include "Game.h"
 
 
-int main(/*int argc, char *argv[]*/)
+int main(int/* argc*/, char **/*argv[]*/)
 {
-    
-    
-    startNewGame();
-    Board b;
-
-    //b.print();
-
+    Game b;
+    b.StartGame();
+    b.print();
     return 0;
 }
