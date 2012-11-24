@@ -3,7 +3,7 @@
 #include "Player.h"
 //#include "property.h"
 
-Player::Player(std::string name): name_(name) {
+Player::Player(std::string name): m_name(name), m_balance(100) {
     //currentTile = Tile("go");
 }
 

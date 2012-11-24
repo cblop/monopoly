@@ -49,7 +49,7 @@ Board::Board()
             m_board[counter] = new Order(name);
             break;
         case 'n': //Normal Property
-            m_board[counter] = new NormalProperty(name,price);
+            //m_board[counter] = new NormalProperty(name,price);
             break;
         case 's': //Station
             m_board[counter] = new Station(name,price);

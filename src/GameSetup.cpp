@@ -63,4 +63,9 @@ void startNewGame() {
     }
 
     std::cout << players[windex].getName() << " goes first." << std::endl;
+
+    Player player1(players[0].getName());
+    std::cout << player1.getBalance() << std::endl;
+    player1.addBalance(1);
+    std::cout << player1.getBalance() << std::endl;
 }

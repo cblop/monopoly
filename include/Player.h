@@ -11,7 +11,7 @@
 
 class Player
 {
-    std::string name_;
+    std::string m_name;
     //std::vector<Property> properties_;
     // Tile currentTile;    
     int m_balance;
@@ -24,10 +24,10 @@ public:
     // destructor
     //~Player();
 
-    std::string getName() { return name_; }
+    std::string getName() { return m_name; }
     int getBalance() { return m_balance; }
     void addBalance(int amount) { m_balance += amount; }
-    //void removeBalance(int amount) { m_balance -= amount; }
+    void removeBalance(int amount) { m_balance -= amount; }
     //std::vector<Property> getProperties() { return properties_; }
     //void addProperty(Property property) { properties_.push_back(property); }
     //void removeProperty(Property property);
