@@ -79,7 +79,7 @@ Game::Game()
             default:
                 break;
             }
-            m_board[counter]->print();
+            //m_board[counter]->print();
             break;
         }
         default:
