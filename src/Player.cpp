@@ -28,3 +28,18 @@ void Player::removeBalance(int amount)
     m_balance -= amount;
 }
 
+int Player::getPosition()
+{
+    return m_position;
+}
+
+void Player::movePositionBy(int amount)
+{
+    m_position += amount;
+}
+
+void Player::setPosition(int position)
+{
+    m_position = position;
+}
+

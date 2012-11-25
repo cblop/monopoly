@@ -9,6 +9,7 @@ class Player
 {
     std::string m_name;
     int m_balance;
+    int m_position;
 
 public:
     // constructor
@@ -18,6 +19,9 @@ public:
     int getBalance();
     void addBalance(int amount);
     void removeBalance(int amount);
+    int getPosition();
+    void movePositionBy(int amount);
+    void setPosition(int position);
     
 };
 
