@@ -1,16 +1,30 @@
 #include <string>
 #include <vector>
 #include "Player.h"
-//#include "property.h"
 
-Player::Player(std::string name): m_name(name), m_balance(100) {
-    //currentTile = Tile("go");
-}
-
-/*
-void Player::removeProperty(Property property)
+Player::Player(std::string name): m_name(name), m_balance(100)
 {
-    // this will be tricky, involves looking up the property somehow
-    return;
+    m_name = name;
+    m_balance = 100;
 }
-*/
+
+std::string Player::getName()
+{
+    return m_name;
+}
+
+int Player::getBalance()
+{
+    return m_balance;
+}
+
+void Player::addBalance(int amount)
+{
+    m_balance += amount;
+}
+
+void Player::removeBalance(int amount)
+{
+    m_balance -= amount;
+}
+

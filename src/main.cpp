@@ -7,6 +7,6 @@ int main(int/* argc*/, char **/*argv[]*/)
     Game b;
     b.StartGame();
     b.print();
-    //startNewGame();
+    startNewGame();
     return 0;
 }

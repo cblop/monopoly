@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cstdlib>
 #include "GameSetup.h"
 #include "Player.h"
 
@@ -57,15 +58,14 @@ void startNewGame() {
     int winner = 0;
     int windex = -1;
     for (int i=0;i<numPlayers;i++) {
-        std::cout << players[i].getName() << ": ";
-        std::cin >> winner;
+        std::cout << players[i].getName() << "rolls: ";
+        winner = (rand() % 12) + 1;
+        std::cout << winner << std::endl;
         if (winner > oldwinner) windex = i;
     }
 
     std::cout << players[windex].getName() << " goes first." << std::endl;
 
-    Player player1(players[0].getName());
-    std::cout << player1.getBalance() << std::endl;
-    player1.addBalance(1);
-    std::cout << player1.getBalance() << std::endl;
+    std::cout << std::endl;
+
 }
