@@ -5,7 +5,7 @@
 Player::Player(std::string name): m_name(name), m_balance(100)
 {
     m_name = name;
-    m_balance = 100;
+    m_balance = 1500;
 }
 
 std::string Player::getName()
