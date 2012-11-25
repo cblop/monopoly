@@ -5,7 +5,7 @@
 Player::Player(std::string name): m_name(name), m_balance(100)
 {
     m_name = name;
-    m_balance = 100;
+    m_balance = 1500;
 }
 
 std::string Player::getName()
@@ -26,5 +26,20 @@ void Player::addBalance(int amount)
 void Player::removeBalance(int amount)
 {
     m_balance -= amount;
+}
+
+int Player::getPosition()
+{
+    return m_position;
+}
+
+void Player::movePositionBy(int amount)
+{
+    m_position += amount;
+}
+
+void Player::setPosition(int position)
+{
+    m_position = position;
 }
 

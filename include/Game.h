@@ -1,6 +1,8 @@
 #ifndef BOARD_H
 #define BOARD_H
 
+class Player;
+
 #include <iostream>
 #include <vector>
 #include "Tile.h"
@@ -19,10 +21,16 @@ public:
             m_board[i]->print();
         }
     }
+
     //-------------------------------------------------------------------------
     /// @brief method that starts a game
     //-------------------------------------------------------------------------
     void StartGame();
+
+    //-------------------------------------------------------------------------
+    /// @brief method that sets up a game by asking for player names, etc
+    //-------------------------------------------------------------------------
+    void SetupGame();
 
     //-------------------------------------------------------------------------
     /// @brief default destructor
@@ -48,6 +56,10 @@ private:
     /// @brief all the tiles of the board in the correct order
     //-------------------------------------------------------------------------
     std::vector<Tile *> m_board;
+    //-------------------------------------------------------------------------
+    /// @brief all the players for the game
+    //-------------------------------------------------------------------------
+    std::vector<Player *> m_players;
 };
 
 #endif // BOARD_H
