@@ -4,6 +4,7 @@
 #include "Property.h"
 #include "Station.h"
 #include "Player.h"
+#include "Dice.h"
 #include "NormalProperty.h"
 #include <iostream>
 #include <fstream>
@@ -91,6 +92,9 @@ Game::Game()
         counter++;
     }
 
+
+    m_dice = new Dice();
+
     SetupGame();
 }
 
@@ -166,7 +170,8 @@ void Game::SetupGame()
         std::cout << "Press ENTER to roll, " << m_players[i]->getName() << std::endl;
         std::cout << std::endl;
         std::cin.get();
-        winner = (rand() % 12) + 1;
+        m_dice->roll();
+        winner = m_dice->getValue();
         std::cout << m_players[i]->getName() << " rolled: " << winner << std::endl <<std::endl;
         if (winner > oldwinner) windex = i;
         oldwinner = winner;

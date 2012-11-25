@@ -1,7 +1,8 @@
-#ifndef BOARD_H
-#define BOARD_H
+#ifndef GAME_H
+#define GAME_H
 
 class Player;
+class Dice;
 
 #include <iostream>
 #include <vector>
@@ -60,6 +61,11 @@ private:
     /// @brief all the players for the game
     //-------------------------------------------------------------------------
     std::vector<Player *> m_players;
+
+    //-------------------------------------------------------------------------
+    /// @brief the game dice
+    //-------------------------------------------------------------------------
+    Dice* m_dice;
 };
 
-#endif // BOARD_H
+#endif // GAME
