@@ -31,7 +31,6 @@ public:
     //-------------------------------------------------------------------------
     /// @brief method that sets up a game by asking for player names, etc
     //-------------------------------------------------------------------------
-    void SetupGame();
 
     //-------------------------------------------------------------------------
     /// @brief default destructor
@@ -52,6 +51,7 @@ private:
             );
 
     //-------------------------------------------------------------------------
+    void SetupGame();
     static const unsigned int numOfTiles = 40;
     //-------------------------------------------------------------------------
     /// @brief all the tiles of the board in the correct order
