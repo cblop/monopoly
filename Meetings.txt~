@@ -11,11 +11,6 @@ Group Meetings:
 - 26th of Nov - 1 hour - Discussing how Cards and Player classes work and how they will be integrated to the rest of the program
 
 
-Git Commands:
-
-$ git add . 
-$ git commit -m "Message"
-$ git push
-
-$ git pull
-
+git add . 
+git commit -m "Message"
+git push

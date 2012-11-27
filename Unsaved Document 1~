@@ -7,15 +7,3 @@ Group Meetings:
 - 21st of Nov - 4 hours -  Play Monopoly to better understand the rules and the challenges of implementing a Monopoly Game
 
 - 23rd of Nov - 30 mins - Discussing our progress and simplyfying the game. Decided to use Agile method, implement a basic working Game and add rules later depending on time. 
-
-- 26th of Nov - 1 hour - Discussing how Cards and Player classes work and how they will be integrated to the rest of the program
-
-
-Git Commands:
-
-$ git add . 
-$ git commit -m "Message"
-$ git push
-
-$ git pull
-
