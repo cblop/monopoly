@@ -11,6 +11,8 @@ public:
 
     int getValue();
     void roll();
+
+    ~Dice();
     
 };
 

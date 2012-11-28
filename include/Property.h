@@ -20,9 +20,10 @@ public:
     /// @brief method that does the action =p
     /// @param[in] i_player the player that have reached that specific tile
     //-------------------------------------------------------------------------
-    virtual void action(/*const Player& i_: Property(
-                        i_name,i_price
-                        ){}player*/)=0;
+    virtual void action(
+            const std::vector<Player *> &i_player,
+            int current_player
+            )=0;
     //-------------------------------------------------------------------------
     /// @brief default destructor
     //-------------------------------------------------------------------------

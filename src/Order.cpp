@@ -13,7 +13,10 @@ void Order::print()const
 }
 
 //-----------------------------------------------------------------------------
-void Order::action(/*const Player& i_player*/)
+void Order::action(
+        const std::vector<Player *> &i_player,
+        int current_player
+        )
 {
 
 }

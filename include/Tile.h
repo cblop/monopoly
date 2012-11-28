@@ -2,6 +2,8 @@
 #define INCLUDETILE_H
 
 #include <iostream>
+#include <vector>
+#include "Player.h"
 
 //-----------------------------------------------------------------------------
 class Tile
@@ -16,8 +18,8 @@ public:
     /// @param[in] i_player the player that have reached that specific tile
     //-------------------------------------------------------------------------
     virtual void action(
-            /*const std::vector<Player &>i_players,
-              int current_player*/
+            const std::vector<Player *> &i_player,
+            int current_player
             )=0;
     //-------------------------------------------------------------------------
     /// @brief method that resets all its values to the default ones

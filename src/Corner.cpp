@@ -13,7 +13,10 @@ void Corner::print()const
 }
 
 //-----------------------------------------------------------------------------
-void Corner::action(/*const Player& i_player*/)
+void Corner::action(
+        const std::vector<Player *> &i_player,
+        int current_player
+        )
 {
     this->print();
 }

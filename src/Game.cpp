@@ -30,6 +30,7 @@ Game::Game()
     std::istream_iterator<std::string> sentinel;
     std::vector<std::string> words(bvhIt,sentinel);
 
+
     m_board.resize(40);
     unsigned int i=0 , counter = 0;
     while(i<words.size()-3)
@@ -71,16 +72,16 @@ Game::Game()
             }
             case 's': //Station
                 name = readTilesName(words,&i);
-                m_board[counter] = new Station(name,price);
+                m_board[counter] = new Station(name,price,rentPrices);
                 break;
             case 'u' : // Works - Company
                 name = readTilesName(words,&i);
-                m_board[counter] = new Station(name,price);
+                m_board[counter] = new Station(name,price,rentPrices);
             break;
             default:
                 break;
             }
-            //m_board[counter]->print();
+            m_board[counter]->print();
             break;
         }
         default:
@@ -116,7 +117,7 @@ std::string Game::readTilesName(
 //-----------------------------------------------------------------------------
 void Game::StartGame()
 {
-    m_board[1]->action();
+    m_board[1]->action(m_players,m_currentPlayer);
 }
 
 //-----------------------------------------------------------------------------
@@ -179,6 +180,7 @@ void Game::SetupGame()
 
     std::cout << m_players[windex]->getName() << " goes first." << std::endl;
 
+    m_currentPlayer = windex;
     std::cout << std::endl;
 
 }

@@ -29,7 +29,10 @@ void Property::print()const
 }
 
 //-----------------------------------------------------------------------------
-void Property::action(/*const Player& i_player*/)
+void Property::action(
+        const std::vector<Player *> &i_player,
+        int current_player
+        )
 {
     this->print();
 }

@@ -6,22 +6,58 @@
 
 class Player
 {
+public:
+    //-----------------------------------------------------------------------------
+    /// default constructor
+    //-----------------------------------------------------------------------------
+    Player(const std::string &name);
+
+    //-----------------------------------------------------------------------------
+    /// @brief method that returns the name of the Player
+    //-----------------------------------------------------------------------------
+    const std::string &getName()const;
+    //-----------------------------------------------------------------------------
+    /// @brief method that returns the Balance of the Player
+    //-----------------------------------------------------------------------------
+    int getBalance();
+    //-----------------------------------------------------------------------------
+    /// @brief method that adds an ammount of mony to the balance of the Player
+    //-----------------------------------------------------------------------------
+    void addBalance(int i_amount);
+    //-----------------------------------------------------------------------------
+    /// @brief method that returns the current position of the Player
+    //-----------------------------------------------------------------------------
+    int getPosition();
+    //-----------------------------------------------------------------------------
+    /// @brief method that moves player to a new position
+    /// @param[in] i_amount how many tiles the Player will be moved
+    //-----------------------------------------------------------------------------
+    void movePositionBy(int i_amount);
+    //-----------------------------------------------------------------------------
+    /// @brief method that sets the positions of the player
+    /// @param[in] i_position the new Position of the Player
+    //-----------------------------------------------------------------------------
+    void setPosition(int i_position);
+    //-----------------------------------------------------------------------------
+    /// @brief default destructor
+    //-----------------------------------------------------------------------------
+    ~Player();
+
+
+private:
+    //-----------------------------------------------------------------------------
+    /// @brief the name of the Player
+    //-----------------------------------------------------------------------------
     std::string m_name;
+    //-----------------------------------------------------------------------------
+    /// @brief the balance of the Player
+    //-----------------------------------------------------------------------------
     int m_balance;
+    //-----------------------------------------------------------------------------
+    /// @brief the position of the Player on the Board
+    //-----------------------------------------------------------------------------
     int m_position;
 
-public:
-    // constructor
-    Player(std::string name);
-
-    std::string getName();
-    int getBalance();
-    void addBalance(int amount);
-    void removeBalance(int amount);
-    int getPosition();
-    void movePositionBy(int amount);
-    void setPosition(int position);
-    
 };
 
 #endif //PLAYER
