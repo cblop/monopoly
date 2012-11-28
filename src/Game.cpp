@@ -29,8 +29,6 @@ Game::Game()
     std::istream_iterator<std::string> bvhIt(bvhStream);
     std::istream_iterator<std::string> sentinel;
     std::vector<std::string> words(bvhIt,sentinel);
-
-
     m_board.resize(40);
     unsigned int i=0 , counter = 0;
     while(i<words.size()-3)
