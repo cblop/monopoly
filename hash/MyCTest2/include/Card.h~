@@ -32,7 +32,7 @@ class Card
 	private:
 
 
-		static std::vector<std::string> communityChestCards;
+		static std::vector<CardType> m_communityChest;
 
 		void BinaryChoice(int moneyToRemove);
 		void GetOutOfJailFree();
