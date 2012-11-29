@@ -6,148 +6,152 @@
 #include <ctime>
 #include "Player.h"
 #include "Card.h"
+#include <vector>
 
+static std::vector<std::string> communityChestCards;
+static std::vector<std::string> chanceCards;
+
+
+void Card::initialiseCards()
+{
+	std::cout << "INITIALISING CARDS" <<std::endl;
+	std::string line;
+	std::ifstream myfile1 ("CommunityChest");
+	//int a = 0;
+	if (myfile1.is_open())
+	{
+		while (!myfile1.eof())
+		{
+			getline(myfile1, line);
+            chanceCards.push_back(line);
+		}
+	}
+	myfile1.close();
+	
+	std::ifstream myfile2 ("Chance");
+	//int a = 0;
+	if (myfile2.is_open())
+	{
+		while (!myfile2.eof())
+		{
+			getline(myfile2, line);
+            chanceCards.push_back(line);
+		}
+	}
+	myfile2.close();
+	
+	/*for (int i = 0; i < communityChestCards.size(); i++)
+	{
+		std::cout << communityChestCards[i] << std::endl;
+	}*/
+}
 
 //Card::Card(int cardTypeFlag, const std::string &i_name):Tile(i_name)
+//Card::Card()
 Card::Card(int cardTypeFlag)
 {
-	static std::vector<std::string> communityChestCards;
+    //initialiseCards();
+    
+}
+
+void Card::selectCard(int cardTypeFlag)
+{
 	srand(time(NULL));
 	std::string line;
-	std::string fileName;
-	std::cout << std::endl;
-    	int lineCount=1;
-	
 
 	if (cardTypeFlag == 0)
 	{
-		std::cout << "COMMUNITY CHEST!!" << std::endl;	
-		lineCount = 17;
-		fileName = "CommunityChest";
-		
+		std::cout << "Community Chest" << std::endl;
+		int random = rand() % communityChestCards.size();
+		std::cout << "Random number = " << random << std::endl;
+		line = communityChestCards[random];
+
 	}
 	else if (cardTypeFlag == 1)
 	{
-		std::cout << "CHANCE!!" << std::endl;
-		lineCount = 15;
-		fileName = "Chance";
+		std::cout << "Chance" << std::endl;
+		int random = rand() % chanceCards.size();
+		std::cout << "Random number = " << random << std::endl;
+		line = chanceCards[random];
 	}
 	else
 	{
 		std::cout << "1) NOOOOOOOOOOOOOOOOOOO. It is WRONG!!! 0 or 1" << std::endl;
 	}
 	
-	std::ifstream myfile (fileName.c_str());
-	int random = rand() % lineCount + 1;
-	int matchCase =0; 
-	int count = 0;
+	std::istringstream iss(line);
+	std::string sub;
+	iss >> sub;
+	std::cout << line << std::endl;
 	
-	matchCase = random;
-	
-	if (myfile.is_open())
+	std::cout << "CARD TYPE ==> ";
+	if (sub == "b")
 	{
-		while (!myfile.eof())
-		{
-			getline(myfile, line);
-			if (count == matchCase)
-			{
-				std::cout << count << std::endl;
-				std::istringstream iss(line);
-				std::string sub;
-				iss >> sub;
-				std::cout << line << std::endl;
-				
-				std::cout << "CARD TYPE ==> ";
-				if (sub == "b")
-				{
-					int moneyToRemove;
-					iss >> sub;
-					std::istringstream(sub) >> moneyToRemove;
-					BinaryChoice(moneyToRemove);
-				}
-
-				else if (sub == "f")
-				{
-					GetOutOfJailFree();
-				}
-
-				else if (sub == "g")
-				{
-					int moneyToAdd;
-					iss >> sub;
-					std::istringstream(sub) >> moneyToAdd;
-					GetMoney(moneyToAdd);
-				}
-
-				else if (sub == "h")
-				{
-					int house, hotel;
-					iss >> sub;
-					std::istringstream(sub) >> house;
-					iss >> sub;
-					std::istringstream(sub) >> hotel;
-					StreetRepairs(house, hotel);
-				}
-
-				else if (sub == "j")
-					GoToJail();
-
-				else if (sub == "l")
-				{
-					int moneyToRemove;
-					iss >> sub;
-					std::istringstream(sub) >> moneyToRemove;
-					LoseMoney(moneyToRemove);
-				}
-				
-				else if (sub == "m")
-				{
-					int boardPosition;
-					iss >> sub;
-					std::istringstream(sub) >> boardPosition;
-					MovePlayerToPosition(boardPosition);
-				}
-				
-				else if (sub == "mb")
-				{
-					int spacesToMove;
-					iss >> sub;
-					std::istringstream(sub) >> spacesToMove;
-					MovePlayerBack(spacesToMove);
-				}
-
-			
-				break; //break out of while loop
-
-			}
-			count++;
-		}
-		myfile.close();
+		int moneyToRemove;
+		iss >> sub;
+		std::istringstream(sub) >> moneyToRemove;
+		BinaryChoice(moneyToRemove);
 	}
-	else
-		std::cout << "2) NOOOOOOOOOOOOOOOOOOO. It is WRONG!!! Cannot open file" << std::endl;
+
+	else if (sub == "f")
+	{
+		GetOutOfJailFree();
+	}
+
+	else if (sub == "g")
+	{
+		int moneyToAdd;
+		iss >> sub;
+		std::istringstream(sub) >> moneyToAdd;
+		GetMoney(moneyToAdd);
+	}
+
+	else if (sub == "h")
+	{
+		int house, hotel;
+		iss >> sub;
+		std::istringstream(sub) >> house;
+		iss >> sub;
+		std::istringstream(sub) >> hotel;
+		StreetRepairs(house, hotel);
+	}
+
+	else if (sub == "j")
+		GoToJail();
+
+	else if (sub == "l")
+	{
+		int moneyToRemove;
+		iss >> sub;
+		std::istringstream(sub) >> moneyToRemove;
+		LoseMoney(moneyToRemove);
+	}
+	
+	else if (sub == "m")
+	{
+		int boardPosition;
+		iss >> sub;
+		std::istringstream(sub) >> boardPosition;
+		MovePlayerToPosition(boardPosition);
+	}
+	
+	else if (sub == "mb")
+	{
+		int spacesToMove;
+		iss >> sub;
+		std::istringstream(sub) >> spacesToMove;
+		MovePlayerBack(spacesToMove);
+	}
+
 		
 
-	std::cout << std::endl;
+    std::cout << std::endl;
+
 }
 
-void Card::initialiseCards()
-{
-	std::cout << "INITIALISING CARDS\n";
-	std::string line;
-	std::ifstream myfile ("CommunityChest);
-	if (myfile.is_open())
-	{
-		while (!myfile.eof())
-		{
-			getline(myfile, line);
-			communityChestCards.push_back(line);
-		}
-	}
-	myfile.close();
-}
 
-//The stuff and shit --------------------------------------------------------------------------------
+
+//The stuff --------------------------------------------------------------------------------
 void Card::BinaryChoice(int moneyToRemove)
 {
 	std::cout << "Binary Choice" << std::endl;
