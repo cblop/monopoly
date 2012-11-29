@@ -6,6 +6,7 @@
 #include "Player.h"
 #include "Dice.h"
 #include "NormalProperty.h"
+#include "Utility.h"
 #include <iostream>
 #include <fstream>
 #include <iterator>
@@ -69,12 +70,20 @@ Game::Game()
                 break;
             }
             case 's': //Station
+                for(unsigned int k=0; k<4; ++k)
+                {
+                    rentPrices[k] = atoi(words[i++].c_str());
+                }
                 name = readTilesName(words,&i);
                 m_board[counter] = new Station(name,price,rentPrices);
                 break;
             case 'u' : // Works - Company
+                for(unsigned int k=0; k<2; ++k)
+                {
+                    rentPrices[k] = atoi(words[i++].c_str());
+                }
                 name = readTilesName(words,&i);
-                m_board[counter] = new Station(name,price,rentPrices);
+                m_board[counter] = new Utility(name,price,rentPrices);
             break;
             default:
                 break;
