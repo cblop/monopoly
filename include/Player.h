@@ -21,7 +21,11 @@ public:
     //-----------------------------------------------------------------------------
     int getBalance();
     //-----------------------------------------------------------------------------
-    /// @brief method that adds an ammount of mony to the balance of the Player
+    /// @brief method that adds an amount of money to the balance of the Player
+    //-----------------------------------------------------------------------------
+    bool takeBalance(int i_amount);
+    //-----------------------------------------------------------------------------
+    /// @brief method that takes an amount of money from the balance of the Player
     //-----------------------------------------------------------------------------
     void addBalance(int i_amount);
     //-----------------------------------------------------------------------------

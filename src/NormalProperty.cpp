@@ -29,13 +29,23 @@ void NormalProperty::printExtras()const
 }
 
 //-------------------------------------------------------------------------
+
 void NormalProperty::action(
         const std::vector<Player *> &i_player,
         int current_player
         )
 {
-    std::cout << "\n";
+    this->print();
+    if (m_owner == -1) {
+        this->buyProperty(i_player,current_player);
+    }
+    else {
+        i_player[current_player]->takeBalance(m_rentPrices[m_numOfHouse]);
+        i_player[m_owner]->addBalance(m_rentPrices[m_numOfHouse]);
+        std::cout << "Rent paid: " << m_rentPrices[m_numOfHouse] << std::endl;
+    }
 }
+
 
 //-------------------------------------------------------------------------
 void NormalProperty::reset()

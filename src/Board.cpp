@@ -104,7 +104,6 @@ void Board::action(
 {
     int currentTile = i_players[i_currentPlayer]->getPosition();
     m_tiles[currentTile]->action(i_players,i_currentPlayer);
-
 }
 
 //-------------------------------------------------------------------------
@@ -115,6 +114,14 @@ void Board::reset()
         m_tiles[i]->reset();
     }
 }
+
+
+//-------------------------------------------------------------------------
+const std::string &Board::getTileName(unsigned int i_index) const
+{
+    return m_tiles[i_index]->getName();
+}
+
 
 
 //-----------------------------------------------------------------------------

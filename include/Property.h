@@ -9,7 +9,7 @@ public:
     //-------------------------------------------------------------------------
     /// @brief default constructor
     /// @param[in] i_name: the name of the tile
-    /// @param[in] i_price: the price of the property
+    /// param[in] i_price: the price of the property
     //-------------------------------------------------------------------------
     Property(const std::string &i_name, double i_price);
     //-------------------------------------------------------------------------

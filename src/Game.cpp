@@ -98,6 +98,58 @@ void Game::SetupGame()
 }
 
 //-----------------------------------------------------------------------------
+void Game::PlayGame()
+{
+    std::cout << "\nNow we will start the game.\n" << std::endl;
+    int numLosers = 0;
+
+    while (numLosers < (int)m_players.size() - 1) {
+        numLosers = 0;
+        for (int i=0;i<(int)m_players.size();i++) {
+            m_currentPlayer = i;
+            std::cout << std::endl;
+            std::cout << m_players[i]->getName() << " has " << m_players[i]->getBalance() << std::endl;
+            if (m_players[i]->getBalance() > 0) {
+                TakeTurn(m_players[i]);
+            }
+            else {
+                std::cout << m_players[i]->getName() << " has no money." << std::endl;
+                numLosers++;
+            }
+
+        }
+    }
+
+    std::cout << "Final scores:" << std::endl;
+
+    for (int i=0;i<(int)m_players.size(); i++) {
+        std::cout << m_players[i]->getName() << ": " << m_players[i]->getBalance() << std::endl; 
+
+    }
+}
+
+//-----------------------------------------------------------------------------
+void Game::TakeTurn(Player *player)
+{
+
+    std::cin.clear();
+    std::cin.ignore(INT_MAX, '\n');
+    std::cout << "Press ENTER to roll, " << player->getName() << std::endl;
+    std::cout << std::endl;
+    std::cin.get();
+    m_dice->roll();
+    std::cout << m_dice->getValue() << std::endl;
+
+    //player->takeBalance(10*m_dice->getValue());
+    
+    player->movePositionBy(m_dice->getValue());
+    std::cout << player->getName() << " is now at:" << m_board.getTileName(player->getPosition()) << std::endl;
+
+    m_board.action(m_players, m_currentPlayer);
+
+}
+
+//-----------------------------------------------------------------------------
 Game::~Game()
 {
 

@@ -31,26 +31,25 @@ void Property::print()const
 //-----------------------------------------------------------------------------
 void Property::buyProperty(std::vector<Player *> i_players,int i_currentPlayer)
 {
-    if(m_owner==-1) // player is allowed to buy property
-    {
-        std::cout << "Do you want to buy " << m_name
-                  << " £" << m_price <<"? y/n\n";
-        std::string answer;
-        std::cin >> answer;
-        if (answer=="y")
-        {
-            i_players[i_currentPlayer]->addBalance(-m_price);
-            m_owner = i_currentPlayer;
+    char response;
+    std::cout << "Would you like to buy this property? (y/n): ";
+    std::cin >> response;
+    while ((response != 'y') && (response != 'n')){
+            std::cout << std::endl << "Please type 'y' or 'n': ";
+            std::cin >> response;
+            std::cout << response;
+    }
 
+    if (response == 'y') {
+        if(i_players[i_currentPlayer]->takeBalance(m_price))
+        {
+            std::cout<<"Money makes the world go round!!!\n";
+            m_owner = i_currentPlayer;
         }
         else
         {
-            // player does not want to buy the property
+            std::cout<< "Player does not have enough money!\n";
         }
-    }
-    else
-    {
-        // property already owned - pay rent
     }
 }
 
