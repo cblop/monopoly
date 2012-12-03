@@ -35,15 +35,9 @@ void NormalProperty::payRent(
         int current_player
         )
 {
-    this->print();
-    if (m_owner == -1) {
-        this->buyProperty(i_player,current_player);
-    }
-    else {
-        i_player[current_player]->takeBalance(m_rentPrices[m_numOfHouse]);
-        i_player[m_owner]->addBalance(m_rentPrices[m_numOfHouse]);
-        std::cout << "Rent paid: " << m_rentPrices[m_numOfHouse] << std::endl;
-    }
+    i_player[current_player]->takeBalance(m_rentPrices[m_numOfHouse]);
+    i_player[m_owner]->addBalance(m_rentPrices[m_numOfHouse]);
+    std::cout << "Rent paid: " << m_rentPrices[m_numOfHouse] << std::endl;
 }
 
 
