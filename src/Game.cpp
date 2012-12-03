@@ -84,7 +84,7 @@ void Game::SetupGame()
         std::cout << std::endl;
         std::cin.get();
         m_dice->roll();
-        winner = m_dice->getValue();
+        winner = m_dice->getTotal();
         std::cout << m_players[i]->getName() << " rolled: " << winner << std::endl <<std::endl;
         if (winner > oldwinner) windex = i;
         oldwinner = winner;
@@ -131,21 +131,31 @@ void Game::PlayGame()
 //-----------------------------------------------------------------------------
 void Game::TakeTurn(Player *player)
 {
+    bool repeat = true;
 
-    std::cin.clear();
-    std::cin.ignore(INT_MAX, '\n');
-    std::cout << "Press ENTER to roll, " << player->getName() << std::endl;
-    std::cout << std::endl;
-    std::cin.get();
-    m_dice->roll();
-    std::cout << m_dice->getValue() << std::endl;
+    while (repeat) {
+        std::cin.clear();
+        std::cin.ignore(INT_MAX, '\n');
+        std::cout << "Press ENTER to roll, " << player->getName() << std::endl;
+        std::cout << std::endl;
+        std::cin.get();
+        m_dice->roll();
+        std::cout << m_dice->getTotal() << std::endl;
 
-    //player->takeBalance(10*m_dice->getValue());
-    
-    player->movePositionBy(m_dice->getValue());
-    std::cout << player->getName() << " is now at:" << m_board.getTileName(player->getPosition()) << std::endl;
+        //player->takeBalance(10*m_dice->getTotal());
+        
+        player->movePositionBy(m_dice->getTotal());
+        std::cout << player->getName() << " is now at:" << m_board[player->getPosition()]->getName() << std::endl;
 
-    m_board.action(m_players, m_currentPlayer);
+        m_board[player->getPosition()]->action(m_players, m_currentPlayer);
+
+        if (m_dice->isDouble()) {
+            std::cout << "You rolled a double! Go again." << std::endl;
+        }
+        else {
+            repeat = false;
+        }
+    } 
 
 }
 
