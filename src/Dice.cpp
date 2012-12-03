@@ -1,4 +1,3 @@
-#include <ctime>
 #include <stdlib.h>
 #include "Dice.h"
 
@@ -12,7 +11,6 @@ Dice::Dice()
 //-----------------------------------------------------------------------------
 void Dice::roll()
 {
-    srand((unsigned)time(0));
     m_value = (rand() % 12) + 1;
 }
 
