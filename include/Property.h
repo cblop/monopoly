@@ -36,6 +36,12 @@ private:
     virtual void printExtras()const=0;
 
 protected:
+
+    //-------------------------------------------------------------------------
+    /// @brief method to buy property
+    //-------------------------------------------------------------------------
+    void buyProperty(std::vector<Player *> i_players, int i_currentPlayer);
+
     //-----------------------------------------------------------------------------
     /// @brief the owner of the the property, equals to -1 if it is not owned
     //-----------------------------------------------------------------------------
