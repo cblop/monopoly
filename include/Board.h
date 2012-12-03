@@ -29,7 +29,6 @@ public:
     /// @brief method that perfoms an action
     //-------------------------------------------------------------------------
     void action(
-            int i_currentTile,
             const std::vector<Player *> &i_players,
             int i_currentPlayer
             );
