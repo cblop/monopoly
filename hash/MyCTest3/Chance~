@@ -1,0 +1,16 @@
+
+m 0 Advance To Go. 
+j Go To Jail. Do NOT Pass Go. Do NOT Recieve £200. 
+m 11 Advance to Pall Mall. If you pass go, collect £200.
+h 25 100 Make general repairs  on all of your houses. Pay £25 for each house, and £100 for each hotel.
+m 24 Advance to Trafalgar Square. If you pass Go collect £200.
+h 40 115 You Are Assessed for Street Repairs. £40 per House, £115 per Hotel 
+m 40 Advance to Mayfair.
+l 50 Pay School Fees of £50 
+mb 3 Move Back 3 Spaces
+l 20 "Drunk in Charge" fine £20 
+f Get Out Of Jail Free 
+g 150 Your Building Loan Matures. Receive £150.
+l 15 Speeding Fine £15 
+g 100 You have won a crossword competition. Collect £100.
+g 50 Bank pays you dividend of £50

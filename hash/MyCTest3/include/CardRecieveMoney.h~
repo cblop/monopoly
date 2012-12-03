@@ -1,0 +1,32 @@
+#ifndef CARDRECIEVEMONEY_H
+#define CARDRECIEVEMONEY_H
+
+#include "Card.h"
+
+class CardRecieveMoney :public Card
+{
+public:
+    //-------------------------------------------------------------------------
+    /// @brief default constructor
+    //-------------------------------------------------------------------------
+    CardRecieveMoney(unsigned int i_balance);
+    //-------------------------------------------------------------------------
+    /// @brief method that performs the action associated with that card
+    //-------------------------------------------------------------------------
+    void action(
+            const std::vector<Player *> &i_players,
+            int currentPlayer
+            );
+    //-------------------------------------------------------------------------
+    /// @brief default destructor
+    //-------------------------------------------------------------------------
+    ~CardMovePlayerToPosition();
+
+private:
+    //-------------------------------------------------------------------------
+    /// @brief the new position of the player
+    //-------------------------------------------------------------------------
+    int m_newPosition;
+};
+
+#endif // CARDRECIEVEMONEY_H
