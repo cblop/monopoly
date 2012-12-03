@@ -11,10 +11,10 @@
 static std::vector<std::string> communityChestCards;
 static std::vector<std::string> chanceCards;
 
-
-void Card::initialiseCards()
+Card::Card(const std::string &i_name):Tile(i_name)
+//Card::Card()
 {
-	std::cout << "INITIALISING CARDS" <<std::endl;
+    std::cout << "INITIALISING CARDS" <<std::endl;
 	std::string line;
 	std::ifstream myfile1 ("CommunityChest");
 	//int a = 0;
@@ -23,7 +23,8 @@ void Card::initialiseCards()
 		while (!myfile1.eof())
 		{
 			getline(myfile1, line);
-            chanceCards.push_back(line);
+			
+            		communityChestCards.push_back(line);
 		}
 	}
 	myfile1.close();
@@ -35,37 +36,30 @@ void Card::initialiseCards()
 		while (!myfile2.eof())
 		{
 			getline(myfile2, line);
-            chanceCards.push_back(line);
+            		chanceCards.push_back(line);
 		}
 	}
 	myfile2.close();
-	
-	/*for (int i = 0; i < communityChestCards.size(); i++)
-	{
-		std::cout << communityChestCards[i] << std::endl;
-	}*/
-}
-
-//Card::Card(int cardTypeFlag, const std::string &i_name):Tile(i_name)
-//Card::Card()
-Card::Card(int cardTypeFlag)
-{
-    //initialiseCards();
     
 }
 
+
+
+
 void Card::selectCard(int cardTypeFlag)
 {
-	srand(time(NULL));
+	//srand(time(NULL));
 	std::string line;
 
 	if (cardTypeFlag == 0)
 	{
+		//std::cout << "Vector Size = " << communityChestCards.size() << std::endl;
 		std::cout << "Community Chest" << std::endl;
+		
 		int random = rand() % communityChestCards.size();
 		std::cout << "Random number = " << random << std::endl;
 		line = communityChestCards[random];
-		std::cout << std::endl;
+
 	}
 	else if (cardTypeFlag == 1)
 	{
@@ -73,7 +67,6 @@ void Card::selectCard(int cardTypeFlag)
 		int random = rand() % chanceCards.size();
 		std::cout << "Random number = " << random << std::endl;
 		line = chanceCards[random];
-		std::cout << std::endl;
 	}
 	else
 	{
@@ -189,7 +182,7 @@ void Card::GoToJail()
 	std::cout << "GO TO JAIL!" << std::endl;
 }
 
-void Card::LoseMoney(int moneyToRemove)
+void Card::LoseMoney(int moneyToRemove, const std::vector<Player *> &i_players, int current_player)
 {
 	std::cout << "Lose Money" << std::endl;
 	std::cout << "[Take £" << moneyToRemove << " From Player]" << std::endl;
@@ -212,15 +205,15 @@ void Card::MovePlayerBack(int spacesToMove)
 Card::~Card()
 {}
 
-/*
+
 //-------------------------------------------------------------------------
-void Card::action(
-        const std::vector<Player *> &i_players,
-        int current_player
-        )
+void Card::action(const std::vector<Player *> &i_players, int current_player)
 {
+    
     i_players[current_player]->addBalance(100.0);
+    
 }
+
 
 //-------------------------------------------------------------------------
 void Card::reset()
@@ -234,5 +227,5 @@ void Card::print()const
 
 }
 
-*/
+
 
