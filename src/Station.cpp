@@ -33,7 +33,7 @@ void Station::reset()
 }
 
 //-------------------------------------------------------------------------
-void Station::action(
+void Station::payRent(
         const std::vector<Player *> &i_player,
         int current_player
         )

@@ -56,10 +56,18 @@ void Property::buyProperty(std::vector<Player *> i_players,int i_currentPlayer)
 //-----------------------------------------------------------------------------
 void Property::action(
         const std::vector<Player *> &i_player,
-        int current_player
+        int i_current_player
         )
 {
     this->print();
+    if (m_owner == -1)
+    {
+        this->buyProperty(i_player,i_current_player);
+    }
+    else
+    {
+        this->payRent(i_player,i_current_player);
+    }
 }
 
 

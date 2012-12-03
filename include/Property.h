@@ -23,6 +23,13 @@ public:
     virtual void action(
             const std::vector<Player *> &i_player,
             int current_player
+            );
+    //-------------------------------------------------------------------------
+    ///
+    //-------------------------------------------------------------------------
+    virtual void payRent(
+            const std::vector<Player *> &i_player,
+            int current_player
             )=0;
     //-------------------------------------------------------------------------
     /// @brief default destructor

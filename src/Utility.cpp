@@ -11,7 +11,7 @@ Utility::Utility(
 }
 
 //-----------------------------------------------------------------------------
-void Utility::action(
+void Utility::payRent(
         const std::vector<Player *> &i_player,
         int current_player
         )

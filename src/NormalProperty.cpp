@@ -30,7 +30,7 @@ void NormalProperty::printExtras()const
 
 //-------------------------------------------------------------------------
 
-void NormalProperty::action(
+void NormalProperty::payRent(
         const std::vector<Player *> &i_player,
         int current_player
         )
