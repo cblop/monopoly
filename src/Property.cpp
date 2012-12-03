@@ -29,6 +29,32 @@ void Property::print()const
 }
 
 //-----------------------------------------------------------------------------
+void Property::buyProperty(std::vector<Player *> i_players,int i_currentPlayer)
+{
+    if(m_owner==-1) // player is allowed to buy property
+    {
+        std::cout << "Do you want to buy " << m_name
+                  << " £" << m_price <<"? y/n\n";
+        std::string answer;
+        std::cin >> answer;
+        if (answer=="y")
+        {
+            i_players[i_currentPlayer]->addBalance(-m_price);
+            m_owner = i_currentPlayer;
+
+        }
+        else
+        {
+            // player does not want to buy the property
+        }
+    }
+    else
+    {
+        // property already owned - pay rent
+    }
+}
+
+//-----------------------------------------------------------------------------
 void Property::action(
         const std::vector<Player *> &i_player,
         int current_player

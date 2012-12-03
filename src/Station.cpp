@@ -18,7 +18,12 @@ Station::Station(
 //-----------------------------------------------------------------------------
 void Station::printExtras()const
 {
-    std::cout << "\n";
+    std::cout << "RENT PRICES: ";
+    for(unsigned int i=0; i<m_rentPrices.size(); ++i)
+    {
+        std::cout << m_rentPrices[i] << " ";
+    }
+    std::cout << "\n\n";
 }
 
 //-------------------------------------------------------------------------
