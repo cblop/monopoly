@@ -140,10 +140,8 @@ void Game::TakeTurn(Player *player)
         std::cout << std::endl;
         std::cin.get();
         m_dice->roll();
-        std::cout << m_dice->getTotal() << std::endl;
+        std::cout << m_dice->getValues()[0] << ", " << m_dice->getValues()[1] << std::endl;
 
-        //player->takeBalance(10*m_dice->getTotal());
-        
         player->movePositionBy(m_dice->getTotal());
         std::cout << player->getName() << " is now at:" << m_board.getTileName(player->getPosition()) << std::endl;
 
