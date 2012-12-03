@@ -5,19 +5,17 @@
 #include <cstdlib>
 #include <ctime>
 #include "Player.h"
-#include "Card.h"
+#include "CardController.h"
 #include <vector>
 
 static std::vector<std::string> communityChestCards;
 static std::vector<std::string> chanceCards;
 
-Card::Card(const std::string &i_name):Tile(i_name)
-//Card::Card()
+CardController::Card(const std::string &i_name):Tile(i_name)
 {
     std::cout << "INITIALISING CARDS" <<std::endl;
 	std::string line;
 	std::ifstream myfile1 ("CommunityChest");
-	//int a = 0;
 	if (myfile1.is_open())
 	{
 		while (!myfile1.eof())
@@ -30,7 +28,6 @@ Card::Card(const std::string &i_name):Tile(i_name)
 	myfile1.close();
 	
 	std::ifstream myfile2 ("Chance");
-	//int a = 0;
 	if (myfile2.is_open())
 	{
 		while (!myfile2.eof())
@@ -46,9 +43,8 @@ Card::Card(const std::string &i_name):Tile(i_name)
 
 
 
-void Card::selectCard(int cardTypeFlag)
+void CardController::selectCard(int cardTypeFlag)
 {
-	//srand(time(NULL));
 	std::string line;
 
 	if (cardTypeFlag == 0)
@@ -146,7 +142,7 @@ void Card::selectCard(int cardTypeFlag)
 
 
 //The stuff --------------------------------------------------------------------------------
-void Card::BinaryChoice(int moneyToRemove)
+void CardController::BinaryChoice(int moneyToRemove)
 {
 	std::cout << "Binary Choice" << std::endl;
 	std::cout << "Pay £" << moneyToRemove << "(0) or Take A Chance (1);" << std::endl;
@@ -158,56 +154,56 @@ void Card::BinaryChoice(int moneyToRemove)
 		std::cout << "[Call 'Chance']" << std::endl;
 }
 
-void Card::GetOutOfJailFree()
+void CardController::GetOutOfJailFree()
 {
 	std::cout << "Get Out of Jail FREE" <<std::endl;
 	std::cout << "[Set some flag in Player]" <<std::endl;
 }
 
-void Card::GetMoney(int moneyToAdd)
+void CardController::GetMoney(int moneyToAdd)
 {
 	std::cout << "Get Money" <<std::endl;
 	std::cout << "[Player recieves £" << moneyToAdd << "]" << std::endl;
 
 }
 
-void Card::StreetRepairs(int house, int hotel)
+void CardController::StreetRepairs(int house, int hotel)
 {
 	std::cout << "Assessed for Street Repairs" << std::endl;
 	std::cout << "[Player has to pay £" << house << "for each house and £" <<hotel << "]" << std::endl;
 }
 
-void Card::GoToJail()
+void CardController::GoToJail()
 {
 	std::cout << "GO TO JAIL!" << std::endl;
 }
 
-void Card::LoseMoney(int moneyToRemove, const std::vector<Player *> &i_players, int current_player)
+void CardController::LoseMoney(int moneyToRemove)
 {
 	std::cout << "Lose Money" << std::endl;
 	std::cout << "[Take £" << moneyToRemove << " From Player]" << std::endl;
 }
 
 
-void Card::MovePlayerToPosition(int boardPosition)
+void CardController::MovePlayerToPosition(int boardPosition)
 {
 	std::cout << "Move to Something" << std::endl;
 	std::cout << "[Move Player to Board Position " << boardPosition << "]" << std::endl;
 }
 
-void Card::MovePlayerBack(int spacesToMove)
+void CardController::MovePlayerBack(int spacesToMove)
 {
 	std::cout << "Move to Something" << std::endl;
 	std::cout << "[Move Player back " << spacesToMove << "]" << std::endl;
 }
 
 
-Card::~Card()
+CardController::~CardController()
 {}
 
 
 //-------------------------------------------------------------------------
-void Card::action(const std::vector<Player *> &i_players, int current_player)
+void CardController::action(const std::vector<Player *> &i_players, int current_player)
 {
     
     i_players[current_player]->addBalance(100.0);
@@ -216,13 +212,13 @@ void Card::action(const std::vector<Player *> &i_players, int current_player)
 
 
 //-------------------------------------------------------------------------
-void Card::reset()
+void CardController::reset()
 {
 
 }
 
 //-------------------------------------------------------------------------
-void Card::print()const
+void CardController::print()const
 {
 
 }

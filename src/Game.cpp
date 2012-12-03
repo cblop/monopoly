@@ -6,15 +6,16 @@
 #include <ctime>
 #include <stdlib.h>
 #include <ncurses.h>
-
+#include "CardsManager.h"
 
 
 //-----------------------------------------------------------------------------
 Game::Game()
 {
     m_dice = new Dice();
-
     SetupGame();
+    CardsManager::initialiseCards();
+//    CardsManager::printAllCards();
 }
 
 //-----------------------------------------------------------------------------
@@ -170,39 +171,39 @@ void Game::TakeTurn(Player *player)
     bool repeat = true;
     int doubleCount = 0;
 
-    while (repeat) {
-        std::cin.clear();
-        std::cin.ignore(INT_MAX, '\n');
-        std::cout << "Press ENTER to roll, " << player->getName() << std::endl;
-        std::cout << std::endl;
-        std::cin.get();
-        m_dice->roll();
-        std::cout << m_dice->getValues()[0] << ", " << m_dice->getValues()[1] << std::endl;
+    std::cin.clear();
+    std::cin.ignore(INT_MAX, '\n');
+    std::cout << "Press ENTER to roll, " << player->getName() << std::endl;
+    std::cout << std::endl;
+    std::cin.get();
+    m_dice->roll();
+    std::cout << m_dice->getValue() << std::endl;
 
-        player->movePositionBy(m_dice->getTotal());
-        std::cout << player->getName() << " is now at:" << m_board.getTileName(player->getPosition()) << std::endl;
+    //player->takeBalance(10*m_dice->getValue());
+    
+    player->movePositionBy(m_dice->getValue());
+    std::cout << player->getName() << " is now at:" << m_board.getTileName(player->getPosition()) << std::endl;
 
-        m_board.action(m_players, m_currentPlayer); 
-
-        if (m_dice->isDouble()) {
-            if (doubleCount < 3) {
-                std::cout << "You rolled a double! Go again." << std::endl;
-                doubleCount ++;
-            }
-            else {
-                std::cout << "You rolled three doubles in a row! Go to jail!" << std::endl;
-                player->setJailed(true);
-            }
+    if (m_dice->isDouble()) {
+        if (doubleCount < 3) {
+            std::cout << "You rolled a double! Go again." << std::endl;
+            doubleCount ++;
         }
         else {
-            repeat = false;
+            std::cout << "You rolled three doubles in a row! Go to jail!" << std::endl;
+            player->setJailed(true);
         }
+    }
+    else {
+        repeat = false;
+    }
     } 
+    m_board.action(m_players, m_currentPlayer);
 
 }
 
 //-----------------------------------------------------------------------------
 Game::~Game()
 {
-
+    CardsManager::destroyedAllCards();
 }

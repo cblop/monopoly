@@ -5,19 +5,17 @@
 #include <cstdlib>
 #include <ctime>
 #include "Player.h"
-#include "Card.h"
+#include "CardController.h"
 #include <vector>
 
 static std::vector<std::string> communityChestCards;
 static std::vector<std::string> chanceCards;
 
-Card::Card(const std::string &i_name):Tile(i_name)
-//Card::Card()
+CardController::Card(const std::string &i_name):Tile(i_name)
 {
     std::cout << "INITIALISING CARDS" <<std::endl;
 	std::string line;
 	std::ifstream myfile1 ("CommunityChest");
-	//int a = 0;
 	if (myfile1.is_open())
 	{
 		while (!myfile1.eof())
@@ -30,7 +28,6 @@ Card::Card(const std::string &i_name):Tile(i_name)
 	myfile1.close();
 	
 	std::ifstream myfile2 ("Chance");
-	//int a = 0;
 	if (myfile2.is_open())
 	{
 		while (!myfile2.eof())
@@ -46,9 +43,8 @@ Card::Card(const std::string &i_name):Tile(i_name)
 
 
 
-void Card::selectCard(int cardTypeFlag)
+void CardController::selectCard(int cardTypeFlag)
 {
-	//srand(time(NULL));
 	std::string line;
 
 	if (cardTypeFlag == 0)
@@ -146,7 +142,7 @@ void Card::selectCard(int cardTypeFlag)
 
 
 //The stuff --------------------------------------------------------------------------------
-void Card::BinaryChoice(int moneyToRemove)
+void CardController::BinaryChoice(int moneyToRemove)
 {
 	std::cout << "Binary Choice" << std::endl;
 	std::cout << "Pay £" << moneyToRemove << "(0) or Take A Chance (1);" << std::endl;
@@ -182,7 +178,7 @@ void Card::GoToJail()
 	std::cout << "GO TO JAIL!" << std::endl;
 }
 
-void Card::LoseMoney(int moneyToRemove, const std::vector<Player *> &i_players, int current_player)
+void Card::LoseMoney(int moneyToRemove)
 {
 	std::cout << "Lose Money" << std::endl;
 	std::cout << "[Take £" << moneyToRemove << " From Player]" << std::endl;

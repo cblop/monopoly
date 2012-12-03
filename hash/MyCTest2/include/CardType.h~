@@ -9,7 +9,10 @@ public:
 
 private:
     std::string m_task;
+
     int m_flag;
+
+
 };
 
 #endif // CARDTYPE_H

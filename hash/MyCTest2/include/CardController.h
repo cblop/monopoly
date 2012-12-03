@@ -1,5 +1,5 @@
-#ifndef CARD
-#define CARD
+#ifndef CARDCONTROLLER
+#define CARDCONTROLLER
 
 #include <iostream>
 #include <fstream>
@@ -9,17 +9,12 @@
 #include <ctime>
 #include "Player.h"
 #include "Tile.h"
-#include "CardType.h"
 #include <vector>
 
-class Card : public Tile
-//class Card
+class CardController : public Tile
 {
 	public:
-		Card(const std::string &i_name);
-        	//Card();
-
-		
+		CardController(const std::string &i_name);
 		
 		virtual void action(const std::vector<Player *> &i_player,int current_player)=0;
 		
@@ -29,21 +24,20 @@ class Card : public Tile
 
 		void selectCard(int cardTypeFlag);
 
-        	~Card();
+        	~CardController();
 
 	private:
-        //static std::vector<std::string> communityChestCards;
 
 		void BinaryChoice(int moneyToRemove);
 		void GetOutOfJailFree();
 		void GetMoney(int moneyToAdd);
 		void StreetRepairs(int house, int hotel);
 		void GoToJail();
-		void LoseMoney(int moneyToRemove, const std::vector<Player *> &i_players, int current_player);
+		void LoseMoney(int moneyToRemove);
 		void MovePlayerToPosition(int boardPosition);
 		void MovePlayerBack(int spacesToMove);
 
 };
 
 
-#endif //Card
+#endif //CardCONTROLLER

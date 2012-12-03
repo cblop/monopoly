@@ -42,9 +42,9 @@ void NormalProperty::payRent(
 
 
 //-------------------------------------------------------------------------
-void NormalProperty::reset()
+void NormalProperty::resetExtras()
 {
-
+    m_numOfHouse = 0;
 }
 
 //-------------------------------------------------------------------------

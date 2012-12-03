@@ -1,40 +1,39 @@
-#ifndef CARDTYPE_H
-#define CARDTYPE_H
+#ifndef CARDSTREETREPAIRS_H
+#define CARDSTREETREPAIRS_H
+
+#include "Card.h"
 #include <iostream>
 #include <vector>
-#include "Player.h"
 
-class Card
+class CardStreetRepairs : public Card
 {
 public:
     //-------------------------------------------------------------------------
     /// @brief default constructor
     //-------------------------------------------------------------------------
-    Card();
+    CardStreetRepairs(
+            const unsigned int i_houseRepair,
+            const unsigned int i_hotelRepair
+            );
     //-------------------------------------------------------------------------
-    /// @brief method that performs the action associated with that card
+    /// @brief the action that will be performed
     //-------------------------------------------------------------------------
-    virtual void action(
-            const std::vector<Player *> &i_players,
-            int currentPlayer
-            )=0;
-
-    //-------------------------------------------------------------------------
-    void print()const;
-
+    void action(const std::vector<Player *>&i_players, int currentPlayer);
     //-------------------------------------------------------------------------
     /// @brief default destructor
     //-------------------------------------------------------------------------
-    ~Card();
+    ~CardStreetRepairs();
 
 private:
     //-------------------------------------------------------------------------
-    /// @brief the message written on the Card
+    /// @brief price to repair a house
     //-------------------------------------------------------------------------
-    std::string m_message;
-
-
+    unsigned int m_houseRepair;
+    //-------------------------------------------------------------------------
+    /// @brief price to repair a hotel
+    //-------------------------------------------------------------------------
+    unsigned int m_hotelRepair;
 
 };
 
-#endif // CARDTYPE_H
+#endif // STREETREPAIRS_H
