@@ -98,12 +98,12 @@ Board::Board()
 
 //-------------------------------------------------------------------------
 void Board::action(
-        int i_currentTile,
         const std::vector<Player *> &i_players,
         int i_currentPlayer
         )
 {
-    m_tiles[i_currentTile]->action(i_players,i_currentPlayer);
+    int currentTile = i_players[i_currentPlayer]->getPosition();
+    m_tiles[currentTile]->action(i_players,i_currentPlayer);
 
 }
 
