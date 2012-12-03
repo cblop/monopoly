@@ -7,6 +7,7 @@ class Dice;
 #include <iostream>
 #include <vector>
 #include "Board.h"
+#include <stdlib.h>
 
 class Game
 {
@@ -34,8 +35,20 @@ public:
     void TakeTurn(Player *player);
 
     //-------------------------------------------------------------------------
-    /// @brief method that sets up a game by asking for player names, etc
+    /// @brief method that prints to the screen with ncurses
     //-------------------------------------------------------------------------
+    void PrintScreen(std::string message);
+
+    //-------------------------------------------------------------------------
+    /// @brief method that clears the screen with ncurses
+    //-------------------------------------------------------------------------
+    void ClearScreen();
+    
+    //-------------------------------------------------------------------------
+    /// @brief method that gets input with ncurses
+    //-------------------------------------------------------------------------
+    std::string ReadInput();
+
 
     //-------------------------------------------------------------------------
     /// @brief method that resets a game

@@ -8,6 +8,7 @@ Player::Player(const std::string &name)
     m_name = name;
     m_balance = 1500;
     m_position = 0;
+    m_isJailed = false;
 }
 
 //-----------------------------------------------------------------------------
@@ -63,6 +64,16 @@ void Player::movePositionBy(int amount)
 void Player::setPosition(int position)
 {
     m_position = position;
+}
+
+//-----------------------------------------------------------------------------
+void Player::setJailed(bool jailed)
+{
+    m_isJailed = jailed;
+    if (jailed) {
+        m_position = 10;
+    }
+
 }
 
 //-----------------------------------------------------------------------------
