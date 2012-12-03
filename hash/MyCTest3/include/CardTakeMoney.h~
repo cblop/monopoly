@@ -1,15 +1,15 @@
-#ifndef CARDRECEIVEMONEY_H
-#define CARDRECEIVEMONEY_H
+#ifndef CARDTAKEMONEY_H
+#define CARDTAKEMONEY_H
 
 #include "Card.h"
 
-class CardReceiveMoney :public Card
+class CardTakeMoney :public Card
 {
 public:
     //-------------------------------------------------------------------------
     /// @brief default constructor
     //-------------------------------------------------------------------------
-    CardReceiveMoney(unsigned int i_balance);
+    CardTakeMoney(unsigned int i_balance);
     //-------------------------------------------------------------------------
     /// @brief method that performs the action associated with that card
     //-------------------------------------------------------------------------
@@ -20,7 +20,7 @@ public:
     //-------------------------------------------------------------------------
     /// @brief default destructor
     //-------------------------------------------------------------------------
-    ~CardReceiveMoney();
+    ~CardTakeMoney();
 
 private:
     //-------------------------------------------------------------------------
@@ -29,4 +29,4 @@ private:
     int m_balanceToRemove;
 };
 
-#endif // CARDRECEIVEMONEY_H
+#endif // CARDTAKEMONEY_H

@@ -1,15 +1,15 @@
-#ifndef CARDRECEIVEMONEY_H
-#define CARDRECEIVEMONEY_H
+#ifndef CARDGOTOJAIL_H
+#define CARDGOTOJAIL_H
 
 #include "Card.h"
 
-class CardReceiveMoney :public Card
+class CardGoToJail :public Card
 {
 public:
     //-------------------------------------------------------------------------
     /// @brief default constructor
     //-------------------------------------------------------------------------
-    CardReceiveMoney(unsigned int i_balance);
+    CardGoToJail();
     //-------------------------------------------------------------------------
     /// @brief method that performs the action associated with that card
     //-------------------------------------------------------------------------
@@ -20,13 +20,9 @@ public:
     //-------------------------------------------------------------------------
     /// @brief default destructor
     //-------------------------------------------------------------------------
-    ~CardReceiveMoney();
+    ~CardGoToJail();
 
-private:
-    //-------------------------------------------------------------------------
-    /// @brief the new position of the player
-    //-------------------------------------------------------------------------
-    int m_balanceToRemove;
+
 };
 
-#endif // CARDRECEIVEMONEY_H
+#endif // CARDGOTOJAIL_H

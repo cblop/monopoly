@@ -1,22 +1,24 @@
-#include "CardReceiveMoney.h"
+#include "CardMovePlayerBack.h"
 
 //-------------------------------------------------------------------------
-CardReceiveMoney::CardReceiveMoney(
-        unsigned int i_balance
-        ):m_balanceToAdd(i_balance)
+CardMovePlayerBack::CardMovePlayerBack(
+        unsigned int i_position
+        ):m_placesToMove(i_position)
 {
 }
 
 //-------------------------------------------------------------------------
-void CardReceiveMoney::action(
+void CardMovePlayerBack::action(
         const std::vector<Player *> &i_players,
         int currentPlayer
         )
 {
-    i_players[currentPlayer]->addBalance(i_balance);
+    i_players[currentPlayer]->setPosition((i_players[currenPlayer]->getPosition) - i_position);
 }
 
 //-------------------------------------------------------------------------
-CardMovePlayerToPosition::~CardMovePlayerToPosition()
+CardMovePlayerBack::~CardMovePlayerBack()
 {
 }
+
+

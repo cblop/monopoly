@@ -1,22 +1,23 @@
-#include "CardReceiveMoney.h"
+#include "CardTakeMoney.h"
 
 //-------------------------------------------------------------------------
-CardReceiveMoney::CardReceiveMoney(
+CardTakeMoney::CardTakeMoney(
         unsigned int i_balance
-        ):m_balanceToAdd(i_balance)
+        ):m_balanceToRemove(i_balance)
 {
 }
 
 //-------------------------------------------------------------------------
-void CardReceiveMoney::action(
+void CardTakeMoney::action(
         const std::vector<Player *> &i_players,
         int currentPlayer
         )
 {
-    i_players[currentPlayer]->addBalance(i_balance);
+    //i_players[currentPlayer]->addBalance(i_balance);
+    std::cout << "Remove £" << i_balance<< " from player" << std::endl;
 }
 
 //-------------------------------------------------------------------------
-CardMovePlayerToPosition::~CardMovePlayerToPosition()
+CardTakeMoney::~CardTakeMoney()
 {
 }

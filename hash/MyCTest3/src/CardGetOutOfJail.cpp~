@@ -1,22 +1,20 @@
-#include "CardReceiveMoney.h"
+#include "CardGoToJail.h"
 
 //-------------------------------------------------------------------------
-CardReceiveMoney::CardReceiveMoney(
-        unsigned int i_balance
-        ):m_balanceToAdd(i_balance)
+CardGetOutOfJail::CardGetOutOfJail()
 {
 }
 
 //-------------------------------------------------------------------------
-void CardReceiveMoney::action(
+void CardGetOutOfJail::action(
         const std::vector<Player *> &i_players,
         int currentPlayer
         )
 {
-    i_players[currentPlayer]->addBalance(i_balance);
+    i_players[currentPlayer]->setJailed(false);
 }
 
 //-------------------------------------------------------------------------
-CardMovePlayerToPosition::~CardMovePlayerToPosition()
+CardGoToJail::~CardGetOutOfJail()
 {
 }

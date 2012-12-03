@@ -10,6 +10,11 @@
 #include "CardMovePlayerToPosition.h"
 #include "CardStreetRepairs.h"
 #include "CardReceiveMoney.h"
+#include "CardChanceOrLoseMoney.h"
+#include "CardGoToJail.h"
+#include "CardGetOutOfJail.h"
+#include "CardTakeMoney.h"
+#include "CardMovePlayerBack"
 
 std::vector<Card *> CardsManager::m_communityChest;
 
@@ -17,30 +22,6 @@ CardsManager::CardsManager(int cardTypeFlag, const std::string &i_name):Tile(i_n
 {
 
 }
-
-//-------------------------------------------------------------------------
-void CardsManager::action(
-        const std::vector<Player *> &i_players,
-        int current_player
-        )
-{
-    i_players[current_player]->addBalance(100.0);
-}
-
-//-------------------------------------------------------------------------
-void CardsManager::reset()
-{
-
-}
-
-//-------------------------------------------------------------------------
-void CardsManager::print()const
-{
-    std::cout << "-------------------------------------------------\n";
-    std::cout << "On a card." << std::endl;
-}
-
-
 
 
 void CardsManager::initialiseCards()
@@ -78,26 +59,28 @@ void CardsManager::initialiseCards()
     {
 
         std::cout << "Community Chest" << std::endl;
+        
+        
         line = communityChestCards[i];
-
-
         std::istringstream iss(line);
         std::string sub;
-        iss >> sub;
+        
+        //First Sub-String of line is always flag
+        iss >> sub; 
         std::cout << line << std::endl;
 
-        std::cout << "CARD TYPE ==> ";
+
         if (sub == "b") //Binary choice (e.g pay £10 or take a chance)
         {
             int moneyToRemove;
             iss >> sub;
             std::istringstream(sub) >> moneyToRemove;
-
+            m_communityChest[i] = new CardChanceOrLoseMoney(moneyToRemove);
         }
 
         else if (sub == "f") //Get out of Jail Free
         {
-
+	    m_communityChest[i] = new CardGetOutJail();
         }
 
         else if (sub == "g") //Player RECIEVES money
@@ -115,19 +98,21 @@ void CardsManager::initialiseCards()
             std::istringstream(sub) >> house;
             iss >> sub;
             std::istringstream(sub) >> hotel;
+            m_communityChest[i] = new CardStreetRepairs(house, hotel);
 
         }
 
         else if (sub == "j") //Go To Jail
         {
-
+	    m_communityChest[i] = new CardGoToJail();
         }
+        
         else if (sub == "l") //Take money from player
         {
             int moneyToRemove;
             iss >> sub;
             std::istringstream(sub) >> moneyToRemove;
-
+            m_communityChest[i] = new CardTakeMoney(moneyToRemove);
         }
 
         else if (sub == "m") //Move player TO SPECIFIED position
@@ -144,7 +129,7 @@ void CardsManager::initialiseCards()
             int spacesToMove;
             iss >> sub;
             std::istringstream(sub) >> spacesToMove;
-
+            m_communityChest[i] = new CardMovePlayerBack(spacesToMove);
         }
      }
 }
@@ -157,6 +142,18 @@ void CardsManager::destroyedAllCards()
     }
 }
 
+//-------------------------------------------------------------------------
+void CardsManager::reset()
+{
+
+}
+
+//-------------------------------------------------------------------------
+void CardsManager::print()const
+{
+    std::cout << "-------------------------------------------------\n";
+    std::cout << "On a card." << std::endl;
+}
 CardsManager::~CardsManager()
 {
 }

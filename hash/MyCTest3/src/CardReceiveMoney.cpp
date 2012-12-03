@@ -3,7 +3,7 @@
 //-------------------------------------------------------------------------
 CardReceiveMoney::CardReceiveMoney(
         unsigned int i_balance
-        ):m_balanceToRemove(i_balance)
+        ):m_balanceToAdd(i_balance)
 {
 }
 
@@ -17,6 +17,6 @@ void CardReceiveMoney::action(
 }
 
 //-------------------------------------------------------------------------
-CardMovePlayerToPosition::~CardMovePlayerToPosition()
+CardReceiveMoney::~CardReceiveMoney()
 {
 }

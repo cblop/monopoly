@@ -26,7 +26,7 @@ private:
     //-------------------------------------------------------------------------
     /// @brief the new position of the player
     //-------------------------------------------------------------------------
-    int m_balanceToRemove;
+    int m_balanceToAdd;
 };
 
 #endif // CARDRECEIVEMONEY_H
