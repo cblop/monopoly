@@ -177,11 +177,11 @@ void Game::TakeTurn(Player *player)
     std::cout << std::endl;
     std::cin.get();
     m_dice->roll();
-    std::cout << m_dice->getValue() << std::endl;
+    std::cout << m_dice->getTotal() << std::endl;
 
-    //player->takeBalance(10*m_dice->getValue());
+    //player->takeBalance(10*m_dice->getTotal());
     
-    player->movePositionBy(m_dice->getValue());
+    player->movePositionBy(m_dice->getTotal());
     std::cout << player->getName() << " is now at:" << m_board.getTileName(player->getPosition()) << std::endl;
 
     if (m_dice->isDouble()) {
@@ -197,7 +197,6 @@ void Game::TakeTurn(Player *player)
     else {
         repeat = false;
     }
-    } 
     m_board.action(m_players, m_currentPlayer);
 
 }

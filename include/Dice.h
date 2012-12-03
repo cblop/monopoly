@@ -3,13 +3,15 @@
 
 class Dice
 {
-    int m_value;
+    int m_values[2];
 
 public:
     // constructor
     Dice();
 
-    int getValue();
+    int *getValues();
+    int getTotal();
+    bool isDouble();
     void roll();
 
     ~Dice();
