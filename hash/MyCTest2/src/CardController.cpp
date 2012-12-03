@@ -1,0 +1,227 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <cstdlib>
+#include <ctime>
+#include "Player.h"
+#include "CardController.h"
+#include <vector>
+
+static std::vector<std::string> communityChestCards;
+static std::vector<std::string> chanceCards;
+
+CardController::Card(const std::string &i_name):Tile(i_name)
+{
+    std::cout << "INITIALISING CARDS" <<std::endl;
+	std::string line;
+	std::ifstream myfile1 ("CommunityChest");
+	if (myfile1.is_open())
+	{
+		while (!myfile1.eof())
+		{
+			getline(myfile1, line);
+			
+            		communityChestCards.push_back(line);
+		}
+	}
+	myfile1.close();
+	
+	std::ifstream myfile2 ("Chance");
+	if (myfile2.is_open())
+	{
+		while (!myfile2.eof())
+		{
+			getline(myfile2, line);
+            		chanceCards.push_back(line);
+		}
+	}
+	myfile2.close();
+    
+}
+
+
+
+
+void CardController::selectCard(int cardTypeFlag)
+{
+	std::string line;
+
+	if (cardTypeFlag == 0)
+	{
+		//std::cout << "Vector Size = " << communityChestCards.size() << std::endl;
+		std::cout << "Community Chest" << std::endl;
+		
+		int random = rand() % communityChestCards.size();
+		std::cout << "Random number = " << random << std::endl;
+		line = communityChestCards[random];
+
+	}
+	else if (cardTypeFlag == 1)
+	{
+		std::cout << "Chance" << std::endl;
+		int random = rand() % chanceCards.size();
+		std::cout << "Random number = " << random << std::endl;
+		line = chanceCards[random];
+	}
+	else
+	{
+		std::cout << "1) NOOOOOOOOOOOOOOOOOOO. It is WRONG!!! 0 or 1" << std::endl;
+	}
+	
+	std::istringstream iss(line);
+	std::string sub;
+	iss >> sub;
+	std::cout << line << std::endl;
+	
+	std::cout << "CARD TYPE ==> ";
+	if (sub == "b")
+	{
+		int moneyToRemove;
+		iss >> sub;
+		std::istringstream(sub) >> moneyToRemove;
+		BinaryChoice(moneyToRemove);
+	}
+
+	else if (sub == "f")
+	{
+		GetOutOfJailFree();
+	}
+
+	else if (sub == "g")
+	{
+		int moneyToAdd;
+		iss >> sub;
+		std::istringstream(sub) >> moneyToAdd;
+		GetMoney(moneyToAdd);
+	}
+
+	else if (sub == "h")
+	{
+		int house, hotel;
+		iss >> sub;
+		std::istringstream(sub) >> house;
+		iss >> sub;
+		std::istringstream(sub) >> hotel;
+		StreetRepairs(house, hotel);
+	}
+
+	else if (sub == "j")
+		GoToJail();
+
+	else if (sub == "l")
+	{
+		int moneyToRemove;
+		iss >> sub;
+		std::istringstream(sub) >> moneyToRemove;
+		LoseMoney(moneyToRemove);
+	}
+	
+	else if (sub == "m")
+	{
+		int boardPosition;
+		iss >> sub;
+		std::istringstream(sub) >> boardPosition;
+		MovePlayerToPosition(boardPosition);
+	}
+	
+	else if (sub == "mb")
+	{
+		int spacesToMove;
+		iss >> sub;
+		std::istringstream(sub) >> spacesToMove;
+		MovePlayerBack(spacesToMove);
+	}
+
+		
+
+    std::cout << std::endl;
+
+}
+
+
+
+//The stuff --------------------------------------------------------------------------------
+void CardController::BinaryChoice(int moneyToRemove)
+{
+	std::cout << "Binary Choice" << std::endl;
+	std::cout << "Pay £" << moneyToRemove << "(0) or Take A Chance (1);" << std::endl;
+	int doChance;
+	std::cin >> doChance;
+	if (doChance == 0)
+		std::cout << "[Take £" << moneyToRemove << " From Player]" << std::endl;
+	else if (doChance == 1)
+		std::cout << "[Call 'Chance']" << std::endl;
+}
+
+void CardController::GetOutOfJailFree()
+{
+	std::cout << "Get Out of Jail FREE" <<std::endl;
+	std::cout << "[Set some flag in Player]" <<std::endl;
+}
+
+void CardController::GetMoney(int moneyToAdd)
+{
+	std::cout << "Get Money" <<std::endl;
+	std::cout << "[Player recieves £" << moneyToAdd << "]" << std::endl;
+
+}
+
+void CardController::StreetRepairs(int house, int hotel)
+{
+	std::cout << "Assessed for Street Repairs" << std::endl;
+	std::cout << "[Player has to pay £" << house << "for each house and £" <<hotel << "]" << std::endl;
+}
+
+void CardController::GoToJail()
+{
+	std::cout << "GO TO JAIL!" << std::endl;
+}
+
+void CardController::LoseMoney(int moneyToRemove)
+{
+	std::cout << "Lose Money" << std::endl;
+	std::cout << "[Take £" << moneyToRemove << " From Player]" << std::endl;
+}
+
+
+void CardController::MovePlayerToPosition(int boardPosition)
+{
+	std::cout << "Move to Something" << std::endl;
+	std::cout << "[Move Player to Board Position " << boardPosition << "]" << std::endl;
+}
+
+void CardController::MovePlayerBack(int spacesToMove)
+{
+	std::cout << "Move to Something" << std::endl;
+	std::cout << "[Move Player back " << spacesToMove << "]" << std::endl;
+}
+
+
+CardController::~CardController()
+{}
+
+
+//-------------------------------------------------------------------------
+void CardController::action(const std::vector<Player *> &i_players, int current_player)
+{
+    
+    i_players[current_player]->addBalance(100.0);
+    
+}
+
+
+//-------------------------------------------------------------------------
+void CardController::reset()
+{
+
+}
+
+//-------------------------------------------------------------------------
+void CardController::print()const
+{
+
+}
+
+
+

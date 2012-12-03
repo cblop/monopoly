@@ -3,10 +3,11 @@
 #include "Player.h"
 
 //-----------------------------------------------------------------------------
-Player::Player(const std::string &name): m_name(name), m_balance(100)
+Player::Player(const std::string &name)
 {
     m_name = name;
     m_balance = 1500;
+    m_position = 0;
 }
 
 //-----------------------------------------------------------------------------
@@ -22,9 +23,23 @@ int Player::getBalance()
 }
 
 //-----------------------------------------------------------------------------
-void Player::addBalance(int amount)
+void Player::addBalance(int i_amount)
 {
-    m_balance += amount;
+    m_balance += i_amount;
+}
+
+//-----------------------------------------------------------------------------
+bool Player::takeBalance(int i_amount)
+{
+    if(m_balance-i_amount <0)
+    {
+        return false;
+    }
+    else
+    {
+        m_balance -= i_amount;
+        return true;
+    }
 }
 
 //-----------------------------------------------------------------------------
@@ -36,7 +51,12 @@ int Player::getPosition()
 //-----------------------------------------------------------------------------
 void Player::movePositionBy(int amount)
 {
-    m_position += amount;
+    int oldPosition = m_position;
+    m_position = (m_position + amount) % 40;
+    if (m_position < oldPosition) {
+        // The player passes go
+        m_balance += 200;
+    }
 }
 
 //-----------------------------------------------------------------------------
