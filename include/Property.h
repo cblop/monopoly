@@ -9,7 +9,7 @@ public:
     //-------------------------------------------------------------------------
     /// @brief default constructor
     /// @param[in] i_name: the name of the tile
-    /// @param[in] i_price: the price of the property
+    /// param[in] i_price: the price of the property
     //-------------------------------------------------------------------------
     Property(const std::string &i_name, double i_price);
     //-------------------------------------------------------------------------
@@ -21,6 +21,13 @@ public:
     /// @param[in] i_player the player that have reached that specific tile
     //-------------------------------------------------------------------------
     virtual void action(
+            const std::vector<Player *> &i_player,
+            int current_player
+            );
+    //-------------------------------------------------------------------------
+    ///
+    //-------------------------------------------------------------------------
+    virtual void payRent(
             const std::vector<Player *> &i_player,
             int current_player
             )=0;
@@ -36,6 +43,12 @@ private:
     virtual void printExtras()const=0;
 
 protected:
+
+    //-------------------------------------------------------------------------
+    /// @brief method to buy property
+    //-------------------------------------------------------------------------
+    void buyProperty(std::vector<Player *> i_players, int i_currentPlayer);
+
     //-----------------------------------------------------------------------------
     /// @brief the owner of the the property, equals to -1 if it is not owned
     //-----------------------------------------------------------------------------
@@ -43,7 +56,7 @@ protected:
     //-----------------------------------------------------------------------------
     /// @brief the price of the property
     //-----------------------------------------------------------------------------
-    double m_price;
+    const int m_price;
     //-----------------------------------------------------------------------------
     /// @brief indicated whether the property is morgated or not, 1 for morgated
     //-----------------------------------------------------------------------------

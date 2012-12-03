@@ -29,12 +29,45 @@ void Property::print()const
 }
 
 //-----------------------------------------------------------------------------
+void Property::buyProperty(std::vector<Player *> i_players,int i_currentPlayer)
+{
+    char response;
+    std::cout << "Would you like to buy this property? (y/n): ";
+    std::cin >> response;
+    while ((response != 'y') && (response != 'n')){
+            std::cout << std::endl << "Please type 'y' or 'n': ";
+            std::cin >> response;
+            std::cout << response;
+    }
+
+    if (response == 'y') {
+        if(i_players[i_currentPlayer]->takeBalance(m_price))
+        {
+            std::cout<<"Money makes the world go round!!!\n";
+            m_owner = i_currentPlayer;
+        }
+        else
+        {
+            std::cout<< "Player does not have enough money!\n";
+        }
+    }
+}
+
+//-----------------------------------------------------------------------------
 void Property::action(
         const std::vector<Player *> &i_player,
-        int current_player
+        int i_current_player
         )
 {
     this->print();
+    if (m_owner == -1)
+    {
+        this->buyProperty(i_player,i_current_player);
+    }
+    else
+    {
+        this->payRent(i_player,i_current_player);
+    }
 }
 
 
