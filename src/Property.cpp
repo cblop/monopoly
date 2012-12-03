@@ -54,6 +54,14 @@ void Property::buyProperty(std::vector<Player *> i_players,int i_currentPlayer)
 }
 
 //-----------------------------------------------------------------------------
+void Property::reset()
+{
+    m_owner = -1;
+    m_isPropertyMorgated = 0;
+    this->resetExtras();
+}
+
+//-----------------------------------------------------------------------------
 void Property::action(
         const std::vector<Player *> &i_player,
         int i_current_player

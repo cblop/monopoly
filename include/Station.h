@@ -24,7 +24,7 @@ public:
     /// @brief method that resets the values of a property
     ///        in case the game is reset
     //-------------------------------------------------------------------------
-    void reset();
+    void resetExtras();
     //-------------------------------------------------------------------------
     /// @brief method that does the action =p
     /// @param[in] i_player the player that have reached that specific tile

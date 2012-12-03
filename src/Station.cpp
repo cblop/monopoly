@@ -27,9 +27,8 @@ void Station::printExtras()const
 }
 
 //-------------------------------------------------------------------------
-void Station::reset()
+void Station::resetExtras()
 {
-//    m_isPropertyMorgated = 0;
 }
 
 //-------------------------------------------------------------------------

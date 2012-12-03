@@ -26,7 +26,7 @@ void Utility::printExtras()const
 }
 
 //-----------------------------------------------------------------------------
-void Utility::reset()
+void Utility::resetExtras()
 {
 
 }

@@ -1,40 +1,32 @@
-#ifndef CARDTYPE_H
-#define CARDTYPE_H
-#include <iostream>
-#include <vector>
-#include "Player.h"
+#ifndef CARDMOVEPLAYERTOPOSITION_H
+#define CARDMOVEPLAYERTOPOSITION_H
 
-class Card
+#include "Card.h"
+
+class CardMovePlayerToPosition :public Card
 {
 public:
     //-------------------------------------------------------------------------
-    /// @brief default constructor
+    /// @brief default constractor
     //-------------------------------------------------------------------------
-    Card();
+    CardMovePlayerToPosition(unsigned int i_position);
     //-------------------------------------------------------------------------
     /// @brief method that performs the action associated with that card
     //-------------------------------------------------------------------------
-    virtual void action(
+    void action(
             const std::vector<Player *> &i_players,
             int currentPlayer
-            )=0;
-
-    //-------------------------------------------------------------------------
-    void print()const;
-
+            );
     //-------------------------------------------------------------------------
     /// @brief default destructor
     //-------------------------------------------------------------------------
-    ~Card();
+    ~CardMovePlayerToPosition();
 
 private:
     //-------------------------------------------------------------------------
-    /// @brief the message written on the Card
+    /// @brief the new position of the player
     //-------------------------------------------------------------------------
-    std::string m_message;
-
-
-
+    int m_newPosition;
 };
 
-#endif // CARDTYPE_H
+#endif // CARDMOVEPLAYERTOPOSITION_H

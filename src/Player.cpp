@@ -3,11 +3,10 @@
 #include "Player.h"
 
 //-----------------------------------------------------------------------------
-Player::Player(const std::string &name)
+Player::Player(const std::string &name): m_name(name), m_balance(100)
 {
     m_name = name;
     m_balance = 1500;
-    m_position = 0;
 }
 
 //-----------------------------------------------------------------------------
