@@ -145,7 +145,7 @@ void Game::TakeTurn(Player *player)
     player->movePositionBy(m_dice->getValue());
     std::cout << player->getName() << " is now at:" << m_board.getTileName(player->getPosition()) << std::endl;
 
-    m_board.action(m_players, m_currentPlayer); 
+    m_board.action(m_players, m_currentPlayer);
 
 }
 
