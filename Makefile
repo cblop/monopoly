@@ -1,3 +1,3 @@
 all:
-	clang++ -Wall  -W -o Monopoly src/*.cpp -I ./include libncurses.a
+	clang++ -Wall  -W -static -o Monopoly src/*.cpp -I ./include -lncurses
 
