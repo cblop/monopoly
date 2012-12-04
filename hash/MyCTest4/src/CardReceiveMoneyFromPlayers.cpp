@@ -19,7 +19,7 @@ void CardReceiveMoneyFromPlayers::action(
     {
         if (i != currentPlayer)
         {
-            //Remove the ammount of m_balanceToAdd from the other players
+            i_players[i]->takeBalance(m_balanceToAdd);
         }
     }
 }

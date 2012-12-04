@@ -20,8 +20,7 @@ void  CardStreetRepairs::action(
     
     //Calculate How Many Houses and Hotels There Are
     
-    i_players[currentPlayer]->takeBalance((numberOfHouses * m_houseRepair)
-                                        + (numberOfHotels * m_hotelRepair));
+    
 }
 
 

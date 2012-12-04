@@ -51,11 +51,14 @@ void CardsManager::initialiseCards()
     std::ifstream myfile2 ("Chance");
     if (myfile2.is_open())
     {
-        while (!myfile2.eof())
-        {
+    	getline(myfile1, line);
+    	do
+    	{
+            chanceCards.push_back(line);
             getline(myfile2, line);
-                    chanceCards.push_back(line);
         }
+        while (!myfile2.eof());
+        
     }
     myfile2.close();
 
@@ -171,6 +174,8 @@ void CardsManager::loadCards(std::vector<std::string> stringVector, std::vector<
 {
     cardVector.resize(stringVector.size());
     
+    std::cout << "String Vector size = " << stringVector.size() << std::endl;
+    std::cout << "Card Vector size = " << cardVector.size() << std::endl;
     for(unsigned int i=0; i<stringVector.size(); ++i)
     {
     	std::string line = stringVector[i];

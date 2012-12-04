@@ -10,7 +10,7 @@ CardChanceOrLoseMoney::CardChanceOrLoseMoney(
 //-------------------------------------------------------------------------
 void CardChanceOrLoseMoney::action(
         const std::vector<Player *> &i_players,
-        int currentPlayer
+        int i_currentPlayer
         )
 {
     std::cout << "Would you like to take a chance (y) or Pay £" << m_balanceToRemove << " : " << std::endl;
@@ -23,7 +23,7 @@ void CardChanceOrLoseMoney::action(
     }
     else if (decision == "n")
     {
-        i_players[currentPlayer]->takeBalance(m_balanceToRemove);
+        i_players[i_currentPlayer]->takeBalance(m_balanceToRemove);
     }
     else 
     	std::cout << "Invalid Input. Please enter y or n" << std::endl;
