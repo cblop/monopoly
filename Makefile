@@ -1,5 +1,5 @@
 clang:
-	clang++ -Wall  -W -static -o Monopoly src/*.cpp -I ./include -lncurses
+	clang++ -Wall  -W -o Monopoly src/*.cpp -I ./include -l:libncurses.a
 gcc:
-	g++ -Wall  -W -static -o Monopoly src/*.cpp -I ./include -lncurses
+	g++ -Wall  -W -o Monopoly src/*.cpp -I ./include -l:libncurses.a
 
