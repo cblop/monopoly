@@ -15,7 +15,13 @@ void  CardStreetRepairs::action(
         int currentPlayer
         )
 {
-    //pay some money
+    int numberOfHouses = 0;
+    int numberOfHotels = 0;
+    
+    //Calculate How Many Houses and Hotels There Are
+    
+    i_players[currentPlayer]->takeBalance((numberOfHouses * m_houseRepair)
+                                        + (numberOfHotels * m_hotelRepair));
 }
 
 

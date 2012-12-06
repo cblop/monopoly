@@ -15,7 +15,7 @@
 class CardsManager : public Tile
 {
 	public:
-        CardsManager(int cardTypeFlag, const std::string &i_name);
+        CardsManager(const std::string &i_name);
         //-------------------------------------------------------------------------
         /// @brief method that does the action =p
         /// @param[in] i_player the player that have reached that specific tile

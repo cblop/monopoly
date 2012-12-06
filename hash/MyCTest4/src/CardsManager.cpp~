@@ -20,7 +20,7 @@
 std::vector<Card *> CardsManager::m_communityChest;
 std::vector<Card *> CardsManager::m_chance;
 
-CardsManager::CardsManager(int cardTypeFlag, const std::string &i_name):Tile(i_name)
+CardsManager::CardsManager(iconst std::string &i_name)
 {
 
 }
@@ -237,7 +237,6 @@ void CardsManager::loadCards(std::vector<std::string> stringVector, std::vector<
             iss >> sub;
             std::istringstream(sub) >> moneyToRemove;
             cardVector[i] = new CardTakeMoney(moneyToRemove);
-            std::cout << "\n\n" << cardVector[i] << std::endl;
         }
 
         else if (sub == "m") //Move player TO SPECIFIED position

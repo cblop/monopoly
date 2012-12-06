@@ -15,7 +15,7 @@
 class CardsManager : public Tile
 {
 	public:
-        CardsManager(int cardTypeFlag, const std::string &i_name);
+        CardsManager(const std::string &i_name);
         //-------------------------------------------------------------------------
         /// @brief method that does the action =p
         /// @param[in] i_player the player that have reached that specific tile
@@ -58,17 +58,11 @@ class CardsManager : public Tile
 
 
         static std::vector<Card *> m_communityChest;
+        static std::vector<Card *> m_chance;
+        
+        static void loadCards(std::vector<std::string> stringVector, std::vector<Card *> cardVector);
 
-		void BinaryChoice(int moneyToRemove);
-		void GetOutOfJailFree();
-		void GetMoney(int moneyToAdd);
-		void StreetRepairs(int house, int hotel);
-		void GoToJail();
-		void LoseMoney(int moneyToRemove);
-		void MovePlayerToPosition(int boardPosition);
-		void MovePlayerBack(int spacesToMove);
 
-        // std::vector<>
 };
 
 

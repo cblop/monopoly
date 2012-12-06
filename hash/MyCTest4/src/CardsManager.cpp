@@ -20,7 +20,7 @@
 std::vector<Card *> CardsManager::m_communityChest;
 std::vector<Card *> CardsManager::m_chance;
 
-CardsManager::CardsManager(int cardTypeFlag, const std::string &i_name):Tile(i_name)
+CardsManager::CardsManager(const std::string &i_name):Tile(i_name)
 {
 
 }
