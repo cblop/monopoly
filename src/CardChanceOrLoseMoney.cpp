@@ -9,7 +9,7 @@ CardChanceOrLoseMoney::CardChanceOrLoseMoney(
 
 //-----------------------------------------------------------------------------
 void CardChanceOrLoseMoney::action(
-        Players &i_players
+        PlayerManager &i_players
         )
 {
     std::cout << "Would you like to take a chance (y) or Pay £" <<
@@ -25,13 +25,12 @@ void CardChanceOrLoseMoney::action(
     {
         if(i_players.takeBalance(m_balanceToRemove))
         {
-            std::cout<< i_players.getName() << " paid "
-                     << m_balanceToRemove << "\n";
+            std::cout<< i_players.getName() << " paid " << m_balanceToRemove << std::endl;
         }
         else
         {
             std::cout << i_players.getName()
-                      << " does not have enough money to pay\n";
+                      << " does not have enough money to pay" << std::endl;
         }
 
     }

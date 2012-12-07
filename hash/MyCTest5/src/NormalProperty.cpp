@@ -3,9 +3,9 @@
 //-------------------------------------------------------------------------
 NormalProperty::NormalProperty(
         const std::string &i_name,
-        double i_price,
-        double i_housePrice,
-        const std::vector<double> &i_rentPrices
+        unsigned int i_price,
+        unsigned int i_housePrice,
+        const std::vector<unsigned int> &i_rentPrices
         ):Property(i_name,i_price),
           m_housePrice(i_housePrice)
 {
@@ -31,13 +31,18 @@ void NormalProperty::printExtras()const
 //-------------------------------------------------------------------------
 
 void NormalProperty::payRent(
-        const std::vector<Player *> &i_player,
-        int current_player
+        PlayerManager &i_players
         )
 {
-    i_player[current_player]->takeBalance(m_rentPrices[m_numOfHouse]);
-    i_player[m_owner]->addBalance(m_rentPrices[m_numOfHouse]);
-    std::cout << "Rent paid: " << m_rentPrices[m_numOfHouse] << std::endl;
+    if(i_players.takeBalance(m_rentPrices[m_numOfHouse]))
+    {
+        i_players.addBalance(m_rentPrices[m_numOfHouse],m_owner);
+        std::cout << "Rent paid: " << m_rentPrices[m_numOfHouse] << std::endl;
+    }
+    else
+    {
+        std::cout << "Player does not have enough money to pay\n";
+    }
 }
 
 

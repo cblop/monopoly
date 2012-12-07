@@ -12,12 +12,13 @@
 #include "NormalProperty.h"
 #include "Utility.h"
 #include "CardsManager.h"
+#include "GroupsManager.h"
 
 //-------------------------------------------------------------------------
 Board::Board()
 {
+    CardsManager::initialiseCards();
     // Corners
-    
     std::ifstream bvhStream("Board");
     if (!bvhStream) {
         std::cout << "File Board not found. Game will terminate\n";
@@ -32,10 +33,10 @@ Board::Board()
     {
         i++;
         const char flag = words[i++][0];
-        int price = 0;
-        std::string name;
-        double housePrice;
-        std::vector<double> rentPrices;
+        unsigned int price = 0;
+        std::string name, colour;
+        int housePrice;
+        std::vector<unsigned int> rentPrices;
         rentPrices.resize(6);
         switch(flag)
         {
@@ -45,11 +46,7 @@ Board::Board()
             break;
         case 'o': //Order
             name = readTilesName(words,&i);
-            m_tiles[counter] = new Order(name);
-            break;
-        case 'd': //CommunityChest
-            name = readTilesName(words,&i);
-            m_tiles[counter] = CardsManager::action();
+            m_tiles[counter] = new CardsManager(name);
             break;
         case 'p': // Property
         {
@@ -64,9 +61,11 @@ Board::Board()
                 {
                     rentPrices[k] = atoi(words[i++].c_str());
                 }
+                colour = words[i++];
                 name = readTilesName(words,&i);
                 m_tiles[counter] =
                         new NormalProperty(name,price,housePrice,rentPrices);
+                m_groups.addTile(colour,m_tiles[counter]);
                 break;
             }
             case 's': //Station
@@ -76,19 +75,20 @@ Board::Board()
                 }
                 name = readTilesName(words,&i);
                 m_tiles[counter] = new Station(name,price,rentPrices);
+                m_groups.addTile("station",m_tiles[counter]);
                 break;
             case 'u' : // Works - Company
                 for(unsigned int k=0; k<2; ++k)
                 {
                     rentPrices[k] = atoi(words[i++].c_str());
-                }
+                }                
                 name = readTilesName(words,&i);
                 m_tiles[counter] = new Utility(name,price,rentPrices);
+                m_groups.addTile("utility",m_tiles[counter]);
             break;
             default:
                 break;
             }
-
             break;
         }
         default:
@@ -99,17 +99,16 @@ Board::Board()
         i++;
         counter++;
     }
+    m_groups.print();
 }
 
 
 //-------------------------------------------------------------------------
-void Board::action(
-        const std::vector<Player *> &i_players,
-        int i_currentPlayer
-        )
+void Board::action(PlayerManager &i_players)
 {
-    int currentTile = i_players[i_currentPlayer]->getPosition();
-    m_tiles[currentTile]->action(i_players,i_currentPlayer);
+    int currentTile = i_players.getPosition();
+    std::cout<<"Calling Action\n";
+    m_tiles[currentTile]->action(i_players);
 }
 
 //-------------------------------------------------------------------------
@@ -148,6 +147,7 @@ std::string Board::readTilesName(
 //-------------------------------------------------------------------------
 Board::~Board()
 {
+    CardsManager::destroyedAllCards();
     for (unsigned int i=0; i<numOfTiles; ++i)
     {
         delete m_tiles[i];

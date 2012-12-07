@@ -6,6 +6,7 @@ class Dice;
 
 #include <iostream>
 #include <vector>
+#include "PlayerManager.h"
 #include "Board.h"
 
 class Game
@@ -67,13 +68,9 @@ private:
 
 
     //-------------------------------------------------------------------------
-    /// @brief the number of the current Player
+    /// @brief all the Players of the Game
     //-------------------------------------------------------------------------
-    int m_currentPlayer;
-    //-------------------------------------------------------------------------
-    /// @brief all the players for the game
-    //-------------------------------------------------------------------------
-    std::vector<Player *> m_players;
+    PlayerManager m_players1;
 
     //-------------------------------------------------------------------------
     /// @brief the game dice

@@ -24,10 +24,7 @@ public:
     /// @brief method that does the action =p
     /// @param[in] i_player the player that have reached that specific tile
     //-------------------------------------------------------------------------
-    virtual void action(
-            const std::vector<Player *> &i_player,
-            int current_player
-            );
+    virtual void action(PlayerManager &i_players);
     //-------------------------------------------------------------------------
     /// @brief default destructor
     //-------------------------------------------------------------------------
@@ -45,21 +42,13 @@ private:
     //-------------------------------------------------------------------------
     /// @brief method that the current player pays rent to the owner
     //-------------------------------------------------------------------------
-    virtual void payRent(
-            const std::vector<Player *> &i_player,
-            int current_player
-            )=0;
+    virtual void payRent(PlayerManager &i_players)=0;
 
 protected:
     //-------------------------------------------------------------------------
     /// @brief method to buy property
     //-------------------------------------------------------------------------
-    void buyProperty(std::vector<Player *> i_players, int i_currentPlayer);
-
-    //-------------------------------------------------------------------------
-    /// @brief the colour of the tile represented by numbers.
-    //-------------------------------------------------------------------------
-    unsigned int m_colour;
+    void buyProperty(PlayerManager &i_players);
     //-------------------------------------------------------------------------
     /// @brief the owner of the the property, equals to -1 if it is not owned
     //-------------------------------------------------------------------------
@@ -71,7 +60,7 @@ protected:
     //-------------------------------------------------------------------------
     /// @brief indicated whether the property is morgated or not,1 for morgated
     //-------------------------------------------------------------------------
-    bool m_isPropertyMorgated;
+    bool m_isPropertyMortgaged;
     //-------------------------------------------------------------------------
 
 

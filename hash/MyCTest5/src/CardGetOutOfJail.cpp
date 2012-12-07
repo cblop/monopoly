@@ -6,12 +6,10 @@ CardGetOutOfJail::CardGetOutOfJail()
 }
 
 //-------------------------------------------------------------------------
-void CardGetOutOfJail::action(
-        const std::vector<Player *> &i_players,
-        int currentPlayer
-        )
+void CardGetOutOfJail::action(PlayerManager &i_players)
 {
-    i_players[currentPlayer]->setJailed(false);
+    i_players.setJailed(false);
+    std::cout<< i_players.getName() << " Gets a Get Out of Jail Card " << std::endl;
 }
 
 //-------------------------------------------------------------------------

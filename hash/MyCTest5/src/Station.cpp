@@ -5,7 +5,7 @@
 Station::Station(
         const std::string &i_name,
         double i_price,
-        const std::vector<double> &i_rentPrices
+        const std::vector<unsigned int> &i_rentPrices
         ):Property(i_name,i_price)
 {
     m_rentPrices.resize(4);
@@ -33,8 +33,7 @@ void Station::resetExtras()
 
 //-------------------------------------------------------------------------
 void Station::payRent(
-        const std::vector<Player *> &i_player,
-        int current_player
+        PlayerManager & /*i_players*/
         )
 {
     this->print();

@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <vector>
-#include "Player.h"
+#include "PlayerManager.h"
 
 //-----------------------------------------------------------------------------
 class Tile
@@ -17,10 +17,15 @@ public:
     /// @brief method that does the action =p
     /// @param[in] i_player the player that have reached that specific tile
     //-------------------------------------------------------------------------
-    virtual void action(
-            const std::vector<Player *> &i_player,
-            int current_player
-            )=0;
+    virtual void action(PlayerManager &i_players)=0;
+    //-------------------------------------------------------------------------
+    /// @brief method that sets the colour of the tile
+    //-------------------------------------------------------------------------
+    void setColour(const unsigned int i_colour);
+    //-------------------------------------------------------------------------
+    /// @brief method that gets the colour of the tile
+    //-------------------------------------------------------------------------
+    unsigned int getColour()const;
     //-------------------------------------------------------------------------
     /// @brief method that resets all its values to the default ones
     //-------------------------------------------------------------------------
@@ -39,6 +44,10 @@ public:
     virtual ~Tile();
 
 protected:
+    //-------------------------------------------------------------------------
+    /// @brief the colour of the tile represented by numbers.
+    //-------------------------------------------------------------------------
+    unsigned int m_colour;
     //-------------------------------------------------------------------------
     /// @brief the name of the tile i.e Piccadilly, Jail and Chance
     //-------------------------------------------------------------------------
