@@ -1,0 +1,34 @@
+ This file is a documentation of the Board file that specifies the Board of the game. It is assumed that the game always have 40 tiles, therefore in that file must have 40 lines. The following part explains how to define the various types of the tiles.
+ 
+<Tile-Number> <flag> ... <name> .
+
+<Tile-Number> : we assume that the board is in the right order and the first bid is ignored, it is only there for visually purposes and it should always be in the right order
+
+<name> : it is the name of the tile e.g. GO, COMMUNITY CHEST, FLEET STREET
+
+<flag> : indicated the type of the file. Possible flags are: p , o and c
+
+    p: stands for Property, so you will have something like this:
+        
+        <Tile-Number> p <second-Flag> <Property-Price> ... <name> .
+        
+        <Property-Price> : is the price of the property, when the user buys it from the bank
+        
+        <second-Flag> : the second flag idicates the type of the property, possible second flags are: n s and w
+        
+        n: stands for Normal Property. To define a normal property you use the following:
+        
+            <Tile-Number> p n <Property-Price> <HousePrice> <RentCostWithoutHouses> <RentCostWith1House> <RentCostWith2Houses> <RentCostWith3Houses> <RentCostWith4Houses> <RentCostAHotel> <name> .
+        
+        s: stands for Station. To define a station you use the following:
+            
+            <Tile-Number> p s <Property-Price> <Rent> <RentIf2StationsOWned> <RentIf3StationsOWned> <RentIf4StationsOWned> <name> .
+            
+        u: it is a Utility. In Monopoly game there are always two Utilities (e.g Water Works and Electric Company), so we assume that there will always be two tiles of that type. They are defined as follow:
+            
+            <Tile-Number> p w <Property-Price> <Times1> <Times2> <name> .
+            
+            <Times1> : If one "Utility is owned, rent is <Times1> times the amount shown on dice
+            
+            <Times2> : If one "Utility is owned, rent is <Times2> times the amount shown on dice
+	    
