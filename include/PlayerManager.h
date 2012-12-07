@@ -56,6 +56,11 @@ public:
     //-------------------------------------------------------------------------
     void addBalance(unsigned int i_amount);
     //-------------------------------------------------------------------------
+    /// @brief method that the current player quits the game
+    /// @brief it returns how much he owns in case he have to pay someone
+    //-------------------------------------------------------------------------
+    unsigned int quitGame();
+    //-------------------------------------------------------------------------
     /// @brief method that adds an amount of money to a specific Player
     /// @param[in] i_amount: amount to be added
     /// @param[in] i_player: the player that gets the money
@@ -87,6 +92,11 @@ public:
     /// @brief method that returns the name of the current Player
     //-------------------------------------------------------------------------
     const std::string &getName()const;
+    //-------------------------------------------------------------------------
+    /// @brief method that gets an amount of money from each player
+    /// @param[in] i_amount amount to be removed from players
+    //-------------------------------------------------------------------------
+    unsigned int getMoneyFromEachPlayer(unsigned int i_amount);
     //-------------------------------------------------------------------------
     /// @brief method tha returns true if current Player is in Jail
     //-------------------------------------------------------------------------

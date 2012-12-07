@@ -77,6 +77,7 @@ Board::Board()
                 m_tiles[counter] =
                         new NormalProperty(name,price,housePrice,rentPrices);
                 m_groups.addTile(colour,m_tiles[counter]);
+                m_tiles[counter]->setColour(colour);
                 break;
             }
             case 's': //Station

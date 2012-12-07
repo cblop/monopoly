@@ -20,6 +20,21 @@ Player::Player(
                m_isJailed(false)
 {}
 
+bool Player::takeBalance(unsigned int i_amount)
+{
+    {
+        if((int)m_balance-(int)i_amount <0)
+        {
+            return false;
+        }
+        else
+        {
+            m_balance -= i_amount;
+            return true;
+        }
+    }
+}
+
 //-----------------------------------------------------------------------------
 void Player::setName(const std::string &i_name)
 {

@@ -78,6 +78,14 @@ void PlayerManager::setPlayers(unsigned int i_numOfPlayers)
 }
 
 //-----------------------------------------------------------------------------
+unsigned int PlayerManager::quitGame()
+{
+    const unsigned int balance = m_players[m_currentPlayer].m_balance;
+    m_players[m_currentPlayer].m_balance = 0;
+    return balance;
+}
+
+//-----------------------------------------------------------------------------
 void PlayerManager::printWinner()const
 {
     std::string winner=m_players[0].m_name;
@@ -217,6 +225,25 @@ void PlayerManager::setPosition(unsigned int i_position)
 unsigned int PlayerManager::getCurrentPlayer()const
 {
     return m_currentPlayer;
+}
+
+//-----------------------------------------------------------------------------
+unsigned int PlayerManager::getMoneyFromEachPlayer(unsigned int i_amount)
+{
+    unsigned int money=0;
+    for(unsigned int i=0; i<m_players.size();++i)
+    {
+        if(m_players[i].takeBalance(i_amount))
+        {
+            money+=i_amount;
+        }
+        else
+        {
+            std::cout << m_players[i].m_name <<
+                      " does not have enough money to pay " << i_amount <<"\n";
+        }
+    }
+    return money;
 }
 
 //-----------------------------------------------------------------------------

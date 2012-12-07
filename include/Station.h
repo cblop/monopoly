@@ -21,20 +21,6 @@ public:
     //-------------------------------------------------------------------------
     void printExtras()const;
     //-------------------------------------------------------------------------
-    /// @brief method that returns the colour index of the tile
-    //-------------------------------------------------------------------------
-    unsigned int getColour()const
-    {
-        return m_colour;
-    }
-    //-------------------------------------------------------------------------
-    /// @brief method that sets the colour of the tile
-    //-------------------------------------------------------------------------
-    void setColour(const unsigned int i_colour)
-    {
-        m_colour = i_colour;
-    }
-    //-------------------------------------------------------------------------
     /// @brief method that resets the values of a property
     ///        in case the game is reset
     //-------------------------------------------------------------------------

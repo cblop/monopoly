@@ -13,13 +13,13 @@ const std::string& Tile::getName()const
 }
 
 //-----------------------------------------------------------------------------
-void Tile::setColour(const unsigned int i_colour)
+void Tile::setColour(const std::string &i_colour)
 {
     m_colour = i_colour;
 }
 
 //-----------------------------------------------------------------------------
-unsigned int Tile::getColour()const
+const std::string &Tile::getColour()const
 {
     return m_colour;
 }

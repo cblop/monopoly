@@ -22,7 +22,6 @@ int main(int/* argc*/, char **/*argv[]*/)
 //    unsigned int colour = tile->getColour();
     //srand((unsigned)time(0));
     Game b;
-    b.StartGame();
     b.PlayGame();
     std::cout << "End of Program\n";
     return 0;

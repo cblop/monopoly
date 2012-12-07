@@ -22,12 +22,6 @@ void Game::reset()
 
 
 //-----------------------------------------------------------------------------
-void Game::StartGame()
-{
-    //m_board[1]->action(m_players,m_currentPlayer);
-}
-
-//-----------------------------------------------------------------------------
 void Game::SetupGame()
 {
     std::cout << "GAME SETUP!!\n";
@@ -51,21 +45,57 @@ void Game::PlayGame()
                 if(!m_players.takeBalance(50))
                 {
                     std::cout<< "You do not have enough money to pay!\n";
+                    std::cout<< "Press 'R' to roll the dices!\n";
+                    m_dices.roll();
+                    if(m_dices.isDouble())
+                    {
+                        m_players.movePositionBy(m_dices.getTotal());
+                        m_board.action(m_players);
+                    }
+                }
+                else
+                {
+                    m_players.setJailed(false);
+                    takeTurn();
                 }
             }
         }else
         {
             std::cin.clear();
             std::cin.ignore(INT_MAX, '\n');
+            std::string answer;
             std::cout << "   ***  Player: " << m_players.getName()
                       << ",  Balance = " << m_players.getBalance() << "  ***\n";
-            std::cout << "Press ENTER to roll, " << std::endl;
-            std::cin.get();
-            m_dices.roll();
-            m_dices.print();
-            m_players.movePositionBy(m_dices.getTotal());
-            std::cout << "You have reach the following Tile:\n";
-            m_board.print(m_players.getCurrentPlayersPosition());
+            if(numOfContinuousDoubles==0)
+            {
+               std::cout  << "Press 1 to buy houses or R to roll and play\n";
+               while(answer!="R"&& answer!="1")
+               {
+                   std::cin >> answer;
+               }
+            }
+            else
+            {
+                std::cout << "Press R to roll and play\n";
+                while(answer!="R")
+                {
+                    std::cin >> answer;
+                }
+            }
+            if(answer == "R")
+            {
+                takeTurn();
+            }
+            else
+            {
+                ///buy houses
+                std::cout << "Press R to roll and play\n";
+                while(answer!="R")
+                {
+                    std::cin >> answer;
+                }
+                takeTurn();
+            }
             if(m_dices.isDouble())
             {
                 if(numOfContinuousDoubles==3)
@@ -83,6 +113,16 @@ void Game::PlayGame()
         }
     }
     m_players.printWinner();
+}
+
+//-----------------------------------------------------------------------------
+void Game::takeTurn()
+{
+    m_dices.roll();
+    m_dices.print();
+    m_players.movePositionBy(m_dices.getTotal());
+    std::cout << "You have reach the following Tile:\n";
+    m_board.print(m_players.getCurrentPlayersPosition());
 }
 
 //-----------------------------------------------------------------------------

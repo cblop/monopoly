@@ -21,11 +21,11 @@ public:
     //-------------------------------------------------------------------------
     /// @brief method that sets the colour of the tile
     //-------------------------------------------------------------------------
-    void setColour(const unsigned int i_colour);
+    void setColour(const std::string &i_colour);
     //-------------------------------------------------------------------------
     /// @brief method that gets the colour of the tile
     //-------------------------------------------------------------------------
-    unsigned int getColour()const;
+    const std::string &getColour()const;
     //-------------------------------------------------------------------------
     /// @brief method that resets all its values to the default ones
     //-------------------------------------------------------------------------
@@ -47,7 +47,7 @@ protected:
     //-------------------------------------------------------------------------
     /// @brief the colour of the tile represented by numbers.
     //-------------------------------------------------------------------------
-    unsigned int m_colour;
+    std::string m_colour;
     //-------------------------------------------------------------------------
     /// @brief the name of the tile i.e Piccadilly, Jail and Chance
     //-------------------------------------------------------------------------
