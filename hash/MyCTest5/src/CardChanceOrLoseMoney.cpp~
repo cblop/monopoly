@@ -1,19 +1,19 @@
 #include "CardChanceOrLoseMoney.h"
 
-//-------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 CardChanceOrLoseMoney::CardChanceOrLoseMoney(
         unsigned int i_balance
         ):m_balanceToRemove(i_balance)
 {
 }
 
-//-------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 void CardChanceOrLoseMoney::action(
-        const std::vector<Player *> &i_players,
-        int i_currentPlayer
+        PlayerManager &i_players
         )
 {
-    std::cout << "Would you like to take a chance (y) or Pay £" << m_balanceToRemove << " : " << std::endl;
+    std::cout << "Would you like to take a chance (y) or Pay £" <<
+                 m_balanceToRemove << " : " << std::endl;
     std::string decision = "";
     std::cin >> decision;
     
@@ -23,13 +23,23 @@ void CardChanceOrLoseMoney::action(
     }
     else if (decision == "n")
     {
-        i_players[i_currentPlayer]->takeBalance(m_balanceToRemove);
+        if(i_players.takeBalance(m_balanceToRemove))
+        {
+            std::cout<< i_players.getName() << " paid "
+                     << m_balanceToRemove << std::endl;
+        }
+        else
+        {
+            std::cout << i_players.getName()
+                      << " does not have enough money to pay" << std::endl;
+        }
+
     }
     else 
     	std::cout << "Invalid Input. Please enter y or n" << std::endl;
 }
 
-//-------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 CardChanceOrLoseMoney::~CardChanceOrLoseMoney()
 {
 }

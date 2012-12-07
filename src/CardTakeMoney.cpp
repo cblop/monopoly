@@ -9,7 +9,7 @@ CardTakeMoney::CardTakeMoney(
 
 //-------------------------------------------------------------------------
 void CardTakeMoney::action(
-        Players &i_players
+        PlayerManager &i_players
         )
 {
     if(i_players.takeBalance(m_balanceToRemove))

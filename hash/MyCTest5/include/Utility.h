@@ -11,16 +11,13 @@ public:
     Utility(
             const std::string &i_name,
             double i_price,
-            const std::vector<double> &i_rentPrices
+            const std::vector<unsigned int> &i_rentPrices
             );
     //-------------------------------------------------------------------------
     /// @brief method that does the action =p
     /// @param[in] i_player the player that have reached that specific tile
     //-------------------------------------------------------------------------
-    void payRent(
-            const std::vector<Player *> &i_player,
-            int current_player
-            );
+    void payRent(PlayerManager &i_players);
     //-------------------------------------------------------------------------
     /// @brief method that resets all its values to the default ones
     //-------------------------------------------------------------------------

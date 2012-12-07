@@ -15,11 +15,25 @@ public:
     //-------------------------------------------------------------------------
     Station(const std::string &i_name,
             double i_price,
-            const std::vector<double> &i_rentPrices);
+            const std::vector<unsigned int> &i_rentPrices);
     //-------------------------------------------------------------------------
     /// @brief method that prints all the information about the Station
     //-------------------------------------------------------------------------
     void printExtras()const;
+    //-------------------------------------------------------------------------
+    /// @brief method that returns the colour index of the tile
+    //-------------------------------------------------------------------------
+    unsigned int getColour()const
+    {
+        return m_colour;
+    }
+    //-------------------------------------------------------------------------
+    /// @brief method that sets the colour of the tile
+    //-------------------------------------------------------------------------
+    void setColour(const unsigned int i_colour)
+    {
+        m_colour = i_colour;
+    }
     //-------------------------------------------------------------------------
     /// @brief method that resets the values of a property
     ///        in case the game is reset
@@ -29,10 +43,7 @@ public:
     /// @brief method that does the action =p
     /// @param[in] i_player the player that have reached that specific tile
     //-------------------------------------------------------------------------
-    void payRent(
-            const std::vector<Player *> &i_player,
-            int current_player
-            );
+    void payRent(PlayerManager &i_players);
     //-------------------------------------------------------------------------
     /// @brief default destructor
     //-------------------------------------------------------------------------

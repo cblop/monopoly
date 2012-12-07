@@ -11,7 +11,7 @@ CardStreetRepairs::CardStreetRepairs(
 
 //-------------------------------------------------------------------------
 void  CardStreetRepairs::action(
-        Players &i_players
+        PlayerManager &i_players
         )
 {
     int numberOfHouses = 0;

@@ -9,19 +9,18 @@ CardReceiveMoneyFromPlayers::CardReceiveMoneyFromPlayers(
 
 //-------------------------------------------------------------------------
 void CardReceiveMoneyFromPlayers::action(
-        const std::vector<Player *> &i_players,
-        int currentPlayer
+        PlayerManager &i_players
         )
 {
-    i_players[currentPlayer]->addBalance(m_balanceToAdd * (i_players.size() -1));
+//    i_players[currentPlayer]->addBalance(m_balanceToAdd * (i_players.size() -1));
     
-    for (unsigned int i = 0; i < i_players.size() ; i++)
-    {
-        if (i != currentPlayer)
-        {
-            i_players[i]->takeBalance(m_balanceToAdd);
-        }
-    }
+//    for (unsigned int i = 0; i < i_players.size() ; i++)
+//    {
+//        if (i != currentPlayer)
+//        {
+//            i_players[i]->takeBalance(m_balanceToAdd);
+//        }
+//    }
 }
 
 //-------------------------------------------------------------------------

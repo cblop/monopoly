@@ -11,9 +11,9 @@ public:
     /// @brief default constructor
     //-------------------------------------------------------------------------
     NormalProperty(const std::string &i_name,
-                   double i_price,
-                   double i_housePrice,
-                   const std::vector<double> &i_rentPrices
+                   unsigned int i_price,
+                   unsigned int i_housePrice,
+                   const std::vector<unsigned int> &i_rentPrices
                    );
     //-------------------------------------------------------------------------
     /// @brief method that prints all the information about the properties
@@ -27,10 +27,7 @@ public:
     /// @brief method that does the action =p
     /// @param[in] i_player the player that have reached that specific tile
     //-------------------------------------------------------------------------
-    void payRent(
-            const std::vector<Player *> &i_player,
-            int current_player
-            );
+    void payRent(PlayerManager &i_players);
     //-------------------------------------------------------------------------
     /// @brief default destructor
     //-------------------------------------------------------------------------

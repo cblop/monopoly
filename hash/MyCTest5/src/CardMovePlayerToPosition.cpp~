@@ -13,7 +13,7 @@ void CardMovePlayerToPosition::action(
         )
 {
     i_players.setPosition(m_newPosition);
-    std::cout<< "Move " << i_players.getName() << " to " << i_players.getPosition() << " position." << std::endl;
+    std::cout<< "Move " << i_players.getName() << " to " << i_players.getPosition() << " spaces." << std::endl;
 }
 
 //-------------------------------------------------------------------------

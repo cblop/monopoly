@@ -9,11 +9,11 @@ CardMovePlayerBack::CardMovePlayerBack(
 
 //-------------------------------------------------------------------------
 void CardMovePlayerBack::action(
-        const std::vector<Player *> &i_players,
-        int i_currentPlayer
+        PlayerManager &i_players
         )
 {
-    i_players[i_currentPlayer]->movePositionBy(-m_placesToMove);
+	i_players.movePositionBy(-m_placesToMove);
+	std::cout<< "Move " << i_players.getName() << " back " << m_placesToMove << " spaces." << std::endl; 
 }
 
 //-------------------------------------------------------------------------

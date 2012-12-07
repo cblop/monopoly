@@ -7,7 +7,7 @@ Property::Property(
         ):Tile(i_name),
     m_owner(-1),
     m_price(i_price),
-    m_isPropertyMorgated(0)
+    m_isPropertyMortgaged(0)
 {
 }
 
@@ -15,9 +15,10 @@ Property::Property(
 void Property::print()const
 {
     std::cout << "-------------------------------------------------\n";
-    std::cout << "Tile's name: " << m_name << "\n";
-    std::cout << "Price:       " << m_price << "\n";
-    if(m_isPropertyMorgated)
+    std::cout << "Tile's name: "  << m_name   << "\n"
+              << "Tile's colour: "<< m_colour << "\n"
+              << "Price:       "  << m_price  << "\n";
+    if(m_isPropertyMortgaged)
     {
         std::cout << "Mortgaged:   yes\n\n";
     }
@@ -29,7 +30,7 @@ void Property::print()const
 }
 
 //-----------------------------------------------------------------------------
-void Property::buyProperty(std::vector<Player *> i_players,int i_currentPlayer)
+void Property::buyProperty(PlayerManager &i_players)
 {
     char response;
     std::cout << "Would you like to buy this property? (y/n): ";
@@ -41,10 +42,9 @@ void Property::buyProperty(std::vector<Player *> i_players,int i_currentPlayer)
     }
 
     if (response == 'y') {
-        if(i_players[i_currentPlayer]->takeBalance(m_price))
+        if(i_players.takeBalance(m_price))
         {
-            std::cout<<"Money makes the world go round!!!\n";
-            m_owner = i_currentPlayer;
+            m_owner = i_players.getCurrentPlayer();
         }
         else
         {
@@ -57,24 +57,21 @@ void Property::buyProperty(std::vector<Player *> i_players,int i_currentPlayer)
 void Property::reset()
 {
     m_owner = -1;
-    m_isPropertyMorgated = 0;
+    m_isPropertyMortgaged = 0;
     this->resetExtras();
 }
 
 //-----------------------------------------------------------------------------
-void Property::action(
-        const std::vector<Player *> &i_player,
-        int i_current_player
-        )
+void Property::action(PlayerManager &i_players)
 {
     this->print();
     if (m_owner == -1)
     {
-        this->buyProperty(i_player,i_current_player);
+        this->buyProperty(i_players);
     }
     else
     {
-        this->payRent(i_player,i_current_player);
+        this->payRent(i_players);
     }
 }
 

@@ -9,7 +9,7 @@ CardReceiveMoneyFromPlayers::CardReceiveMoneyFromPlayers(
 
 //-------------------------------------------------------------------------
 void CardReceiveMoneyFromPlayers::action(
-        Players &i_players
+        PlayerManager &i_players
         )
 {
 //    i_players[currentPlayer]->addBalance(m_balanceToAdd * (i_players.size() -1));

@@ -4,7 +4,7 @@
 Utility::Utility(
         const std::string &i_name,
         double i_price,
-        const std::vector<double> &i_rentPrices
+        const std::vector<unsigned int> &/*i_rentPrices*/
         ):Property(i_name,i_price)
 {
 
@@ -12,8 +12,7 @@ Utility::Utility(
 
 //-----------------------------------------------------------------------------
 void Utility::payRent(
-        const std::vector<Player *> &i_player,
-        int current_player
+        PlayerManager & /*i_players*/
         )
 {
 
