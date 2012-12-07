@@ -35,16 +35,12 @@ void CardsManager::action(PlayerManager &i_players)
     }
     else if(m_name == "COMMUNITY CHEST")
     {
-        std::cout << "I AM HAPPY! =)"<< m_communityChest.size()<<"\n" ;
         unsigned int random = std::rand() % m_communityChest.size();
-        //random = 1;
-        std::cout << "YOU SHOULD BE HAPPY!\n";
         m_communityChest[random]->action(i_players);
-        std::cout << "ACtion FINISHEDz\n";
     }
     else
     {
-        std::cout << "This is not a card type!\n";
+        std::cout << "This is not a card type!" << std::endl;
     }
 }
 
@@ -65,8 +61,6 @@ void CardsManager::initialiseCards()
             getline(myfile1, line);
         }
         while (!myfile1.eof());
-
-        //std::cout <<"Last line = " << line << std::endl;
     }
     myfile1.close();
 
@@ -87,7 +81,6 @@ void CardsManager::initialiseCards()
 
 
     m_communityChest.resize(communityChestCards.size());
-    //std::cout << "Com chest size = " << communityChestCards.size() << std::endl;
     for(unsigned int i=0; i<communityChestCards.size(); ++i)
     {
         std::cout << "Community Chest" << std::endl;
