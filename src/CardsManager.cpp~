@@ -102,6 +102,7 @@ void CardsManager::initialiseCards()
             iss >> sub;
             std::istringstream(sub) >> moneyToAdd;
             m_communityChest[i] = new CardReceiveMoney(moneyToAdd);
+            //m_communityChest.push_back(new CardReceiveMoney(moneyToAdd));
         }
         
         else if (sub == "gp") //Receive money from EACH player
@@ -120,6 +121,7 @@ void CardsManager::initialiseCards()
             iss >> sub;
             std::istringstream(sub) >> hotel;
             m_communityChest[i] = new CardStreetRepairs(house, hotel);
+            //m_communityChest.push_back(new CardStreetRepairs(house, hotel));
 
         }
 
@@ -135,7 +137,7 @@ void CardsManager::initialiseCards()
             iss >> sub;
             std::istringstream(sub) >> moneyToRemove;
             m_communityChest[i] = new CardTakeMoney(moneyToRemove);
-
+            //m_communityChest.push_back(new CardTakeMoney(moneyToRemove));
         }
 
         else if (sub == "m") //Move player TO SPECIFIED position
@@ -144,6 +146,7 @@ void CardsManager::initialiseCards()
             iss >> sub;
             std::istringstream(sub) >> boardPosition;
             m_communityChest[i] = new CardMovePlayerToPosition(boardPosition);
+            //m_communityChest.push_back(new CardMovePlayerToPosition(boardPosition));
         }
 
         else if (sub == "mb") //Move player back certain amount of spaces
@@ -153,6 +156,7 @@ void CardsManager::initialiseCards()
             iss >> sub;
             std::istringstream(sub) >> spacesToMove;
             m_communityChest[i] = new CardMovePlayerBack(spacesToMove);
+            //m_communityChest.push_back(new CardMovePlayerBack(spacesToMove));
         }
      }
     std::cout << "END Of initialising cards\n";

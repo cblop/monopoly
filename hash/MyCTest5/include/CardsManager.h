@@ -60,7 +60,7 @@ class CardsManager : public Tile
         static std::vector<Card *> m_communityChest;
         static std::vector<Card *> m_chance;
         
-
+        static void loadCards(std::vector<std::string> stringVector, std::vector<Card *> cardVector);
 
 
 };
