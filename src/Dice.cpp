@@ -1,23 +1,44 @@
 #include <stdlib.h>
+#include <iostream>
 #include "Dice.h"
 
 
 //-----------------------------------------------------------------------------
 Dice::Dice()
 {
+    m_values.resize(2);
     roll();
 }
 
 //-----------------------------------------------------------------------------
 void Dice::roll()
 {
-    m_value = (rand() % 12) + 1;
+    m_values[0] = (rand() % 6) + 1;
+    m_values[1] = (rand() % 6) + 1;
 }
 
 //-----------------------------------------------------------------------------
-int Dice::getValue()
+const std::vector<unsigned int> &Dice::getValues()const
 {
-    return m_value;
+    return m_values;
+}
+
+//-----------------------------------------------------------------------------
+unsigned int Dice::getTotal()const
+{
+    return (m_values[0] + m_values[1]);
+}
+
+//-----------------------------------------------------------------------------
+void Dice::print()const
+{
+    std::cout << "Dice : " << m_values[0] << " " << m_values[1] << "\n";
+}
+
+//-----------------------------------------------------------------------------
+bool Dice::isDouble() const
+{
+    return (m_values[0] == m_values[1]);
 }
 
 

@@ -17,7 +17,7 @@ public:
     /// @brief method that does the action =p
     /// @param[in] i_player the player that have reached that specific tile
     //-------------------------------------------------------------------------
-    void payRent(Players &i_players);
+    void payRent(PlayerManager &i_players);
     //-------------------------------------------------------------------------
     /// @brief method that resets all its values to the default ones
     //-------------------------------------------------------------------------

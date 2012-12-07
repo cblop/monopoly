@@ -30,7 +30,7 @@ void Property::print()const
 }
 
 //-----------------------------------------------------------------------------
-void Property::buyProperty(Players &i_players)
+void Property::buyProperty(PlayerManager &i_players)
 {
     char response;
     std::cout << "Would you like to buy this property? (y/n): ";
@@ -62,9 +62,8 @@ void Property::reset()
 }
 
 //-----------------------------------------------------------------------------
-void Property::action(Players &i_players)
+void Property::action(PlayerManager &i_players)
 {
-    this->print();
     if (m_owner == -1)
     {
         this->buyProperty(i_players);

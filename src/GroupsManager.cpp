@@ -26,11 +26,11 @@ void GroupsManager::addTile(
 //-----------------------------------------------------------------------------
 void GroupsManager::print()const
 {
-    for(unsigned int i=0; i<m_groups.size(); ++i)
-    {
-        std::cout << "************************************\n";
-        m_groups[i].print();
-    }
+//    for(unsigned int i=0; i<m_groups.size(); ++i)
+//    {
+//        std::cout << "************************************\n";
+//        m_groups[i].print();
+//    }
 
 }
 

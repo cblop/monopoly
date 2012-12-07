@@ -27,13 +27,17 @@ public:
     /// @brief method that does the action =p
     /// @param[in] i_player the player that have reached that specific tile
     //-------------------------------------------------------------------------
-    void payRent(Players &i_players);
+    void payRent(PlayerManager &i_players);
     //-------------------------------------------------------------------------
     /// @brief default destructor
     //-------------------------------------------------------------------------
     ~NormalProperty();
 
 private:
+    //-------------------------------------------------------------------------
+    /// @brief how much does a house cost
+    //-------------------------------------------------------------------------
+    double m_housePrice;
     //-------------------------------------------------------------------------
     /// @brief the number of houses the propertry has (0-5)
     //-------------------------------------------------------------------------
@@ -42,10 +46,7 @@ private:
     /// @brief the prices of renting a the property depending
     //-------------------------------------------------------------------------
     std::vector<unsigned int> m_rentPrices;
-    //-------------------------------------------------------------------------
-    /// @brief how much does a house cost
-    //-------------------------------------------------------------------------
-    double m_housePrice;
+
 
 };
 

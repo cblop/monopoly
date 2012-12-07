@@ -2,7 +2,7 @@
 #define CARDTYPE_H
 #include <iostream>
 #include <vector>
-#include "Players.h"
+#include "PlayerManager.h"
 
 class Card
 {
@@ -14,7 +14,7 @@ public:
     //-------------------------------------------------------------------------
     /// @brief method that performs the action associated with that card
     //-------------------------------------------------------------------------
-    virtual void action(Players &i_players)=0;
+    virtual void action(PlayerManager &i_players)=0;
     //-------------------------------------------------------------------------
 
     //-------------------------------------------------------------------------

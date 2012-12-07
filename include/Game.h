@@ -6,7 +6,7 @@ class Dice;
 
 #include <iostream>
 #include <vector>
-#include "Players.h"
+#include "PlayerManager.h"
 #include "Board.h"
 
 class Game
@@ -53,7 +53,6 @@ private:
     /// @brief the board of the game
     //-------------------------------------------------------------------------
     Board m_board;
-
     //-------------------------------------------------------------------------
     /// @brief method that read the name of the next tile
     //-------------------------------------------------------------------------
@@ -65,17 +64,14 @@ private:
     /// @brief method that sets up the Game
     //-------------------------------------------------------------------------
     void SetupGame();
-
-
     //-------------------------------------------------------------------------
     /// @brief all the Players of the Game
     //-------------------------------------------------------------------------
-    Players m_players1;
-
+    PlayerManager m_players;
     //-------------------------------------------------------------------------
     /// @brief the game dice
     //-------------------------------------------------------------------------
-    Dice* m_dice;
+    Dice m_dices;
 };
 
 #endif // GAME

@@ -10,7 +10,17 @@ public:
     /// @brief default constructor
     /// @param[in] i_name: the name of the tile
     //-------------------------------------------------------------------------
-    Order(const std::string &i_name);
+    Order(const std::string &i_name, const std::string &flag);
+    //-------------------------------------------------------------------------
+    /// @brief default constructor
+    /// @param[in] i_name: the name of the tile
+    /// @param[in] i_money: money that needs to be paid
+    //-------------------------------------------------------------------------
+    Order(
+            const std::string &i_name,
+            const std::string &flag,
+            unsigned int i_money
+            );
     //-------------------------------------------------------------------------
     /// @brief method that prints all the information about the Order Tile
     //-------------------------------------------------------------------------
@@ -23,11 +33,21 @@ public:
     /// @brief method that does the action =p
     /// @param[in] i_player the player that have reached that specific tile
     //-------------------------------------------------------------------------
-    void action(Players &i_players );
+    void action(PlayerManager &i_players );
     //-------------------------------------------------------------------------
     /// @brief default destructor
     //-------------------------------------------------------------------------
     ~Order();
+
+private:
+    //-------------------------------------------------------------------------
+    /// @brief indicates action to be perform
+    //-------------------------------------------------------------------------
+    std::string m_flag;
+    //-------------------------------------------------------------------------
+    /// @brief amount of money in case money has to be paid
+    //-------------------------------------------------------------------------
+    unsigned int m_money;
 };
 
 #endif // ORDER_H

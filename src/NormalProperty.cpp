@@ -7,7 +7,8 @@ NormalProperty::NormalProperty(
         unsigned int i_housePrice,
         const std::vector<unsigned int> &i_rentPrices
         ):Property(i_name,i_price),
-          m_housePrice(i_housePrice)
+          m_housePrice(i_housePrice),
+          m_numOfHouse(0)
 {
     m_rentPrices.resize(6);
     for(unsigned int i=0; i<6; ++i)
@@ -25,13 +26,14 @@ void NormalProperty::printExtras()const
     {
         std::cout << m_rentPrices[i] << " ";
     }
-    std::cout << "\n\n";
+    std::cout << "\n-------------------------------------------------\n";
+    std::cout << "\n";
 }
 
 //-------------------------------------------------------------------------
 
 void NormalProperty::payRent(
-        Players &i_players
+        PlayerManager &i_players
         )
 {
     if(i_players.takeBalance(m_rentPrices[m_numOfHouse]))

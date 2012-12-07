@@ -6,6 +6,7 @@
 
 class Player
 {
+    friend class PlayerManager;
 public:
     //-----------------------------------------------------------------------------
     /// default constructor
@@ -16,51 +17,13 @@ public:
     //-----------------------------------------------------------------------------
     Player(const std::string &name);
     //-----------------------------------------------------------------------------
-    /// @brief method that returns the name of the Player
-    //-----------------------------------------------------------------------------
-    const std::string &getName()const;
-    //-----------------------------------------------------------------------------
-    /// @brief method that returns the Balance of the Player
-    //-----------------------------------------------------------------------------
-    int getBalance();
-    //-----------------------------------------------------------------------------
     /// @brief method that sets the name of a Player
     //-----------------------------------------------------------------------------
     void setName(const std::string &i_name);
     //-----------------------------------------------------------------------------
-    /// @brief method that adds an amount of money to the balance of the Player
-    //-----------------------------------------------------------------------------
-    bool takeBalance(int i_amount);
-    //-----------------------------------------------------------------------------
-    /// @brief method that takes an amount of money from the balance of the Player
-    //-----------------------------------------------------------------------------
-    void addBalance(int i_amount);
-    //-----------------------------------------------------------------------------
-    /// @brief method that returns the current position of the Player
-    //-----------------------------------------------------------------------------
-    unsigned int getPosition() const;
-    //-----------------------------------------------------------------------------
     /// @brief method that returns how much the possessions of the player worth
     //-----------------------------------------------------------------------------
     unsigned int getPossessionsValue() const;
-    //-----------------------------------------------------------------------------
-    /// @brief method that moves player to a new position
-    /// @param[in] i_amount how many tiles the Player will be moved
-    //-----------------------------------------------------------------------------
-    void movePositionBy(int i_amount);
-    //-----------------------------------------------------------------------------
-    /// @brief method that sets the positions of the player
-    /// @param[in] i_position the new Position of the Player
-    //-----------------------------------------------------------------------------
-    void setPosition(int i_position);
-    //-----------------------------------------------------------------------------
-    /// @brief method that sends the player to jail
-    //-----------------------------------------------------------------------------
-    void setJailed(bool jailed);
-    //-----------------------------------------------------------------------------
-    /// @brief method that returns 1 if the player is still on the game & 0 if not
-    //-----------------------------------------------------------------------------
-    unsigned int isPlayerStillOnTheGame()const;
     //-----------------------------------------------------------------------------
     /// @brief method that resets all the members of the Player
     //-----------------------------------------------------------------------------
@@ -85,9 +48,14 @@ private:
     //-----------------------------------------------------------------------------
     unsigned int m_position;
     //-----------------------------------------------------------------------------
-    /// @brief whether or not the player is in jail
+    /// @brief whether or not the player is in jail, -1 if not in jail else
+    ///        represents how many time you can still try to get out free
     //-----------------------------------------------------------------------------
-    bool m_isJailed;
+    int m_isJailed;
+    //-----------------------------------------------------------------------------
+    /// @brief number of "get out of Jail" Cards the player owns
+    //-----------------------------------------------------------------------------
+    unsigned int m_numOfGetOutOfJailCards;
 
 };
 

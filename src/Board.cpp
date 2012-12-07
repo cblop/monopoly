@@ -4,7 +4,6 @@
 #include <iterator>
 #include <stdlib.h>
 
-#include "Corner.h"
 #include "Order.h"
 #include "Property.h"
 #include "Station.h"
@@ -40,14 +39,26 @@ Board::Board()
         rentPrices.resize(6);
         switch(flag)
         {
-        case 'c': //Corner
+        case 'c': //Card
             name  = readTilesName(words,&i);
-            m_tiles[counter] = new Corner(name);
+            m_tiles[counter] = new CardsManager(name);
             break;
-        case 'o': //Order
-            name = readTilesName(words,&i);
-            m_tiles[counter] = new Order(name);
+        case 'o': //Order tax,jail,go,go to jail
+        {
+            const std::string flag = words[i++];
+            if(flag=="p")
+            {
+                const unsigned int money =atoi(words[i++].c_str());
+                name = readTilesName(words,&i);
+                m_tiles[counter]=new Order(name,"p",money);
+            }
+            else
+            {
+                name = readTilesName(words,&i);
+                m_tiles[counter] = new Order(name,flag);
+            }
             break;
+        }
         case 'p': // Property
         {
             const char secondFlag = words[i++][0];
@@ -102,9 +113,14 @@ Board::Board()
     m_groups.print();
 }
 
+//-------------------------------------------------------------------------
+void Board::print(unsigned int i_tile) const
+{
+    m_tiles[i_tile]->print();
+}
 
 //-------------------------------------------------------------------------
-void Board::action(Players &i_players)
+void Board::action(PlayerManager &i_players)
 {
     int currentTile = i_players.getPosition();
     m_tiles[currentTile]->action(i_players);

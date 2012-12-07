@@ -24,7 +24,7 @@ public:
     /// @brief method that does the action =p
     /// @param[in] i_player the player that have reached that specific tile
     //-------------------------------------------------------------------------
-    virtual void action(Players &i_players);
+    virtual void action(PlayerManager &i_players);
     //-------------------------------------------------------------------------
     /// @brief default destructor
     //-------------------------------------------------------------------------
@@ -42,13 +42,13 @@ private:
     //-------------------------------------------------------------------------
     /// @brief method that the current player pays rent to the owner
     //-------------------------------------------------------------------------
-    virtual void payRent(Players &i_players)=0;
+    virtual void payRent(PlayerManager &i_players)=0;
 
 protected:
     //-------------------------------------------------------------------------
     /// @brief method to buy property
     //-------------------------------------------------------------------------
-    void buyProperty(Players &i_players);
+    void buyProperty(PlayerManager &i_players);
     //-------------------------------------------------------------------------
     /// @brief the owner of the the property, equals to -1 if it is not owned
     //-------------------------------------------------------------------------
