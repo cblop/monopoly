@@ -1,44 +1,65 @@
 #ifndef BOARD_H
 #define BOARD_H
 
-#include <iostream>
-#include <vector>
 #include "Tile.h"
+#include "Player.h"
+#include "GroupsManager.h"
+#include <vector>
 
 class Board
 {
 public:
     //-------------------------------------------------------------------------
-    /// @brief default constructor
+    /// @brief default contstructor
     //-------------------------------------------------------------------------
     Board();
-
+    //-------------------------------------------------------------------------
+    /// @brief method that prints the board
+    //-------------------------------------------------------------------------
     void print(){
-        for(unsigned int i=0; i<m_board.size();++i)
+        for(unsigned int i=0; i<m_tiles.size();++i)
         {
-            m_board[i]->print();
+            m_tiles[i]->print();
         }
     }
-
     //-------------------------------------------------------------------------
-    /// @brief default destructor
+    /// @brief method that resets the board
+    //-------------------------------------------------------------------------
+    void reset();
+    //-------------------------------------------------------------------------
+    /// @brief method that perfoms an action
+    //-------------------------------------------------------------------------
+    void action( Players &i_players);
+    //-------------------------------------------------------------------------
+    /// @brief method that returns the name of the tile
+    //-------------------------------------------------------------------------
+    const std::string &getTileName(unsigned int i_index)const;
+    //-------------------------------------------------------------------------
+    /// default destructor
     //-------------------------------------------------------------------------
     ~Board();
 
+
 private:
+    //-------------------------------------------------------------------------
+    /// @brief how the tiles relates to each other, separated in groups
+    //-------------------------------------------------------------------------
+    GroupsManager m_groups;
     //-------------------------------------------------------------------------
     /// @brief method that read the name of the next tile
     //-------------------------------------------------------------------------
     std::string readTilesName(
-            const std::vector<std::string> &i_words, unsigned int *i_p
+            const std::vector<std::string> &i_words,
+            unsigned int *i_p
             );
-
+    //-------------------------------------------------------------------------
+    /// @brief the number of tiles
     //-------------------------------------------------------------------------
     static const unsigned int numOfTiles = 40;
     //-------------------------------------------------------------------------
     /// @brief all the tiles of the board in the correct order
     //-------------------------------------------------------------------------
-    std::vector<Tile *> m_board;
+    std::vector<Tile *> m_tiles;
 };
 
 #endif // BOARD_H

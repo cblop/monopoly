@@ -10,11 +10,28 @@ public:
     //-------------------------------------------------------------------------
     /// @brief default constructor
     //-------------------------------------------------------------------------
-    NormalProperty(const std::string &i_name, double i_price);
+    NormalProperty(const std::string &i_name,
+                   unsigned int i_price,
+                   unsigned int i_housePrice,
+                   const std::vector<unsigned int> &i_rentPrices
+                   );
     //-------------------------------------------------------------------------
     /// @brief method that prints all the information about the properties
     //-------------------------------------------------------------------------
     void printExtras()const;
+    //-------------------------------------------------------------------------
+    /// @brief method that resets all its values to the default ones
+    //-------------------------------------------------------------------------
+    void resetExtras();
+    //-------------------------------------------------------------------------
+    /// @brief method that does the action =p
+    /// @param[in] i_player the player that have reached that specific tile
+    //-------------------------------------------------------------------------
+    void payRent(Players &i_players);
+    //-------------------------------------------------------------------------
+    /// @brief default destructor
+    //-------------------------------------------------------------------------
+    ~NormalProperty();
 
 private:
     //-------------------------------------------------------------------------
@@ -22,13 +39,13 @@ private:
     //-------------------------------------------------------------------------
     unsigned short int m_numOfHouse;
     //-------------------------------------------------------------------------
-    /// @brief the prices of the property with houses
+    /// @brief the prices of renting a the property depending
     //-------------------------------------------------------------------------
-//    const std::vector<unsigned int> m_prices;
+    std::vector<unsigned int> m_rentPrices;
     //-------------------------------------------------------------------------
     /// @brief how much does a house cost
     //-------------------------------------------------------------------------
-    double m_houseCost;
+    double m_housePrice;
 
 };
 

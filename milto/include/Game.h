@@ -1,9 +1,13 @@
-#ifndef BOARD_H
-#define BOARD_H
+#ifndef GAME_H
+#define GAME_H
+
+class Player;
+class Dice;
 
 #include <iostream>
 #include <vector>
-#include "Tile.h"
+#include "Players.h"
+#include "Board.h"
 
 class Game
 {
@@ -13,16 +17,31 @@ public:
     //-------------------------------------------------------------------------
     Game();
 
-    void print(){
-        for(unsigned int i=0; i<m_board.size();++i)
-        {
-            m_board[i]->print();
-        }
-    }
+
+
     //-------------------------------------------------------------------------
     /// @brief method that starts a game
     //-------------------------------------------------------------------------
     void StartGame();
+
+    //-------------------------------------------------------------------------
+    /// @brief method that plays the game
+    //-------------------------------------------------------------------------
+    void PlayGame();
+
+    //-------------------------------------------------------------------------
+    /// @brief method that takes a turn
+    //-------------------------------------------------------------------------
+    void TakeTurn(Player *player);
+
+    //-------------------------------------------------------------------------
+    /// @brief method that sets up a game by asking for player names, etc
+    //-------------------------------------------------------------------------
+
+    //-------------------------------------------------------------------------
+    /// @brief method that resets a game
+    //-------------------------------------------------------------------------
+    void reset();
 
     //-------------------------------------------------------------------------
     /// @brief default destructor
@@ -31,8 +50,9 @@ public:
 
 private:
     //-------------------------------------------------------------------------
-    /// @brief method that resets a game
+    /// @brief the board of the game
     //-------------------------------------------------------------------------
+    Board m_board;
 
     //-------------------------------------------------------------------------
     /// @brief method that read the name of the next tile
@@ -41,13 +61,21 @@ private:
             const std::vector<std::string> &i_words,
             unsigned int *i_p
             );
+    //-------------------------------------------------------------------------
+    /// @brief method that sets up the Game
+    //-------------------------------------------------------------------------
+    void SetupGame();
+
 
     //-------------------------------------------------------------------------
-    static const unsigned int numOfTiles = 40;
+    /// @brief all the Players of the Game
     //-------------------------------------------------------------------------
-    /// @brief all the tiles of the board in the correct order
+    Players m_players1;
+
     //-------------------------------------------------------------------------
-    std::vector<Tile *> m_board;
+    /// @brief the game dice
+    //-------------------------------------------------------------------------
+    Dice* m_dice;
 };
 
-#endif // BOARD_H
+#endif // GAME
