@@ -3,13 +3,49 @@
 #include "Player.h"
 
 //-----------------------------------------------------------------------------
-Player::Player(const std::string &name): m_name(name), m_balance(100)
+Player::Player(
+        ):m_balance(1500),
+          m_position(0),
+          m_isJailed(false)
+{}
+
+
+//-----------------------------------------------------------------------------
+Player::Player(
+            const std::string &name
+            ): m_name(name),
+               m_balance(1500),
+               m_position(0),
+               m_isJailed(false)
+{}
+
+//-----------------------------------------------------------------------------
+void Player::setName(const std::string &i_name)
 {
-    m_name = name;
+    m_name=i_name;
+}
+
+//-----------------------------------------------------------------------------
+void Player::reset()
+{
     m_balance = 1500;
     m_position = 0;
     m_isJailed = false;
 }
+
+//-----------------------------------------------------------------------------
+unsigned int Player::isPlayerStillOnTheGame()const
+{
+    if(m_balance>0)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
 
 //-----------------------------------------------------------------------------
 const std::string &Player::getName() const
@@ -22,6 +58,9 @@ int Player::getBalance()
 {
     return m_balance;
 }
+
+//-----------------------------------------------------------------------------
+
 
 //-----------------------------------------------------------------------------
 void Player::addBalance(int i_amount)
@@ -44,7 +83,7 @@ bool Player::takeBalance(int i_amount)
 }
 
 //-----------------------------------------------------------------------------
-int Player::getPosition()
+unsigned int Player::getPosition()const
 {
     return m_position;
 }
@@ -52,7 +91,7 @@ int Player::getPosition()
 //-----------------------------------------------------------------------------
 void Player::movePositionBy(int amount)
 {
-    int oldPosition = m_position;
+    unsigned int oldPosition = m_position;
     m_position = (m_position + amount) % 40;
     if (m_position < oldPosition) {
         // The player passes go
@@ -64,6 +103,12 @@ void Player::movePositionBy(int amount)
 void Player::setPosition(int position)
 {
     m_position = position;
+}
+
+//-----------------------------------------------------------------------------
+unsigned int Player::getPossessionsValue()const
+{
+    return m_balance;
 }
 
 //-----------------------------------------------------------------------------

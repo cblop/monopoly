@@ -23,10 +23,7 @@ public:
     /// @brief method that does the action =p
     /// @param[in] i_player the player that have reached that specific tile
     //-------------------------------------------------------------------------
-    void action(
-            const std::vector<Player *> &i_player,
-            int current_player
-            );
+    void action(Players &i_players );
     //-------------------------------------------------------------------------
     /// @brief default destructor
     //-------------------------------------------------------------------------

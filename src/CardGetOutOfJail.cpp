@@ -6,12 +6,9 @@ CardGetOutOfJail::CardGetOutOfJail()
 }
 
 //-------------------------------------------------------------------------
-void CardGetOutOfJail::action(
-        const std::vector<Player *> &i_players,
-        int currentPlayer
-        )
+void CardGetOutOfJail::action(Players &i_players)
 {
-    i_players[currentPlayer]->setJailed(false);
+    i_players.setJailed(false);
 }
 
 //-------------------------------------------------------------------------

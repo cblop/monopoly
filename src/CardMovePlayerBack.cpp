@@ -9,11 +9,10 @@ CardMovePlayerBack::CardMovePlayerBack(
 
 //-------------------------------------------------------------------------
 void CardMovePlayerBack::action(
-        const std::vector<Player *> &i_players,
-        int i_currentPlayer
+        Players &i_players
         )
 {
-    i_players[i_currentPlayer]->movePositionBy(-m_placesToMove);
+    i_players.movePositionBy(-m_placesToMove);
 }
 
 //-------------------------------------------------------------------------

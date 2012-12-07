@@ -13,10 +13,7 @@ public:
     //-------------------------------------------------------------------------
     /// @brief method that performs the action associated with that card
     //-------------------------------------------------------------------------
-    void action(
-            const std::vector<Player *> &i_players,
-            int currentPlayer
-            );
+    void action(Players &i_players);
     //-------------------------------------------------------------------------
     /// @brief default destructor
     //-------------------------------------------------------------------------

@@ -7,11 +7,10 @@ CardGoToJail::CardGoToJail()
 
 //-------------------------------------------------------------------------
 void CardGoToJail::action(
-        const std::vector<Player *> &i_players,
-        int currentPlayer
+        Players &i_players
         )
 {
-    i_players[currentPlayer]->setJailed(true);
+    i_players.setJailed(true);
 }
 
 //-------------------------------------------------------------------------

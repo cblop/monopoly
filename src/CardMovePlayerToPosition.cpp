@@ -9,11 +9,10 @@ CardMovePlayerToPosition::CardMovePlayerToPosition(
 
 //-------------------------------------------------------------------------
 void CardMovePlayerToPosition::action(
-        const std::vector<Player *> &i_players,
-        int currentPlayer
+        Players &i_players
         )
 {
-    i_players[currentPlayer]->setPosition(m_newPosition);
+    i_players.setPosition(m_newPosition);
 }
 
 //-------------------------------------------------------------------------

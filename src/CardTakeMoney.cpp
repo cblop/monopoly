@@ -9,11 +9,19 @@ CardTakeMoney::CardTakeMoney(
 
 //-------------------------------------------------------------------------
 void CardTakeMoney::action(
-        const std::vector<Player *> &i_players,
-        int currentPlayer
+        Players &i_players
         )
 {
-    i_players[currentPlayer]->takeBalance(m_balanceToRemove);
+    if(i_players.takeBalance(m_balanceToRemove))
+    {
+        std::cout << "Player " << i_players.getName() << " paid "
+                  << m_balanceToRemove << "\n";
+    }
+    else
+    {
+        std::cout << "Player " << i_players.getName()
+                  << "does not have enough money to pay\n";
+    }
 }
 
 //-------------------------------------------------------------------------

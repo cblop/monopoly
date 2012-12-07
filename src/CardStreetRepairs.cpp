@@ -11,8 +11,7 @@ CardStreetRepairs::CardStreetRepairs(
 
 //-------------------------------------------------------------------------
 void  CardStreetRepairs::action(
-        const std::vector<Player *> &i_players,
-        int currentPlayer
+        Players &i_players
         )
 {
     int numberOfHouses = 0;
@@ -20,8 +19,8 @@ void  CardStreetRepairs::action(
     
     //Calculate How Many Houses and Hotels There Are
     
-    i_players[currentPlayer]->takeBalance((numberOfHouses * m_houseRepair)
-                                        + (numberOfHotels * m_hotelRepair));
+    i_players.takeBalance((numberOfHouses * m_houseRepair)
+                        + (numberOfHotels * m_hotelRepair));
 }
 
 

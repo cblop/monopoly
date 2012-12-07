@@ -9,11 +9,10 @@ CardReceiveMoney::CardReceiveMoney(
 
 //-------------------------------------------------------------------------
 void CardReceiveMoney::action(
-        const std::vector<Player *> &i_players,
-        int currentPlayer
+        Players &i_players
         )
 {
-    i_players[currentPlayer]->addBalance(m_balanceToAdd);
+    i_players.addBalance(m_balanceToAdd);
 }
 
 //-------------------------------------------------------------------------

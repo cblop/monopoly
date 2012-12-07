@@ -2,7 +2,7 @@
 #define CARDTYPE_H
 #include <iostream>
 #include <vector>
-#include "Player.h"
+#include "Players.h"
 
 class Card
 {
@@ -14,14 +14,11 @@ public:
     //-------------------------------------------------------------------------
     /// @brief method that performs the action associated with that card
     //-------------------------------------------------------------------------
-    virtual void action(
-            const std::vector<Player *> &i_players,
-            int currentPlayer
-            )=0;
+    virtual void action(Players &i_players)=0;
+    //-------------------------------------------------------------------------
 
     //-------------------------------------------------------------------------
     void print()const;
-
     //-------------------------------------------------------------------------
     /// @brief default destructor
     //-------------------------------------------------------------------------

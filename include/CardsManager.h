@@ -18,12 +18,9 @@ class CardsManager : public Tile
         CardsManager(const std::string &i_name);
         //-------------------------------------------------------------------------
         /// @brief method that does the action =p
-        /// @param[in] i_player the player that have reached that specific tile
+        /// @param[in] i_players the players of the game
         //-------------------------------------------------------------------------
-        void action(
-                const std::vector<Player *> &i_player,
-                int current_player
-                )=0;
+        void action(Players &i_players);
         //-------------------------------------------------------------------------
         /// @brief method that resets all its values to the default ones
         //-------------------------------------------------------------------------
@@ -60,7 +57,7 @@ class CardsManager : public Tile
         static std::vector<Card *> m_communityChest;
         static std::vector<Card *> m_chance;
         
-
+        static void loadCards(std::vector<std::string> stringVector, std::vector<Card *> cardVector);
 
 
 };

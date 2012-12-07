@@ -11,24 +11,13 @@ Dice::Dice()
 //-----------------------------------------------------------------------------
 void Dice::roll()
 {
-    m_values[0] = (rand() % 6) + 1;
-    m_values[1] = (rand() % 6) + 1;
+    m_value = (rand() % 12) + 1;
 }
 
 //-----------------------------------------------------------------------------
-int *Dice::getValues()
+int Dice::getValue()
 {
-    return m_values;
-}
-
-int Dice::getTotal()
-{
-    return (m_values[0] + m_values[1]);
-}
-
-bool Dice::isDouble()
-{
-    return (m_values[0] == m_values[1]);
+    return m_value;
 }
 
 

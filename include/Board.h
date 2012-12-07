@@ -3,6 +3,7 @@
 
 #include "Tile.h"
 #include "Player.h"
+#include "GroupsManager.h"
 #include <vector>
 
 class Board
@@ -28,10 +29,7 @@ public:
     //-------------------------------------------------------------------------
     /// @brief method that perfoms an action
     //-------------------------------------------------------------------------
-    void action(
-            const std::vector<Player *> &i_players,
-            int i_currentPlayer
-            );
+    void action( Players &i_players);
     //-------------------------------------------------------------------------
     /// @brief method that returns the name of the tile
     //-------------------------------------------------------------------------
@@ -43,6 +41,10 @@ public:
 
 
 private:
+    //-------------------------------------------------------------------------
+    /// @brief how the tiles relates to each other, separated in groups
+    //-------------------------------------------------------------------------
+    GroupsManager m_groups;
     //-------------------------------------------------------------------------
     /// @brief method that read the name of the next tile
     //-------------------------------------------------------------------------
