@@ -38,7 +38,6 @@ void Order::action(
         PlayerManager & i_players
         )
 {
-    std::cout << "Action of Order : " << m_flag << "\n";
     if(m_flag=="p") // pay money
     {
         std::cout << i_players.getName() << " has to pay " << m_money << "\n";

@@ -48,12 +48,12 @@ unsigned int GroupsManager::buildHouses(
             groups.push_back(i);
         }
     }
-    if(groups.size()==0)
+ //   if(groups.size()==0)
     {
         std::cout << "You are not allowed to buy houses yet\n";
         return 0;
     }
-    else
+ //   else
     {
         std::cout << "Please choose where to build houses:\n";
         for(unsigned int i=0; i<groups.size();++i)

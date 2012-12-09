@@ -21,32 +21,87 @@ void Game::reset()
 void Game::PlayGame()
 {
     std::cout << "\nNow we will start the game.\n" << std::endl;
-    unsigned int numOfContinuousDoubles=0;
+    unsigned int numOfContinuousDoubles = 0;
+    std::vector<unsigned int >numOfTimesRollDicesInJail;
+    numOfTimesRollDicesInJail.resize(m_players.getNumOfPlayers());
+    for(unsigned int i=0; i<numOfTimesRollDicesInJail.size();++i)
+    {
+        numOfTimesRollDicesInJail[i]=0;
+    }
     while(m_players.howManyPlayersAreStillOntheGame()>1)
     {
         if(m_players.isCurrentPlayerInJail())
         {
-            std::cout << "Player "<< m_players.getName() << "is in Jail!\n";
-            std::cout << "Do you want to pay 50 and go? (y/n)";
-            std::string yesOrNo;
-            std::cin >> yesOrNo;
-            if(yesOrNo=="y")
+            if(numOfTimesRollDicesInJail[m_players.getCurrentPlayer()]!=3)
             {
-                if(!m_players.takeBalance(50))
+                std::cout << "\nPlayer "<< m_players.getName() << " is in Jail!\n";
+                std::cout << "Do you want to pay 50 and go? (y/n)";
+                std::string yesOrNo;
+                std::cin >> yesOrNo;
+                if(yesOrNo=="y")
                 {
-                    std::cout<< "You do not have enough money to pay!\n";
+                    numOfTimesRollDicesInJail[m_players.getCurrentPlayer()]=0;
+                    if(!m_players.takeBalance(50))
+                    {
+                        std::cout<< "You do not have enough money to pay!\n";
+                        std::cout<< "Press 'R' to roll the dices!\n";
+                        while (yesOrNo!= "R")
+                        {
+                            std::cin >> yesOrNo;
+                        }
+                        numOfTimesRollDicesInJail[m_players.getCurrentPlayer()]++;
+                        m_dices.roll();
+                        m_dices.print();
+                        if(m_dices.isDouble())
+                        {
+                            m_players.movePositionBy(m_dices.getTotal());
+                            m_board.action(m_players);
+                        }
+                    }
+                    else
+                    {
+                        m_players.setJailed(false);
+                        takeTurn();
+                    }
+                }else
+                {
                     std::cout<< "Press 'R' to roll the dices!\n";
+                    while (yesOrNo!= "R")
+                    {
+                        std::cin >> yesOrNo;
+                    }
+                    numOfTimesRollDicesInJail[m_players.getCurrentPlayer()]++;
                     m_dices.roll();
+                    m_dices.print();
                     if(m_dices.isDouble())
                     {
                         m_players.movePositionBy(m_dices.getTotal());
                         m_board.action(m_players);
                     }
                 }
+                m_players.moveToNextPlayer();
+            }
+            else
+            {
+                numOfTimesRollDicesInJail[m_players.getCurrentPlayer()]=0;
+                std::cout << "You have to pay 50 and get out of Jail!\n";
+                if(!m_players.takeBalance(50))
+                {
+                    std::cout << "You do not have enough money to pay!\n";
+                    m_players.quitGame();
+                    m_players.moveToNextPlayer();
+                }
                 else
                 {
                     m_players.setJailed(false);
+                    std::cout<< "Press 'R' to roll the dices!\n";
+                    std::string answer="";
+                    while (answer!= "R")
+                    {
+                        std::cin >> answer;
+                    }
                     takeTurn();
+                    m_players.moveToNextPlayer();
                 }
             }
         }else
@@ -54,7 +109,7 @@ void Game::PlayGame()
             std::cin.clear();
             std::cin.ignore(INT_MAX, '\n');
             std::string answer;
-            std::cout << "   ***  Player: " << m_players.getName()
+            std::cout << "\n   ***  Player: " << m_players.getName()
                       << ",  Balance = " << m_players.getBalance() <<"  ***\n";
             if(numOfContinuousDoubles==0)
             {
@@ -77,6 +132,10 @@ void Game::PlayGame()
             {
                 takeTurn();
             }
+            else if(answer == "Q")
+            {
+                m_players.quitGame();
+            }
             else  // buy houses
             {
                 m_board.buildHouses(m_players);
@@ -92,6 +151,7 @@ void Game::PlayGame()
                 if(numOfContinuousDoubles==3)
                 {
                     m_players.setJailed(true);
+                    numOfContinuousDoubles = 0;
                 }
                 numOfContinuousDoubles++;
                 m_board.action(m_players);

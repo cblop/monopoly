@@ -35,6 +35,12 @@ PlayerManager::PlayerManager(
 }
 
 //-----------------------------------------------------------------------------
+unsigned int PlayerManager::getNumOfPlayers()const
+{
+    return m_players.size();
+}
+
+//-----------------------------------------------------------------------------
 void PlayerManager::setPlayers(unsigned int i_numOfPlayers)
 {
     m_players.resize(i_numOfPlayers);
@@ -49,8 +55,6 @@ void PlayerManager::setPlayers(unsigned int i_numOfPlayers)
     std::cout << "Now we'll roll the dice to see who goes first"
               << std::endl;
 
-    std::cout << std::endl;
-
     int oldwinner = 0;
     int winner = 0;
     int windex = -1;
@@ -60,7 +64,6 @@ void PlayerManager::setPlayers(unsigned int i_numOfPlayers)
     for (unsigned int i=0;i<m_players.size();i++) {
         std::cout << "Press ENTER to roll, " << m_players[i].m_name
                   << std::endl;
-        std::cout << std::endl;
         std::cin.get();
         m_dices.roll();
         winner = m_dices.getTotal();
@@ -70,8 +73,7 @@ void PlayerManager::setPlayers(unsigned int i_numOfPlayers)
         oldwinner = winner;
     }
 
-    std::cout << m_players[windex].m_name << " goes first."
-              << std::endl;
+    std::cout << m_players[windex].m_name << " goes first." << std::endl;
 
     m_currentPlayer = windex;
     std::cout << std::endl;
