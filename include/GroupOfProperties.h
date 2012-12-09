@@ -6,6 +6,7 @@
 
 class GroupOfProperties
 {
+    friend class GroupsManager;
 public:
     //-------------------------------------------------------------------------
     /// @brief default constructor
@@ -31,16 +32,23 @@ public:
     /// @param[in] i_colour the colour of the tile
     //-------------------------------------------------------------------------
     bool addTile(const std::string i_colour, Tile *i_tile);
-    //-----------------------------------------------------------------------------
+    //-------------------------------------------------------------------------
+    /// @brief method that returns house price
+    //-------------------------------------------------------------------------
+    unsigned int getHousePrice()const;
+    //-------------------------------------------------------------------------
+    /// @brief returns the number of properties the given Player owns
+    /// @param[in] the index of the player of our interest
+    //-------------------------------------------------------------------------
+    unsigned int getNumOfOwns(unsigned int i_player)const;
+    //-------------------------------------------------------------------------
     /// @brief method that prints all the properties that belong to that group
-    //-----------------------------------------------------------------------------
+    //-------------------------------------------------------------------------
     void print()const;
     //-------------------------------------------------------------------------
-    /// @brief method that build houses to that group of properties
-    /// @param[in] i_number the number of houses to be build
-    /// @brief returns the number of houses that has been successfully build
+    /// @brief method that build a house
     //-------------------------------------------------------------------------
-    unsigned int buildHouses(unsigned int i_number);
+    bool buildHouse();
     //-------------------------------------------------------------------------
     /// @brief method that remove houses from properties
     ///        returns the amount of houses that has been sucessfully sold
@@ -62,6 +70,10 @@ private:
     /// @brief pointers to the tiles that relates with each other
     //-------------------------------------------------------------------------
     std::vector<Tile *> m_tiles;
+    //-------------------------------------------------------------------------
+    /// @brief indicates where the next house will be build
+    //-------------------------------------------------------------------------
+    unsigned int m_whereToBuild;
 };
 
 #endif // PROPERTIESRELATION_H

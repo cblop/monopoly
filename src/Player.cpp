@@ -23,7 +23,7 @@ Player::Player(
 bool Player::takeBalance(unsigned int i_amount)
 {
     {
-        if((int)m_balance-(int)i_amount <0)
+        if(m_balance<i_amount)
         {
             return false;
         }

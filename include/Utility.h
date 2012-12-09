@@ -14,6 +14,10 @@ public:
             const std::vector<unsigned int> &i_rentPrices
             );
     //-------------------------------------------------------------------------
+    /// @brief method that returns the owner of the property
+    //-------------------------------------------------------------------------
+    unsigned int getOwner()const;
+    //-------------------------------------------------------------------------
     /// @brief method that does the action =p
     /// @param[in] i_player the player that have reached that specific tile
     //-------------------------------------------------------------------------

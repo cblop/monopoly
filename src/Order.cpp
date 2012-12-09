@@ -46,6 +46,7 @@ void Order::action(
     }
     else if(m_flag=="j") // go to jail
     {
+        std::cout << "You are going to JAIL!\n";
         i_players.setJailed(true);
     }
     else if (m_flag == "f") // free parking, go, or visiting jail

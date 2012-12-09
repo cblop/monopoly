@@ -20,9 +20,25 @@ public:
     //-------------------------------------------------------------------------
     void printExtras()const;
     //-------------------------------------------------------------------------
+    /// @brief method that returns the owner of the property
+    //-------------------------------------------------------------------------
+    unsigned int getOwner()const;
+    //-------------------------------------------------------------------------
+    /// @brief method that returns how much it cost to build a house
+    //-------------------------------------------------------------------------
+    unsigned int getHousePrice()const;
+    //-------------------------------------------------------------------------
     /// @brief method that resets all its values to the default ones
     //-------------------------------------------------------------------------
     void resetExtras();
+    //-------------------------------------------------------------------------
+    /// @brief method that builds a house to a property
+    //-------------------------------------------------------------------------
+    bool buildHouse();
+    //-------------------------------------------------------------------------
+    /// @brief returns the number of houses a property has
+    //-------------------------------------------------------------------------
+    unsigned int getNumOfHouses()const;
     //-------------------------------------------------------------------------
     /// @brief method that does the action =p
     /// @param[in] i_player the player that have reached that specific tile
@@ -41,7 +57,7 @@ private:
     //-------------------------------------------------------------------------
     /// @brief the number of houses the propertry has (0-5)
     //-------------------------------------------------------------------------
-    unsigned short int m_numOfHouse;
+    unsigned short int m_numOfHouses;
     //-------------------------------------------------------------------------
     /// @brief the prices of renting a the property depending
     //-------------------------------------------------------------------------

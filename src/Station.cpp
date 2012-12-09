@@ -30,13 +30,32 @@ void Station::printExtras()const
 //-------------------------------------------------------------------------
 void Station::resetExtras()
 {
+
+}
+
+//-------------------------------------------------------------------------
+unsigned int Station::getOwner()const
+{
+    return m_owner;
 }
 
 //-------------------------------------------------------------------------
 void Station::payRent(
-        PlayerManager & /*i_players*/
+        PlayerManager & i_players
         )
 {
+    unsigned int rent = 0;
+    std::cout << "You have to pay " << rent << " for Rent\n";
+    if(i_players.takeBalance(rent))
+    {
+        i_players.addBalance(rent,m_owner);
+    }
+    else
+    {
+        std::cout << "Player do not have enough money to pay";
+        rent = i_players.quitGame();
+        i_players.addBalance(rent);
+    }
 }
 
 //-------------------------------------------------------------------------

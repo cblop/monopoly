@@ -8,7 +8,7 @@
 07 c CHANCE .
 08 p n 100 050    6   30   90  270  400  550 blue EUSTON ROAD . 
 09 p n 120 050    8   40  100  300  450  600 blue PENTONVILLE ROAD .
-10 o j JAIL .
+10 o f JAIL .
 11 p n 140 100   10   50  150  450  625  750 pink PALL MALL .
 12 p u 150   4   10            ELECTRIC COMPANY .
 13 p n 140 100   10   50  150  450  625  750 pink WHITEHALL .

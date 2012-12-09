@@ -111,7 +111,6 @@ Board::Board()
         i++;
         counter++;
     }
-    m_groups.print();
 }
 
 //-------------------------------------------------------------------------
@@ -158,6 +157,12 @@ std::string Board::readTilesName(
         *io_p = *io_p + 1;
     }
     return name;
+}
+
+//-------------------------------------------------------------------------
+void Board::buildHouses(PlayerManager &i_players)
+{
+    m_groups.buildHouses(i_players);
 }
 
 //-------------------------------------------------------------------------

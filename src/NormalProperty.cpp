@@ -8,7 +8,7 @@ NormalProperty::NormalProperty(
         const std::vector<unsigned int> &i_rentPrices
         ):Property(i_name,i_price),
           m_housePrice(i_housePrice),
-          m_numOfHouse(0)
+          m_numOfHouses(0)
 {
     m_rentPrices.resize(6);
     for(unsigned int i=0; i<6; ++i)
@@ -31,15 +31,46 @@ void NormalProperty::printExtras()const
 }
 
 //-------------------------------------------------------------------------
+unsigned int NormalProperty::getOwner()const
+{
+    return m_owner;
+}
 
+//-------------------------------------------------------------------------
+unsigned int NormalProperty::getHousePrice()const
+{
+    return m_housePrice;
+}
+
+//-------------------------------------------------------------------------
+unsigned int NormalProperty::getNumOfHouses()const
+{
+    return m_numOfHouses;
+}
+
+//-------------------------------------------------------------------------
+bool NormalProperty::buildHouse()
+{
+    if(m_numOfHouses<5)
+    {
+        m_numOfHouses++;
+        return true;
+    }
+    else
+    {
+        return false; // a hotel exists
+    }
+}
+
+//-------------------------------------------------------------------------
 void NormalProperty::payRent(
         PlayerManager &i_players
         )
 {
-    if(i_players.takeBalance(m_rentPrices[m_numOfHouse]))
+    if(i_players.takeBalance(m_rentPrices[m_numOfHouses]))
     {
-        i_players.addBalance(m_rentPrices[m_numOfHouse],m_owner);
-        std::cout << "Rent paid: " << m_rentPrices[m_numOfHouse] << std::endl;
+        i_players.addBalance(m_rentPrices[m_numOfHouses],m_owner);
+        std::cout << "Rent paid: " << m_rentPrices[m_numOfHouses] << std::endl;
     }
     else
     {
@@ -51,7 +82,7 @@ void NormalProperty::payRent(
 //-------------------------------------------------------------------------
 void NormalProperty::resetExtras()
 {
-    m_numOfHouse = 0;
+    m_numOfHouses = 0;
 }
 
 //-------------------------------------------------------------------------

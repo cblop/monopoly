@@ -17,6 +17,10 @@ public:
             double i_price,
             const std::vector<unsigned int> &i_rentPrices);
     //-------------------------------------------------------------------------
+    /// @brief method that returns the owner of the property
+    //-------------------------------------------------------------------------
+    unsigned int getOwner()const;
+    //-------------------------------------------------------------------------
     /// @brief method that prints all the information about the Station
     //-------------------------------------------------------------------------
     void printExtras()const;

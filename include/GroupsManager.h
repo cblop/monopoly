@@ -22,10 +22,13 @@ public:
     /// @brief method that builds houses to a group of properties
     //-------------------------------------------------------------------------
     unsigned int buildHouses(
-            unsigned int i_owner,
-            const std::string &i_colour,
-            unsigned int i_number
+            const PlayerManager &i_players
             );
+    //-------------------------------------------------------------------------
+    /// @brief returns how many stations the given owner has
+    /// @param[in] i_owner the owner that owns stations
+    //-------------------------------------------------------------------------
+    unsigned int getNumOfStations(unsigned int i_owner)const;
     //-------------------------------------------------------------------------
     /// @brief method that prints all the tiles in groups
     //-------------------------------------------------------------------------

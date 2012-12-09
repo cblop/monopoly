@@ -36,6 +36,10 @@ public:
     //-------------------------------------------------------------------------
     void action( PlayerManager &i_players);
     //-------------------------------------------------------------------------
+    /// @brief method that allows the current Player to buy houses
+    //-------------------------------------------------------------------------
+    void buildHouses(PlayerManager &i_players);
+    //-------------------------------------------------------------------------
     /// @brief method that returns the name of the tile
     //-------------------------------------------------------------------------
     const std::string &getTileName(unsigned int i_index)const;

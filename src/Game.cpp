@@ -9,23 +9,13 @@
 
 //-----------------------------------------------------------------------------
 Game::Game()
-{
-    std::cout << "GAME CONSTRUCTOR!\n";
-    SetupGame();
-}
+{}
 
 //-----------------------------------------------------------------------------
 void Game::reset()
 {
 
 }
-
-
-//-----------------------------------------------------------------------------
-void Game::SetupGame()
-{
-    std::cout << "GAME SETUP!!\n";
-   }
 
 //-----------------------------------------------------------------------------
 void Game::PlayGame()
@@ -65,11 +55,12 @@ void Game::PlayGame()
             std::cin.ignore(INT_MAX, '\n');
             std::string answer;
             std::cout << "   ***  Player: " << m_players.getName()
-                      << ",  Balance = " << m_players.getBalance() << "  ***\n";
+                      << ",  Balance = " << m_players.getBalance() <<"  ***\n";
             if(numOfContinuousDoubles==0)
             {
-               std::cout  << "Press 1 to buy houses or R to roll and play\n";
-               while(answer!="R"&& answer!="1")
+               std::cout  << "Press 1 to buy houses, R to roll and play, or "
+                          << " Q to quit the game \n";
+               while(answer!="R"&& answer!="1" && answer!="Q")
                {
                    std::cin >> answer;
                }
@@ -86,9 +77,9 @@ void Game::PlayGame()
             {
                 takeTurn();
             }
-            else
+            else  // buy houses
             {
-                ///buy houses
+                m_board.buildHouses(m_players);
                 std::cout << "Press R to roll and play\n";
                 while(answer!="R")
                 {

@@ -3,7 +3,8 @@
 //-----------------------------------------------------------------------------
 GroupOfProperties::GroupOfProperties(
         const std::string &i_colour
-        ):m_colour(i_colour)
+        ):m_colour(i_colour),
+          m_whereToBuild(0)
 {
 }
 
@@ -11,7 +12,8 @@ GroupOfProperties::GroupOfProperties(
 GroupOfProperties::GroupOfProperties(
         const std::string &i_colour,
         Tile *i_tile
-        ):m_colour(i_colour)
+        ):m_colour(i_colour),
+          m_whereToBuild(0)
 {
     m_tiles.push_back(i_tile);
 }
@@ -52,13 +54,45 @@ bool GroupOfProperties::addTile(const std::string i_colour, Tile *i_tile)
 }
 
 //-----------------------------------------------------------------------------
-unsigned int GroupOfProperties::buildHouses(unsigned int i_number)
+
+
+//-----------------------------------------------------------------------------
+unsigned int GroupOfProperties::getHousePrice()const
+{
+    return m_tiles[0]->getHousePrice();
+}
+
+//-----------------------------------------------------------------------------
+unsigned int GroupOfProperties::getNumOfOwns(unsigned int i_player)const
+{
+    unsigned int num =0;
+    for(unsigned int i=0; i<m_tiles.size(); ++i)
+    {
+        if(m_tiles[i]->getOwner()==i_player)
+        {
+            num++;
+        }
+    }
+    return num;
+}
+
+//-----------------------------------------------------------------------------
+bool GroupOfProperties::buildHouse()
 {
     if(m_colour=="station" || m_colour=="utility")
     {
-        return 0; // you cannot build houses on utilities and stations
+        return false; // you cannot build houses on utilities and stations
     }
-    return i_number;
+    if(m_tiles[m_whereToBuild]->buildHouse())
+    {
+        m_whereToBuild++;
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+    return false;
 }
 
 
