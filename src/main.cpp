@@ -2,7 +2,6 @@
 #include <ctime>
 #include <stdlib.h>
 #include "Game.h"
-#include "Card.h"
 #include "GroupsManager.h"
 #include "Tile.h"
 #include "Station.h"

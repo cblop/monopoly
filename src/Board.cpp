@@ -12,11 +12,12 @@
 #include "Utility.h"
 #include "CardsManager.h"
 #include "GroupsManager.h"
+#include "GetACardTIle.h"
 
 //-------------------------------------------------------------------------
 Board::Board()
 {
-    CardsManager::initialiseCards();
+  //  CardsManager::initialiseCards();
     // Corners
     std::ifstream bvhStream("Board");
     if (!bvhStream) {
@@ -41,7 +42,7 @@ Board::Board()
         {
         case 'c': //Card
             name  = readTilesName(words,&i);
-            m_tiles[counter] = new CardsManager(name);
+            m_tiles[counter] = new GetACardTIle(name,m_cards);
             break;
         case 'o': //Order tax,jail,go,go to jail
         {
@@ -168,7 +169,7 @@ void Board::buildHouses(PlayerManager &i_players)
 //-------------------------------------------------------------------------
 Board::~Board()
 {
-    CardsManager::destroyedAllCards();
+   // CardsManager::destroyedAllCards();
     for (unsigned int i=0; i<numOfTiles; ++i)
     {
         delete m_tiles[i];

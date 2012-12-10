@@ -4,6 +4,7 @@
 #include "Tile.h"
 #include "Player.h"
 #include "GroupsManager.h"
+#include "CardsManager.h"
 #include <vector>
 
 class Board
@@ -65,6 +66,10 @@ private:
     /// @brief the number of tiles
     //-------------------------------------------------------------------------
     static const unsigned int numOfTiles = 40;
+    //-------------------------------------------------------------------------
+    /// @brief the cards, community chest and chance
+    //-------------------------------------------------------------------------
+    CardsManager m_cards;
     //-------------------------------------------------------------------------
     /// @brief all the tiles of the board in the correct order
     //-------------------------------------------------------------------------

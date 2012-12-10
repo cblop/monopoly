@@ -12,50 +12,48 @@
 #include "Card.h"
 
 
-class CardsManager : public Tile
+class CardsManager
 {
-	public:
-        CardsManager(const std::string &i_name);
-        //-------------------------------------------------------------------------
-        /// @brief method that does the action =p
-        /// @param[in] i_players the players of the game
-        //-------------------------------------------------------------------------
-        void action(PlayerManager &i_players);
-        //-------------------------------------------------------------------------
-        /// @brief method that resets all its values to the default ones
-        //-------------------------------------------------------------------------
-        void reset();
-        //-------------------------------------------------------------------------
-        /// @brief method that prints all the information about the tile
-        //-------------------------------------------------------------------------
-        void print()const;
+public:
+    CardsManager();
+    //-------------------------------------------------------------------------
+    /// @brief method that does the action =p
+    /// @param[in] i_players the players of the game
+    //-------------------------------------------------------------------------
+    void action(PlayerManager &i_players, const std::string &i_name);
+    //-------------------------------------------------------------------------
+    /// @brief method that prints all the information about the tile
+    //-------------------------------------------------------------------------
+    void print()const;
 
-        static void printAllCards()
+    void printAllCards()
+    {
+        for(unsigned int i=0; i<m_communityChest.size(); ++i)
         {
-            for(unsigned int i=0; i<m_communityChest.size(); ++i)
-            {
-                m_communityChest[i]->print();
-            }
+            m_communityChest[i]->print();
         }
+    }
+    //-------------------------------------------------------------------------
+    /// @brief default destructor
+    //-------------------------------------------------------------------------
+    virtual ~CardsManager();
 
-        //-------------------------------------------------------------------------
-        /// @brief method that initialises all the cards
-        /// @brief it MUST BE CALLED before this class is used
-        //-------------------------------------------------------------------------
-        static void initialiseCards();
-        //-------------------------------------------------------------------------
-        /// @brief method that destroyes all the cards
-        /// @brief should be called to free memory before program terminates
-        //-------------------------------------------------------------------------
-        static void destroyedAllCards();
+private:
 
-        ~CardsManager();
+    //-------------------------------------------------------------------------
+    /// @brief method that initialises all the cards
+    /// @brief it MUST BE CALLED before this class is used
+    //-------------------------------------------------------------------------
+    void initialiseCards();
 
-	private:
-
-
-        static std::vector<Card *> m_communityChest;
-        static std::vector<Card *> m_chance;
+    //-------------------------------------------------------------------------
+    /// @brief all the community Chest cards
+    //-------------------------------------------------------------------------
+    std::vector<Card *> m_communityChest;
+    //-------------------------------------------------------------------------
+    /// @brief all the chance cards
+    //-------------------------------------------------------------------------
+    std::vector<Card *> m_chance;
 
 };
 

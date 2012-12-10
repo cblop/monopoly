@@ -1,37 +1,34 @@
-#ifndef CARDTYPE_H
-#define CARDTYPE_H
-#include <iostream>
-#include <vector>
-#include "PlayerManager.h"
+#ifndef GETACARDTILE_H
+#define GETACARDTILE_H
 
-class Card
+#include "CardsManager.h"
+#include "Tile.h"
+
+class GetACardTIle  : public Tile
 {
 public:
     //-------------------------------------------------------------------------
     /// @brief default constructor
     //-------------------------------------------------------------------------
-    Card();
+    GetACardTIle(
+            const std::string &m_name,
+            CardsManager & i_cardDesks
+            );
     //-------------------------------------------------------------------------
-    /// @brief method that performs the action associated with that card
+    /// @brief method that does the action =p
+    /// @param[in] i_players the players of the game
     //-------------------------------------------------------------------------
-    virtual void action(PlayerManager &i_players)=0;
+    void action(PlayerManager &i_players);
     //-------------------------------------------------------------------------
-    /// @brief method that prints the card
+    /// @brief method that resets all its values to the default ones
     //-------------------------------------------------------------------------
-    void print()const;
-    //-------------------------------------------------------------------------
-    /// @brief default destructor
-    //-------------------------------------------------------------------------
-    virtual ~Card();
+    void reset();
 
 private:
     //-------------------------------------------------------------------------
-    /// @brief the message written on the Card
+    /// @brief the card decks
     //-------------------------------------------------------------------------
-    std::string m_message;
-
-
-
+    CardsManager &m_cardDecks;
 };
 
-#endif // CARDTYPE_H
+#endif // GETACARDTILE_H

@@ -17,23 +17,19 @@
 #include "CardMovePlayerBack.h"
 #include "CardReceiveMoneyFromPlayers.h"
 
-std::vector<Card *> CardsManager::m_communityChest;
-std::vector<Card *> CardsManager::m_chance;
-
-CardsManager::CardsManager(const std::string &i_name):Tile(i_name)
+CardsManager::CardsManager()
 {
-
+    initialiseCards();
 }
 
-void CardsManager::action(PlayerManager &i_players)
+void CardsManager::action(PlayerManager &i_players, const std::string &i_name)
 {
-    std::cout << "CARDS MANAGER!!!!!!!\n";
-    if(m_name=="CHANCE")
+    if(i_name=="CHANCE")
     {
         const unsigned int random = rand() % m_chance.size();
         m_chance[random]->action(i_players);
     }
-    else if(m_name == "COMMUNITY CHEST")
+    else if(i_name == "COMMUNITY CHEST")
     {
         unsigned int random = std::rand() % m_communityChest.size();
         m_communityChest[random]->action(i_players);
@@ -252,8 +248,15 @@ void CardsManager::initialiseCards()
 }
 
 
+//-------------------------------------------------------------------------
+void CardsManager::print()const
+{
+    std::cout << "-------------------------------------------------\n";
+    std::cout << "On a card." << std::endl;
+}
 
-void CardsManager::destroyedAllCards()
+//-------------------------------------------------------------------------
+CardsManager::~CardsManager()
 {
     for(unsigned int i=0; i<m_communityChest.size();++i)
     {
@@ -263,20 +266,4 @@ void CardsManager::destroyedAllCards()
     {
         delete m_chance[i];
     }
-}
-
-//-------------------------------------------------------------------------
-void CardsManager::reset()
-{
-
-}
-
-//-------------------------------------------------------------------------
-void CardsManager::print()const
-{
-    std::cout << "-------------------------------------------------\n";
-    std::cout << "On a card." << std::endl;
-}
-CardsManager::~CardsManager()
-{
 }
