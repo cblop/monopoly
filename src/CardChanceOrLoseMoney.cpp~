@@ -1,5 +1,6 @@
 #include "CardChanceOrLoseMoney.h"
-
+#include "CardsManager.h"
+#include "GetACardTIle.h"
 
 //-----------------------------------------------------------------------------
 CardChanceOrLoseMoney::CardChanceOrLoseMoney(
