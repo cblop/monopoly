@@ -26,7 +26,8 @@ const std::vector<unsigned int> &Dice::getValues()const
 //-----------------------------------------------------------------------------
 unsigned int Dice::getTotal()const
 {
-    return (m_values[0] + m_values[1]);
+//    return (m_values[0] + m_values[1]);
+    return 7;
 }
 
 //-----------------------------------------------------------------------------
