@@ -112,7 +112,7 @@ void Game::PlayGame()
             std::cout << "\n   ***  Player: " << m_players.getName()
                       << ",  Balance = " << m_players.getBalance() <<"  ***\n";
 
-           std::cout  << "Press B to buid houses, R to roll and play, or "
+           std::cout  << "Press B to build houses, R to roll and play, or "
                       << " W to Withdraw the game \n";
            while(answer!="R"&& answer!="B" && answer!="W")
            {

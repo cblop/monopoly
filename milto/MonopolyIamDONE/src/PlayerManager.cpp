@@ -105,7 +105,7 @@ void PlayerManager::printWinner()const
             }
         }
     }
-    std::cout << "The winner is " << winner << " and his possesions worth "
+    std::cout << "The winner is " << winner << " and their possessions are worth "
               << maxPossesionsValue << "\n";
 }
 
