@@ -189,7 +189,7 @@ bool PlayerManager::takeBalance(unsigned int i_amount)
 //-----------------------------------------------------------------------------
 void PlayerManager::addBalance(unsigned int i_amount)
 {
-    m_players[m_currentPlayer].m_balance-=i_amount;
+    m_players[m_currentPlayer].m_balance+=i_amount;
 }
 
 //-----------------------------------------------------------------------------
