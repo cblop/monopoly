@@ -17,6 +17,9 @@
 #include "CardMovePlayerBack.h"
 #include "CardReceiveMoneyFromPlayers.h"
 
+std::vector<std::string> communityChestCards;
+std::vector<std::string> chanceCards;
+
 CardsManager::CardsManager()
 {
     initialiseCards();
@@ -28,11 +31,13 @@ void CardsManager::action(PlayerManager &i_players, const std::string &i_name)
     {
         const unsigned int random = rand() % m_chance.size();
         m_chance[random]->action(i_players);
+        //std::cout << chanceCards[random] << std::endl;
     }
     else if(i_name == "COMMUNITY CHEST")
     {
         unsigned int random = std::rand() % m_communityChest.size();
         m_communityChest[random]->action(i_players);
+        //std::cout << communityChestCards[random] << std::endl;
     }
     else
     {
@@ -42,10 +47,6 @@ void CardsManager::action(PlayerManager &i_players, const std::string &i_name)
 
 void CardsManager::initialiseCards()
 {
-
-    std::vector<std::string> communityChestCards;
-    std::vector<std::string> chanceCards;
-    std::cout << "INITIALISING CARDS" <<std::endl;
     std::string line;
     std::ifstream myfile1 ("CommunityChest");
     if (myfile1.is_open())
@@ -79,7 +80,6 @@ void CardsManager::initialiseCards()
     m_communityChest.resize(communityChestCards.size());
     for(unsigned int i=0; i<communityChestCards.size(); ++i)
     {
-        std::cout << "Community Chest" << std::endl;
 
         line = communityChestCards[i];
         std::istringstream iss(line);
@@ -87,8 +87,6 @@ void CardsManager::initialiseCards()
 
         //First Sub-String of line is always flag
         iss >> sub;
-        std::cout << line << std::endl;
-
 
         if (sub == "b") //Binary choice (e.g pay £10 or take a chance)
         {
@@ -164,16 +162,12 @@ void CardsManager::initialiseCards()
 
     for(unsigned int i=0; i<chanceCards.size(); ++i)
     {
-        std::cout << "Chance" << std::endl;
-
         line = chanceCards[i];
         std::istringstream iss(line);
         std::string sub;
 
         //First Sub-String of line is always flag
         iss >> sub;
-        std::cout << line << std::endl;
-
 
         if (sub == "b") //Binary choice (e.g pay £10 or take a chance)
         {
@@ -244,7 +238,6 @@ void CardsManager::initialiseCards()
             m_chance[i] = new CardMovePlayerBack(spacesToMove);
         }
      }
-    std::cout << "END Of initialising cards\n";
 }
 
 

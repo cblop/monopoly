@@ -17,26 +17,27 @@
 #include "CardMovePlayerBack.h"
 #include "CardReceiveMoneyFromPlayers.h"
 
-std::vector<Card *> CardsManager::m_communityChest;
-std::vector<Card *> CardsManager::m_chance;
+std::vector<std::string> communityChestCards;
+std::vector<std::string> chanceCards;
 
-CardsManager::CardsManager(const std::string &i_name):Tile(i_name)
+CardsManager::CardsManager()
 {
-
+    initialiseCards();
 }
 
-void CardsManager::action(PlayerManager &i_players)
+void CardsManager::action(PlayerManager &i_players, const std::string &i_name)
 {
-    std::cout << "CARDS MANAGER!!!!!!!\n";
-    if(m_name=="CHANCE")
+    if(i_name=="CHANCE")
     {
         const unsigned int random = rand() % m_chance.size();
         m_chance[random]->action(i_players);
+        std::cout << chanceCards[random] << std::endl;
     }
-    else if(m_name == "COMMUNITY CHEST")
+    else if(i_name == "COMMUNITY CHEST")
     {
         unsigned int random = std::rand() % m_communityChest.size();
         m_communityChest[random]->action(i_players);
+        std::cout << communityChestCards[random] << std::endl;
     }
     else
     {
@@ -46,10 +47,6 @@ void CardsManager::action(PlayerManager &i_players)
 
 void CardsManager::initialiseCards()
 {
-
-    std::vector<std::string> communityChestCards;
-    std::vector<std::string> chanceCards;
-    std::cout << "INITIALISING CARDS" <<std::endl;
     std::string line;
     std::ifstream myfile1 ("CommunityChest");
     if (myfile1.is_open())
@@ -81,10 +78,8 @@ void CardsManager::initialiseCards()
 
 
     m_communityChest.resize(communityChestCards.size());
-    //std::cout << "Com chest size = " << communityChestCards.size() << std::endl;
     for(unsigned int i=0; i<communityChestCards.size(); ++i)
     {
-        std::cout << "Community Chest" << std::endl;
 
         line = communityChestCards[i];
         std::istringstream iss(line);
@@ -92,8 +87,6 @@ void CardsManager::initialiseCards()
 
         //First Sub-String of line is always flag
         iss >> sub;
-        std::cout << line << std::endl;
-
 
         if (sub == "b") //Binary choice (e.g pay £10 or take a chance)
         {
@@ -169,16 +162,12 @@ void CardsManager::initialiseCards()
 
     for(unsigned int i=0; i<chanceCards.size(); ++i)
     {
-        std::cout << "Chance" << std::endl;
-
         line = chanceCards[i];
         std::istringstream iss(line);
         std::string sub;
 
         //First Sub-String of line is always flag
         iss >> sub;
-        std::cout << line << std::endl;
-
 
         if (sub == "b") //Binary choice (e.g pay £10 or take a chance)
         {
@@ -249,12 +238,18 @@ void CardsManager::initialiseCards()
             m_chance[i] = new CardMovePlayerBack(spacesToMove);
         }
      }
-    std::cout << "END Of initialising cards\n";
 }
 
 
+//-------------------------------------------------------------------------
+void CardsManager::print()const
+{
+    std::cout << "-------------------------------------------------\n";
+    std::cout << "On a card." << std::endl;
+}
 
-void CardsManager::destroyedAllCards()
+//-------------------------------------------------------------------------
+CardsManager::~CardsManager()
 {
     for(unsigned int i=0; i<m_communityChest.size();++i)
     {
@@ -264,20 +259,4 @@ void CardsManager::destroyedAllCards()
     {
         delete m_chance[i];
     }
-}
-
-//-------------------------------------------------------------------------
-void CardsManager::reset()
-{
-
-}
-
-//-------------------------------------------------------------------------
-void CardsManager::print()const
-{
-    std::cout << "-------------------------------------------------\n";
-    std::cout << "On a card." << std::endl;
-}
-CardsManager::~CardsManager()
-{
 }
