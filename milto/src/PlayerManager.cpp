@@ -1,4 +1,4 @@
-#include "Players.h"
+#include "PlayerManager.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -7,7 +7,7 @@
 #include <stdlib.h>
 
 //-----------------------------------------------------------------------------
-Players::Players(
+PlayerManager::PlayerManager(
         ):m_currentPlayer(0),
           m_numOfLoosers(0)
 {
@@ -26,7 +26,7 @@ Players::Players(
 }
 
 //-----------------------------------------------------------------------------
-Players::Players(
+PlayerManager::PlayerManager(
         unsigned int i_numOfPlayers
         ):m_currentPlayer(0),
           m_numOfLoosers(0)
@@ -35,7 +35,13 @@ Players::Players(
 }
 
 //-----------------------------------------------------------------------------
-void Players::setPlayers(unsigned int i_numOfPlayers)
+unsigned int PlayerManager::getNumOfPlayers()const
+{
+    return m_players.size();
+}
+
+//-----------------------------------------------------------------------------
+void PlayerManager::setPlayers(unsigned int i_numOfPlayers)
 {
     m_players.resize(i_numOfPlayers);
     std::string currentName;
@@ -49,8 +55,6 @@ void Players::setPlayers(unsigned int i_numOfPlayers)
     std::cout << "Now we'll roll the dice to see who goes first"
               << std::endl;
 
-    std::cout << std::endl;
-
     int oldwinner = 0;
     int winner = 0;
     int windex = -1;
@@ -58,40 +62,46 @@ void Players::setPlayers(unsigned int i_numOfPlayers)
     std::cin.ignore(INT_MAX, '\n');
 
     for (unsigned int i=0;i<m_players.size();i++) {
-        std::cout << "Press ENTER to roll, " << m_players[i].getName()
+        std::cout << "Press ENTER to roll, " << m_players[i].m_name
                   << std::endl;
-        std::cout << std::endl;
         std::cin.get();
         m_dices.roll();
-        winner = m_dices.getValue();
-        std::cout << m_players[i].getName() << " rolled: " << winner
+        winner = m_dices.getTotal();
+        std::cout << m_players[i].m_name << " rolled: " << winner
                   << std::endl <<std::endl;
         if (winner > oldwinner) windex = i;
         oldwinner = winner;
     }
 
-    std::cout << m_players[windex].getName() << " goes first."
-              << std::endl;
+    std::cout << m_players[windex].m_name << " goes first." << std::endl;
 
     m_currentPlayer = windex;
     std::cout << std::endl;
 }
 
 //-----------------------------------------------------------------------------
-void Players::printWinner()const
+unsigned int PlayerManager::withdrawGame()
 {
-    std::string winner=m_players[0].getName();
+    const unsigned int balance = m_players[m_currentPlayer].m_balance;
+    m_players[m_currentPlayer].m_balance = 0;
+    return balance;
+}
+
+//-----------------------------------------------------------------------------
+void PlayerManager::printWinner()const
+{
+    std::string winner=m_players[0].m_name;
     unsigned int maxPossesionsValue = 0;
     for(unsigned int i=0; i<m_players.size(); ++i)
     {
-        if(m_players[i].isPlayerStillOnTheGame())
+        if(m_players[i].m_balance>0)
         {
             const unsigned int currentPossesionValues =
                 m_players[i].getPossessionsValue();
             if(maxPossesionsValue<currentPossesionValues)
             {
                 maxPossesionsValue = currentPossesionValues;
-                winner = m_players[i].getName();
+                winner = m_players[i].m_name;
             }
         }
     }
@@ -100,7 +110,7 @@ void Players::printWinner()const
 }
 
 //-----------------------------------------------------------------------------
-void Players::resetAllPlayers()
+void PlayerManager::resetAllPlayers()
 {
     for(unsigned int i=0; i<m_players.size(); ++i)
     {
@@ -109,107 +119,146 @@ void Players::resetAllPlayers()
 }
 
 //-----------------------------------------------------------------------------
-void Players::moveCurrentPlayer()
+unsigned int PlayerManager::getCurrentPlayersPosition()const
 {
-    std::cin.clear();
-    std::cin.ignore(INT_MAX, '\n');
-    std::cout << "Press ENTER to roll, " <<
-                 m_players[m_currentPlayer].getName() << std::endl;
-    std::cout << std::endl;
-    std::cin.get();
-    m_dices.roll();
-    std::cout << m_dices.getValue() << std::endl;
-    m_players[m_currentPlayer].movePositionBy(m_dices.getValue());
+   return m_players[m_currentPlayer].m_position;
 }
 
 //-----------------------------------------------------------------------------
-unsigned int Players::getCurrentPlayersPosition()const
-{
-   return m_players[m_currentPlayer].getPosition();
-}
-
-//-----------------------------------------------------------------------------
-unsigned int Players::howManyPlayersAreStillOntheGame()const
+unsigned int PlayerManager::howManyPlayersAreStillOntheGame()const
 {
     unsigned int num = 0;
     for(unsigned int i=0; i<m_players.size(); ++i)
     {
-        num+=m_players[i].isPlayerStillOnTheGame();
+        if(m_players[i].m_balance>0)
+        {
+            num+=1;
+        }
     }
     return num;
 }
 
 //-----------------------------------------------------------------------------
-void Players::moveToNextPlayer()
+bool PlayerManager::isCurrentPlayerInJail()const
+{
+    return m_players[m_currentPlayer].m_isJailed;
+}
+
+//-----------------------------------------------------------------------------
+void PlayerManager::moveToNextPlayer()
 {
     m_currentPlayer = (m_currentPlayer+1)%m_players.size();
-    while(!m_players[m_currentPlayer].isPlayerStillOnTheGame())
+    int numOfPlayers = m_players.size();
+    while(m_players[m_currentPlayer].m_balance==0)
     {
         m_currentPlayer = (m_currentPlayer+1)%m_players.size();
+        numOfPlayers--;
+        if(numOfPlayers==0)
+        {
+            break;
+        }
     }
 }
 
 //-----------------------------------------------------------------------------
-const std::string &Players::getName() const
+const std::string &PlayerManager::getName() const
 {
-    return m_players[m_currentPlayer].getName();
+    return m_players[m_currentPlayer].m_name;
 }
 
 //-----------------------------------------------------------------------------
-unsigned int Players::getBalance()
+unsigned int PlayerManager::getBalance()
 {
-    return m_players[m_currentPlayer].getBalance();
+    return m_players[m_currentPlayer].m_balance;
 }
 
 //-----------------------------------------------------------------------------
-bool Players::takeBalance(unsigned int i_amount)
+bool PlayerManager::takeBalance(unsigned int i_amount)
 {
-    return m_players[m_currentPlayer].takeBalance(i_amount);
+    if(m_players[m_currentPlayer].m_balance<i_amount )
+    {
+        return false;
+    }
+    else
+    {
+        m_players[m_currentPlayer].m_balance -= i_amount;
+        return true;
+    }
 }
 
 //-----------------------------------------------------------------------------
-void Players::addBalance(unsigned int i_amount)
+void PlayerManager::addBalance(unsigned int i_amount)
 {
-    m_players[m_currentPlayer].addBalance(i_amount);
+    m_players[m_currentPlayer].m_balance-=i_amount;
 }
 
 //-----------------------------------------------------------------------------
-void Players::addBalance(unsigned int i_amount, unsigned int i_player)
+void PlayerManager::addBalance(unsigned int i_amount, unsigned int i_player)
 {
-    m_players[i_player].addBalance(i_amount);
+    m_players[i_player].m_balance-=i_amount;
 }
 
 //-----------------------------------------------------------------------------
-unsigned int Players::getPosition() const
+unsigned int PlayerManager::getPosition() const
 {
-    return m_players[m_currentPlayer].getPosition();
+    return m_players[m_currentPlayer].m_position;
 }
 
 //-----------------------------------------------------------------------------
-void Players::movePositionBy(unsigned int i_amount)
+void PlayerManager::movePositionBy(unsigned int i_amount)
 {
-    m_players[m_currentPlayer].movePositionBy(i_amount);
+    unsigned int oldPosition = m_players[m_currentPlayer].m_position;
+
+    m_players[m_currentPlayer].m_position =
+            (m_players[m_currentPlayer].m_position + i_amount) % 40;
+    if (m_players[m_currentPlayer].m_position < oldPosition) {
+        std::cout<< "You passed from GO. Get 200\n";
+        m_players[m_currentPlayer].m_balance += 200;
+    }
 }
 
 //-----------------------------------------------------------------------------
-void Players::setPosition(unsigned int i_position)
+void PlayerManager::setPosition(unsigned int i_position)
 {
-    m_players[m_currentPlayer].setPosition(i_position);
+    m_players[m_currentPlayer].m_position=i_position;
 }
 
 //-----------------------------------------------------------------------------
-unsigned int Players::getCurrentPlayer()const
+unsigned int PlayerManager::getCurrentPlayer()const
 {
     return m_currentPlayer;
 }
 
 //-----------------------------------------------------------------------------
-void Players::setJailed(bool jailed)
+unsigned int PlayerManager::getMoneyFromEachPlayer(unsigned int i_amount)
 {
-    m_players[m_currentPlayer].setJailed(jailed);
+    unsigned int money=0;
+    for(unsigned int i=0; i<m_players.size();++i)
+    {
+        if(m_players[i].takeBalance(i_amount))
+        {
+            money+=i_amount;
+        }
+        else
+        {
+            std::cout << m_players[i].m_name <<
+                      " does not have enough money to pay " << i_amount <<"\n";
+        }
+    }
+    return money;
+}
+
+//-----------------------------------------------------------------------------
+void PlayerManager::setJailed(bool jailed)
+{
+    m_players[m_currentPlayer].m_isJailed = jailed;
+    if (jailed) {
+        m_players[m_currentPlayer].m_isJailed = 4;
+        m_players[m_currentPlayer].m_position = 10;
+    }
 }
 
 //-------------------------------------------------------------------------
-Players::~Players()
+PlayerManager::~PlayerManager()
 {}
 
