@@ -83,15 +83,15 @@
         <void method="set">
          <object idref="Point2D$Double2">
           <void method="setLocation">
-           <double>214.0</double>
-           <double>21.0</double>
+           <double>234.0</double>
+           <double>24.0</double>
           </void>
          </object>
-         <double>21.0</double>
+         <double>24.0</double>
         </void>
        </void>
       </object>
-      <double>214.0</double>
+      <double>234.0</double>
      </void>
     </void>
    </object>
@@ -116,15 +116,15 @@ and Chance) [UC6]</string>
         <void method="set">
          <object idref="Point2D$Double3">
           <void method="setLocation">
-           <double>150.0</double>
-           <double>207.0</double>
+           <double>402.0</double>
+           <double>304.0</double>
           </void>
          </object>
-         <double>207.0</double>
+         <double>304.0</double>
         </void>
        </void>
       </object>
-      <double>150.0</double>
+      <double>402.0</double>
      </void>
     </void>
    </object>
@@ -245,15 +245,15 @@ Information
         <void method="set">
          <object idref="Point2D$Double7">
           <void method="setLocation">
-           <double>339.0</double>
-           <double>306.0</double>
+           <double>234.0</double>
+           <double>191.0</double>
           </void>
          </object>
-         <double>306.0</double>
+         <double>191.0</double>
         </void>
        </void>
       </object>
-      <double>339.0</double>
+      <double>234.0</double>
      </void>
     </void>
    </object>

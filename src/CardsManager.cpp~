@@ -31,13 +31,13 @@ void CardsManager::action(PlayerManager &i_players, const std::string &i_name)
     {
         const unsigned int random = rand() % m_chance.size();
         m_chance[random]->action(i_players);
-        std::cout << chanceCards[random] << std::endl;
+        //std::cout << chanceCards[random] << std::endl;
     }
     else if(i_name == "COMMUNITY CHEST")
     {
         unsigned int random = std::rand() % m_communityChest.size();
         m_communityChest[random]->action(i_players);
-        std::cout << communityChestCards[random] << std::endl;
+        //std::cout << communityChestCards[random] << std::endl;
     }
     else
     {

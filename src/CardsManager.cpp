@@ -30,12 +30,18 @@ void CardsManager::action(PlayerManager &i_players, const std::string &i_name)
     if(i_name=="CHANCE")
     {
         const unsigned int random = rand() % m_chance.size();
+        //For TESTING... Uncomment line below to add vector reference manually
+        //To test specific command, look at 'Chance' File, and set random to Line Number - 1
+        //random = 4;
         m_chance[random]->action(i_players);
         //std::cout << chanceCards[random] << std::endl;
     }
     else if(i_name == "COMMUNITY CHEST")
     {
         unsigned int random = std::rand() % m_communityChest.size();
+        //For TESTING... Uncomment line below to add vector reference manually
+        //To test specific command, look at 'Community Chest' File, and set random to Line Number - 1
+        //random = 4;
         m_communityChest[random]->action(i_players);
         //std::cout << communityChestCards[random] << std::endl;
     }
