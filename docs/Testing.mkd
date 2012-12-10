@@ -4,9 +4,11 @@
 (talk about how you did the testing here)
 
 ## 1. Unit Testing
-### Card, CardManager and Related Classes
+## Card, CardManager and Related Classes
+
 (make these into tables with results and stuff)
 (table: test, variable, value before, value after, expected value, pass?)
+
 - Try with incorrectly formatted card input file
 - Player lands on community chest
 - Player lands on chance
@@ -18,7 +20,8 @@
 - Player pays for street repairs
 - Player gets moved to a certain position
 - Test every card
-### Player and PlayerManager Class
+
+## Player and PlayerManager Class
 - Player lands on 'go to jail' tile
 - Player buys a house
 - Player pays rent
@@ -27,7 +30,8 @@
 - Player rolls a double
 - Player rolls three doubles (and goes to jail)
 - Test player landing on every tile
-### Property and Related Classes
+
+## Property and Related Classes
 - Mortgage property
 - Pay rent on 1 station
 - Pay rent on 2 stations
@@ -44,12 +48,12 @@
 - Pay rent on a hotel
 
 ## 2. Integration Testing
-### Game and Board Classes
+## Game and Board Classes
 - Try with incorrectly formatted board input file
 - Try with insufficent tiles in board input file
 
 ## 3. System Testing
-### Functional Testing
+## Functional Testing
 - Finish game with 2 players
 - Finish game with 3 players
 - Finish game with 4 players
