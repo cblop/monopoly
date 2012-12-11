@@ -26,6 +26,14 @@ const std::vector<unsigned int> &Dice::getValues()const
 //-----------------------------------------------------------------------------
 unsigned int Dice::getTotal()const
 {
+    // Testing: manually choose dice values
+    /*
+    unsigned int number = 1;
+    std::cout << "Value: ";
+    std::cin >> number;
+    return number;
+    */
+
     return (m_values[0] + m_values[1]);
 }
 

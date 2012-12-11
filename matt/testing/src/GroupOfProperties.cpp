@@ -85,7 +85,7 @@ unsigned int GroupOfProperties::buildHouses(
     unsigned int numOfHousesSuccessfullyBuild = 0;
 
     // this line breaks everything
-    const unsigned int costOfAHouse = m_tiles[0]->getHousePrice();
+    const unsigned int costOfAHouse = 10;//m_tiles[0]->getHousePrice();
     if(m_colour=="station" || m_colour=="utility")
     {
         return 0; // you cannot build houses on utilities and stations
