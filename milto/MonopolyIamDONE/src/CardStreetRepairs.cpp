@@ -14,10 +14,11 @@ void  CardStreetRepairs::action(
         PlayerManager &i_players
         )
 {
+	//NOTE:- Not complete implementation
     int numberOfHouses = 0;
     int numberOfHotels = 0;
     
-    //Calculate How Many Houses and Hotels There Are
+    //Pseudo Code - [Calculate How Many Houses and Hotels There Are]
     
     i_players.takeBalance((numberOfHouses * m_houseRepair)
                         + (numberOfHotels * m_hotelRepair));

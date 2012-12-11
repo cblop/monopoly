@@ -1,6 +1,7 @@
 #include "CardTakeMoney.h"
 
 //-------------------------------------------------------------------------
+
 CardTakeMoney::CardTakeMoney(
         unsigned int i_balance
         ):m_balanceToRemove(i_balance)
@@ -12,6 +13,7 @@ void CardTakeMoney::action(
         PlayerManager &i_players
         )
 {
+	//If Player can afford to pay rent, rent amount is removed from balance
     if(i_players.takeBalance(m_balanceToRemove))
     {
         std::cout << "Player " << i_players.getName() << " paid "

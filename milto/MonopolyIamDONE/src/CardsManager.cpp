@@ -17,6 +17,7 @@
 #include "CardMovePlayerBack.h"
 #include "CardReceiveMoneyFromPlayers.h"
 
+//Vectors to hold String from text files containing Card Specifications
 std::vector<std::string> communityChestCards;
 std::vector<std::string> chanceCards;
 
@@ -27,6 +28,8 @@ CardsManager::CardsManager()
 
 void CardsManager::action(PlayerManager &i_players, const std::string &i_name)
 {
+	//Uses Tile Name to decided what action to take
+	//Picks random card from 'deck'
     if(i_name=="CHANCE")
     {
         const unsigned int random = rand() % m_chance.size();
@@ -47,6 +50,7 @@ void CardsManager::action(PlayerManager &i_players, const std::string &i_name)
 
 void CardsManager::initialiseCards()
 {
+	//Read Card specifications from file
     std::string line;
     std::ifstream myfile1 ("CommunityChest");
     if (myfile1.is_open())
@@ -76,7 +80,8 @@ void CardsManager::initialiseCards()
     myfile2.close();
 
 
-
+	//Parse Each string in Comminity Chest vector and organise them into appropriate Cards
+	//Store each newly created Card into Community Chest Card Vector 
     m_communityChest.resize(communityChestCards.size());
     for(unsigned int i=0; i<communityChestCards.size(); ++i)
     {
@@ -158,8 +163,10 @@ void CardsManager::initialiseCards()
         }
      }
      
-    m_chance.resize(chanceCards.size());
 
+	//Parse Each string in Chance vector and organise them into appropriate Cards
+	//Store each newly created Card into Chance Card Vector 
+    m_chance.resize(chanceCards.size());
     for(unsigned int i=0; i<chanceCards.size(); ++i)
     {
         line = chanceCards[i];
