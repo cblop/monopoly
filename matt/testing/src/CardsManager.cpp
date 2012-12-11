@@ -29,7 +29,7 @@ void CardsManager::action(PlayerManager &i_players, const std::string &i_name)
 {
     if(i_name=="CHANCE")
     {
-        const unsigned int random = 14;//rand() % m_chance.size();
+        const unsigned int random = 1;//rand() % m_chance.size();
         m_chance[random]->action(i_players);
         std::cout << chanceCards[random] << std::endl;
     }

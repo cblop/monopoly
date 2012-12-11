@@ -78,9 +78,8 @@ unsigned int GroupsManager::buildHouses(
             std::cin >> answer;
             const unsigned int numOfHousesToBuild = atoi(answer.c_str());
             std::cout << "ITS IS EXPECTED TO BUILD " << numOfHousesToBuild << "\n";
-            unsigned int numOfHousesBuild = m_groups[groups[numOfHousesToBuild]]
-                    .buildHouses(numOfHousesToBuild,i_players);
-            std::cout << numOfHousesBuild << " has been successfully build\n";
+            unsigned int numOfHousesBuild = m_groups[groups[numOfHousesToBuild]].buildHouses(numOfHousesToBuild,i_players);
+            std::cout << numOfHousesBuild << " has been successfully built\n";
         }
         else
         {

@@ -83,6 +83,8 @@ unsigned int GroupOfProperties::buildHouses(
         )
 {
     unsigned int numOfHousesSuccessfullyBuild = 0;
+
+    // this line breaks everything
     const unsigned int costOfAHouse = m_tiles[0]->getHousePrice();
     if(m_colour=="station" || m_colour=="utility")
     {

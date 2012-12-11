@@ -195,7 +195,7 @@ void PlayerManager::addBalance(unsigned int i_amount)
 //-----------------------------------------------------------------------------
 void PlayerManager::addBalance(unsigned int i_amount, unsigned int i_player)
 {
-    m_players[i_player].m_balance-=i_amount;
+    m_players[i_player].m_balance+=i_amount;
 }
 
 //-----------------------------------------------------------------------------
