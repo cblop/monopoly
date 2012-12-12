@@ -1,0 +1,11 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Board::Board",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="GroupsManager::addTile",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_groups_manager.html#a8b7542bd577cc8a4370fd0d6d84f05a4",tooltip="method that adds a tile to the relations class"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="Board::readTilesName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_board.html#a8382d250cf4d1c759fc6c0acb627a7a1",tooltip="method that read the name of the next tile"];
+}

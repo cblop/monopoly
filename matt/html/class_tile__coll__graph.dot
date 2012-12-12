@@ -1,0 +1,6 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  Node1 [label="{Tile\n|# m_colour\l# m_name\l|+ Tile()\l+ action()\l+ setColour()\l+ getColour()\l+ reset()\l+ getOwner()\l+ getHousePrice()\l+ getNumOfHouses()\l+ buildHouse()\l+ print()\l+ getName()\l+ ~Tile()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+}

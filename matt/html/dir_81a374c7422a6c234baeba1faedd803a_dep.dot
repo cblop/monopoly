@@ -1,0 +1,13 @@
+digraph G {
+  compound=true
+  node [ fontsize="10", fontname="FreeSans"];
+  edge [ labelfontsize="10", labelfontname="FreeSans"];
+  subgraph clusterdir_250b26ce7ea11235c1d17083160b1673 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="Formal Methods  and computing" fontname="FreeSans", fontsize="10", URL="dir_250b26ce7ea11235c1d17083160b1673.html"]
+  subgraph clusterdir_81a374c7422a6c234baeba1faedd803a {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_81a374c7422a6c234baeba1faedd803a.html"];
+    dir_81a374c7422a6c234baeba1faedd803a [shape=plaintext label="cw2"];
+    dir_9be74d3d4d480503be8d21aa165309cf [shape=box label="Monopoly" color="red" fillcolor="white" style="filled" URL="dir_9be74d3d4d480503be8d21aa165309cf.html"];
+  }
+  }
+}

@@ -1,0 +1,16 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Property::action",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="Property::buyProperty",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_property.html#a08116ca8b4e2a9927659bf80ad3771f8",tooltip="method to buy property"];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="PlayerManager::takeBalance",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_player_manager.html#acd9bbb63c6003cbfd4ef914752f3e17f",tooltip="takes an amount of money from the balance of the Player"];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="PlayerManager::getCurrent\lPlayer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_player_manager.html#ade663ed640fd13131a87beceb0bce17d",tooltip="method that returns the current player"];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node5 [label="Property::payRent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_property.html#ac62b9322df17fa8da73048fb4ce1a10b",tooltip="method that the current player pays rent to the owner"];
+}

@@ -1,0 +1,13 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="PlayerManager::PlayerManager",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="PlayerManager::setPlayers",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_player_manager.html#a92acfb83326381cd818642df39245fe8",tooltip="set the number of Players and there game"];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="Dice::roll",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_dice.html#aaf8ada76382b5d7273617acb39a950cf",tooltip="roll the dices"];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="Dice::getTotal",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_dice.html#a173409dc205e4661e2bcb3c927f1f5fd",tooltip="method that returns the total sum of the values of the dices"];
+}

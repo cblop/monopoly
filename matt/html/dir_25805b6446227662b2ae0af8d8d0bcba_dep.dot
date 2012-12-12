@@ -1,0 +1,9 @@
+digraph G {
+  compound=true
+  node [ fontsize="10", fontname="FreeSans"];
+  edge [ labelfontsize="10", labelfontname="FreeSans"];
+  subgraph clusterdir_9be74d3d4d480503be8d21aa165309cf {
+    graph [ bgcolor="#ddddee", pencolor="black", label="Monopoly" fontname="FreeSans", fontsize="10", URL="dir_9be74d3d4d480503be8d21aa165309cf.html"]
+  dir_25805b6446227662b2ae0af8d8d0bcba [shape=box, label="include", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_25805b6446227662b2ae0af8d8d0bcba.html"];
+  }
+}

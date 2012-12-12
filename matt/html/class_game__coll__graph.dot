@@ -1,0 +1,17 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  Node1 [label="{Game\n||+ Game()\l+ PlayGame()\l+ reset()\l+ ~Game()\l- takeTurn()\l- readTilesName()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" m_board" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node2 [label="{Board\n|- m_tiles\l- numOfTiles\l|+ Board()\l+ print()\l+ print()\l+ reset()\l+ action()\l+ buildHouses()\l+ getTileName()\l+ ~Board()\l- readTilesName()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_board.html"];
+  Node3 -> Node2 [color="grey25",fontsize="10",style="solid",label=" m_cards" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node3 [label="{CardsManager\n|- m_communityChest\l- m_chance\l|+ CardsManager()\l+ action()\l+ print()\l+ printAllCards()\l+ ~CardsManager()\l- initialiseCards()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_cards_manager.html"];
+  Node4 -> Node2 [color="grey25",fontsize="10",style="solid",label=" m_groups" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node4 [label="{GroupsManager\n|- m_groups\l|+ GroupsManager()\l+ addTile()\l+ buildHouses()\l+ getNumOfStations()\l+ print()\l+ sellHouses()\l+ ~GroupsManager()\l- allowedToBuildOrSellHouses()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_groups_manager.html"];
+  Node5 -> Node1 [color="grey25",fontsize="10",style="solid",label=" m_dices" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node5 [label="{Dice\n|- m_values\l|+ Dice()\l+ getValues()\l+ getTotal()\l+ print()\l+ isDouble()\l+ roll()\l+ ~Dice()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_dice.html"];
+  Node6 -> Node1 [color="grey25",fontsize="10",style="solid",label=" m_players" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node6 [label="{PlayerManager\n|- m_players\l- m_currentPlayer\l- m_numOfLoosers\l|+ PlayerManager()\l+ PlayerManager()\l+ getCurrentPlayersPosition()\l+ howManyPlayersAreStillOntheGame()\l+ setPlayers()\l+ printWinner()\l+ resetAllPlayers()\l+ moveToNextPlayer()\l+ getBalance()\l+ takeBalance()\land 13 more...\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_player_manager.html"];
+  Node5 -> Node6 [color="grey25",fontsize="10",style="solid",label=" m_dices" ,arrowhead="odiamond",fontname="FreeSans"];
+}

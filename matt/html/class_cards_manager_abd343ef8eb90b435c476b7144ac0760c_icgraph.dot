@@ -1,0 +1,9 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="CardsManager::action",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="GetACardTIle::action",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_get_a_card_t_ile.html#a563b7db06d646b714c97f823c897ab10",tooltip="method that does the action =p"];
+}

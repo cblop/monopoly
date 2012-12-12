@@ -1,0 +1,17 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="PlayerManager::addBalance",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="CardReceiveMoney::action",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_card_receive_money.html#ad3d847a335b1d0f931fad6a75ffae7fb",tooltip="method that performs the action associated with that card"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="GroupOfProperties:\l:buildHouses",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_group_of_properties.html#aa926e899dfe15168e6fe4934cb75ae1d",tooltip="method that build a given number of houses"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="NormalProperty::payRent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_normal_property.html#a818691418e9d2d676e96879fde4e2277",tooltip="method that does the action =p"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node5 [label="Station::payRent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_station.html#ab54b20e0441f1bfbec1c859dfc9dd677",tooltip="method that does the action =p"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node6 [label="Utility::payRent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_utility.html#a911206cba31884b0b0014a4b8450ae01",tooltip="method that does the action =p"];
+}
