@@ -1,0 +1,36 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="PlayerManager::takeBalance",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="CardChanceOrLoseMoney\l::action",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_card_chance_or_lose_money.html#af18a2e89f5e9aad83851cc0c71105942",tooltip="method that performs the action associated with that card"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="CardReceiveMoneyFromPlayers\l::action",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_card_receive_money_from_players.html#a0ad84650d1ae995fb3c0e74380e95405",tooltip="method that performs the action associated with that card"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="CardStreetRepairs:\l:action",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_card_street_repairs.html#a58d83c9af52346df2f739dfd217c5b7a",tooltip="the action that will be performed"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node5 [label="CardTakeMoney::action",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_card_take_money.html#a690225652d290d5073b9b626b7a48362",tooltip="method that performs the action associated with that card"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node6 [label="Game::PlayGame",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_game.html#ae181458a5592597876fe2e53603c97b3",tooltip="method that plays the game"];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node7 [label="main",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8cpp.html#a2c3f6775325c30275d11c6abee2db6a0"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node8 [label="GroupOfProperties:\l:buildHouses",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_group_of_properties.html#aa926e899dfe15168e6fe4934cb75ae1d",tooltip="method that build a given number of houses"];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node9 [label="NormalProperty::payRent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_normal_property.html#a818691418e9d2d676e96879fde4e2277",tooltip="method that does the action =p"];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node10 [label="Order::action",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_order.html#aec4ba7b2701855584e51afd957e0192e",tooltip="method that does the action =p"];
+  Node1 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node11 [label="PlayerManager::getMoneyFrom\lEachPlayer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_player_manager.html#ab67a1305ec44411cd51c1a7c30eb5845",tooltip="method that gets an amount of money from each player"];
+  Node11 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node1 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node12 [label="Property::buyProperty",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_property.html#a08116ca8b4e2a9927659bf80ad3771f8",tooltip="method to buy property"];
+  Node12 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node13 [label="Property::action",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_property.html#a5129c875ddf219f69043e046b5672849",tooltip="method that does the action =p"];
+  Node1 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node14 [label="Station::payRent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_station.html#ab54b20e0441f1bfbec1c859dfc9dd677",tooltip="method that does the action =p"];
+  Node1 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node15 [label="Utility::payRent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_utility.html#a911206cba31884b0b0014a4b8450ae01",tooltip="method that does the action =p"];
+}

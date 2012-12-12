@@ -1,0 +1,10 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  Node1 [label="{Board\n|- m_tiles\l- numOfTiles\l|+ Board()\l+ print()\l+ print()\l+ reset()\l+ action()\l+ buildHouses()\l+ getTileName()\l+ ~Board()\l- readTilesName()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" m_cards" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node2 [label="{CardsManager\n|- m_communityChest\l- m_chance\l|+ CardsManager()\l+ action()\l+ print()\l+ printAllCards()\l+ ~CardsManager()\l- initialiseCards()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_cards_manager.html"];
+  Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" m_groups" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node3 [label="{GroupsManager\n|- m_groups\l|+ GroupsManager()\l+ addTile()\l+ buildHouses()\l+ getNumOfStations()\l+ print()\l+ sellHouses()\l+ ~GroupsManager()\l- allowedToBuildOrSellHouses()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_groups_manager.html"];
+}

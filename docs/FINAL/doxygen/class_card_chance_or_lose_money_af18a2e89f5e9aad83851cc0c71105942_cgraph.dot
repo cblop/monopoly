@@ -1,0 +1,11 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="CardChanceOrLoseMoney\l::action",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="PlayerManager::getName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_player_manager.html#a2604043abc318ee6c9a26529ed31fcce",tooltip="method that returns the name of the current Player"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="PlayerManager::takeBalance",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_player_manager.html#acd9bbb63c6003cbfd4ef914752f3e17f",tooltip="takes an amount of money from the balance of the Player"];
+}

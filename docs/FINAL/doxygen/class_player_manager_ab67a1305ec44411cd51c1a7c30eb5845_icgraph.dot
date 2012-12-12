@@ -1,0 +1,9 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="PlayerManager::getMoneyFrom\lEachPlayer",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="CardReceiveMoneyFromPlayers\l::action",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_card_receive_money_from_players.html#a0ad84650d1ae995fb3c0e74380e95405",tooltip="method that performs the action associated with that card"];
+}
