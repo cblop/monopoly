@@ -1,0 +1,106 @@
+\documentclass{article}
+\usepackage{caption}
+\usepackage{graphics} 
+\usepackage{listings}
+\usepackage{courier}
+\usepackage{color}
+\usepackage[hmargin=3cm,vmargin=2cm]{geometry}
+ \lstset{
+         basicstyle=\footnotesize\ttfamily, % Standardschrift
+         %numbers=left,               % Ort der Zeilennummern
+         numberstyle=\tiny,          % Stil der Zeilennummern
+         %stepnumber=2,               % Abstand zwischen den Zeilennummern
+         numbersep=5pt,              % Abstand der Nummern zum Text
+         tabsize=2,                  % Groesse von Tabs
+         extendedchars=true,         %
+         breaklines=true,            % Zeilen werden Umgebrochen
+         keywordstyle=\color{red},
+    		frame=b,         
+ %        keywordstyle=[1]\textbf,    % Stil der Keywords
+ %        keywordstyle=[2]\textbf,    %
+ %        keywordstyle=[3]\textbf,    %
+ %        keywordstyle=[4]\textbf,   \sqrt{\sqrt{}} %
+         stringstyle=\color{white}\ttfamily, % Farbe der String
+         showspaces=false,           % Leerzeichen anzeigen ?
+         showtabs=false,             % Tabs anzeigen ?
+         xleftmargin=17pt,
+         framexleftmargin=17pt,
+         framexrightmargin=5pt,
+         framexbottommargin=4pt,
+         %backgroundcolor=\color{lightgray},
+         showstringspaces=false      % Leerzeichen in Strings anzeigen ?        
+ }
+ \lstloadlanguages{% Check Dokumentation for further languages ...
+         %[Visual]Basic
+         %Pascal
+         %C
+         C++
+         %XML
+         %HTML
+         %Java
+ }
+    %\DeclareCaptionFont{blue}{\color{blue}} 
+
+  %\captionsetup[lstlisting]{singlelinecheck=false, labelfont={blue}, textfont={blue}}
+  \usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox[cmyk]{0.43, 0.35, 0.35,0.01}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
+
+\begin{document}
+%\section{listings}
+\appendix
+\section{Appendix: Code Listings}
+
+\lstinputlisting[caption=Board.hpp]{include/Board.hpp}
+\lstinputlisting[caption=Board.cpp]{src/Board.cpp}
+\lstinputlisting[caption=CardChanceOrLoseMoney.hpp]{include/CardChanceOrLoseMoney.hpp}
+\lstinputlisting[caption=CardChanceOrLoseMoney.cpp]{src/CardChanceOrLoseMoney.cpp}
+\lstinputlisting[caption=CardGetOutOfJail.hpp]{include/CardGetOutOfJail.hpp}
+\lstinputlisting[caption=CardGetOutOfJail.cpp]{src/CardGetOutOfJail.cpp}
+\lstinputlisting[caption=CardGoToJail.hpp]{include/CardGoToJail.hpp}
+\lstinputlisting[caption=CardGoToJail.cpp]{src/CardGoToJail.cpp}
+\lstinputlisting[caption=Card.hpp]{include/Card.hpp}
+\lstinputlisting[caption=Card.cpp]{src/Card.cpp}
+\lstinputlisting[caption=CardMovePlayerBack.hpp]{include/CardMovePlayerBack.hpp}
+\lstinputlisting[caption=CardMovePlayerBack.cpp]{src/CardMovePlayerBack.cpp}
+\lstinputlisting[caption=CardMovePlayerToPosition.hpp]{include/CardMovePlayerToPosition.hpp}
+\lstinputlisting[caption=CardMovePlayerToPosition.cpp]{src/CardMovePlayerToPosition.cpp}
+\lstinputlisting[caption=CardReceiveMoneyFromPlayers.hpp]{include/CardReceiveMoneyFromPlayers.hpp}
+\lstinputlisting[caption=CardReceiveMoneyFromPlayers.cpp]{src/CardReceiveMoneyFromPlayers.cpp}
+\lstinputlisting[caption=CardReceiveMoney.hpp]{include/CardReceiveMoney.hpp}
+\lstinputlisting[caption=CardReceiveMoney.cpp]{src/CardReceiveMoney.cpp}
+\lstinputlisting[caption=CardsManager.hpp]{include/CardsManager.hpp}
+\lstinputlisting[caption=CardsManager.cpp]{src/CardsManager.cpp}
+\lstinputlisting[caption=CardStreetRepairs.hpp]{include/CardStreetRepairs.hpp}
+\lstinputlisting[caption=CardStreetRepairs.cpp]{src/CardStreetRepairs.cpp}
+\lstinputlisting[caption=CardTakeMoney.hpp]{include/CardTakeMoney.hpp}
+\lstinputlisting[caption=CardTakeMoney.cpp]{src/CardTakeMoney.cpp}
+\lstinputlisting[caption=Dice.hpp]{include/Dice.hpp}
+\lstinputlisting[caption=Dice.cpp]{src/Dice.cpp}
+\lstinputlisting[caption=Game.hpp]{include/Game.hpp}
+\lstinputlisting[caption=Game.cpp]{src/Game.cpp}
+\lstinputlisting[caption=GetACardTile.hpp]{include/GetACardTIle.hpp}
+\lstinputlisting[caption=GetACardTile.cpp]{src/GetACardTIle.cpp}
+\lstinputlisting[caption=GroupOfProperties.hpp]{include/GroupOfProperties.hpp}
+\lstinputlisting[caption=GroupOfProperties.cpp]{src/GroupOfProperties.cpp}
+\lstinputlisting[caption=GroupsManager.hpp]{include/GroupsManager.hpp}
+\lstinputlisting[caption=GroupsManager.cpp]{src/GroupsManager.cpp}
+\lstinputlisting[caption=NormalProperty.hpp]{include/NormalProperty.hpp}
+\lstinputlisting[caption=NormalProperty.cpp]{src/NormalProperty.cpp}
+\lstinputlisting[caption=Order.hpp]{include/Order.hpp}
+\lstinputlisting[caption=Order.cpp]{src/Order.cpp}
+\lstinputlisting[caption=Player.hpp]{include/Player.hpp}
+\lstinputlisting[caption=Player.cpp]{src/Player.cpp}
+\lstinputlisting[caption=PlayerManager.hpp]{include/PlayerManager.hpp}
+\lstinputlisting[caption=PlayerManager.cpp]{src/PlayerManager.cpp}
+\lstinputlisting[caption=Property.hpp]{include/Property.hpp}
+\lstinputlisting[caption=Property.cpp]{src/Property.cpp}
+\lstinputlisting[caption=Station.hpp]{include/Station.hpp}
+\lstinputlisting[caption=Station.cpp]{src/Station.cpp}
+\lstinputlisting[caption=Tile.hpp]{include/Tile.hpp}
+\lstinputlisting[caption=Tile.cpp]{src/Tile.cpp}
+\lstinputlisting[caption=Utility.hpp]{include/Utility.hpp}
+\lstinputlisting[caption=Utility.cpp]{src/Utility.cpp}
+
+\end{document}
