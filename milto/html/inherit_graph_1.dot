@@ -1,0 +1,25 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Card",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_card.html"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="CardChanceOrLoseMoney",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_card_chance_or_lose_money.html"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="CardGetOutOfJail",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_card_get_out_of_jail.html"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="CardGoToJail",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_card_go_to_jail.html"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node5 [label="CardMovePlayerBack",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_card_move_player_back.html"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node6 [label="CardMovePlayerToPosition",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_card_move_player_to_position.html"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node7 [label="CardReceiveMoney",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_card_receive_money.html"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node8 [label="CardReceiveMoneyFromPlayers",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_card_receive_money_from_players.html"];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node9 [label="CardStreetRepairs",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_card_street_repairs.html"];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node10 [label="CardTakeMoney",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_card_take_money.html"];
+}

@@ -1,0 +1,27 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="PlayerManager::getName",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="CardChanceOrLoseMoney\l::action",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_card_chance_or_lose_money.html#af18a2e89f5e9aad83851cc0c71105942",tooltip="method that performs the action associated with that card"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="CardGetOutOfJail::action",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_card_get_out_of_jail.html#af6ba1fd5ace1e5f03ffe748bd5f53e94",tooltip="method that performs the action associated with that card"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="CardGoToJail::action",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_card_go_to_jail.html#a2abfd0df683a4ff04f8d96e9d01b3bb6",tooltip="method that performs the action associated with that card"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node5 [label="CardMovePlayerBack\l::action",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_card_move_player_back.html#a722777ba365f9a11ff13d48c1f491c9b",tooltip="method that performs the action associated with that card"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node6 [label="CardMovePlayerToPosition\l::action",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_card_move_player_to_position.html#a8b8b86460849baf9eceea50741ef958f",tooltip="method that performs the action associated with that card"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node7 [label="CardReceiveMoney::action",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_card_receive_money.html#ad3d847a335b1d0f931fad6a75ffae7fb",tooltip="method that performs the action associated with that card"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node8 [label="CardTakeMoney::action",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_card_take_money.html#a690225652d290d5073b9b626b7a48362",tooltip="method that performs the action associated with that card"];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node9 [label="Game::PlayGame",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_game.html#ae181458a5592597876fe2e53603c97b3",tooltip="method that plays the game"];
+  Node9 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node10 [label="main",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8cpp.html#a2c3f6775325c30275d11c6abee2db6a0"];
+  Node1 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node11 [label="Order::action",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_order.html#aec4ba7b2701855584e51afd957e0192e",tooltip="method that does the action =p"];
+}

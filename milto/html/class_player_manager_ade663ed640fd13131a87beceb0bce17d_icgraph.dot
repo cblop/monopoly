@@ -1,0 +1,21 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="PlayerManager::getCurrent\lPlayer",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="Game::PlayGame",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_game.html#ae181458a5592597876fe2e53603c97b3",tooltip="method that plays the game"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="main",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8cpp.html#a2c3f6775325c30275d11c6abee2db6a0"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="GroupsManager::buildHouses",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_groups_manager.html#a9c162920f3db26b14ac67b1e40ad6f24",tooltip="method that builds houses to a group of properties"];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node5 [label="Board::buildHouses",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_board.html#a03eedac4fa09df2fbba03b06d0b8b59e",tooltip="method that allows the current Player to buy houses"];
+  Node5 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node6 [label="Property::buyProperty",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_property.html#a08116ca8b4e2a9927659bf80ad3771f8",tooltip="method to buy property"];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node7 [label="Property::action",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_property.html#a5129c875ddf219f69043e046b5672849",tooltip="method that does the action =p"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

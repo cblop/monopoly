@@ -1,0 +1,18 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  Node1 [label="{Tile\n|# m_colour\l# m_name\l|+ Tile()\l+ action()\l+ setColour()\l+ getColour()\l+ reset()\l+ getOwner()\l+ getHousePrice()\l+ getNumOfHouses()\l+ buildHouse()\l+ print()\l+ getName()\l+ ~Tile()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="FreeSans"];
+  Node2 [label="{GetACardTIle\n|- m_cardDecks\l|+ GetACardTIle()\l+ action()\l+ reset()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_get_a_card_t_ile.html"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="FreeSans"];
+  Node3 [label="{Order\n|- m_flag\l- m_money\l|+ Order()\l+ Order()\l+ print()\l+ reset()\l+ action()\l+ ~Order()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_order.html"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="FreeSans"];
+  Node4 [label="{Property\n|# m_owner\l# m_price\l# m_isPropertyMortgaged\l|+ Property()\l+ print()\l+ reset()\l+ getOwner()\l+ action()\l+ ~Property()\l# buyProperty()\l- resetExtras()\l- printExtras()\l- payRent()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_property.html"];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="FreeSans"];
+  Node5 [label="{NormalProperty\n|- m_housePrice\l- m_numOfHouses\l- m_rentPrices\l|+ NormalProperty()\l+ printExtras()\l+ getOwner()\l+ getHousePrice()\l+ resetExtras()\l+ buildHouse()\l+ getNumOfHouses()\l+ payRent()\l+ ~NormalProperty()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_normal_property.html"];
+  Node4 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="FreeSans"];
+  Node6 [label="{Station\n|- m_rentPrices\l|+ Station()\l+ getOwner()\l+ printExtras()\l+ resetExtras()\l+ payRent()\l+ ~Station()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_station.html"];
+  Node4 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="FreeSans"];
+  Node7 [label="{Utility\n|- m_rentPrices\l|+ Utility()\l+ getOwner()\l+ payRent()\l+ resetExtras()\l+ printExtras()\l+ ~Utility()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_utility.html"];
+}

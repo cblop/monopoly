@@ -1,0 +1,20 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Dice::getTotal",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="Game::PlayGame",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_game.html#ae181458a5592597876fe2e53603c97b3",tooltip="method that plays the game"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="main",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8cpp.html#a2c3f6775325c30275d11c6abee2db6a0"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="Game::takeTurn",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_game.html#a909eba8338d9aed7c03b5016a4345cd9",tooltip="method that takes a turn"];
+  Node4 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node5 [label="PlayerManager::setPlayers",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_player_manager.html#a92acfb83326381cd818642df39245fe8",tooltip="set the number of Players and there game"];
+  Node5 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node6 [label="PlayerManager::PlayerManager",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_player_manager.html#ae093e4e4e7eecdf5b46de72f5827d71d",tooltip="default constructor"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node7 [label="Utility::payRent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_utility.html#a911206cba31884b0b0014a4b8450ae01",tooltip="method that does the action =p"];
+}

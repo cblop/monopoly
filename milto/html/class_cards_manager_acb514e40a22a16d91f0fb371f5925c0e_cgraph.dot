@@ -1,0 +1,9 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="CardsManager::CardsManager",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="CardsManager::initialise\lCards",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_cards_manager.html#a3abf704f2782084e933cf06c42c562af",tooltip="method that initialises all the cards"];
+}
