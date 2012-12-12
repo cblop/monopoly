@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Simple script to print files from the lab
+# Make sure you have copied the ssh keys for lcpu
+# using ssh-copy-id id@server!!!
+
+USER=hky24 # Place your user name here
+POSTFIX=@lcpu.bath.ac.uk
+LOGIN=$USER$POSTFIX
+
+if [ $# -eq 0 ]; then
+	echo "Please supply the file to be printed as an argument"
+	exit 1
+fi
+
+# Create the batch file if it doesn't exist
+if [ -e batchfile.txt ]; then rm batchfile.txt; touch batchfile.txt; fi
+if [ -e sshfile.sh ]; then rm sshfile.sh; touch sshfile.sh; fi
+
+# Create the batch file of all the files to upload
+for file in "$@"; do
+	echo "put $file" >> batchfile.txt
+	echo "lpr -U $USER -P postscript $(basename $file)" >> sshfile.sh # Print the lpr command and the file to the input data file
+	echo "rm $(basename $file)" >> sshfile.sh # Delete the files afterwards
+done
+
+# Call sftp with the batch commands
+scp $1 $LOGIN:/u/b/$USER
+
+# Shell into the machine and call the commands in the file
+ssh $LOGIN 'bash -s' < sshfile.sh
+
+rm batchfile.txt sshfile.sh
